@@ -1,4 +1,7 @@
+#TODO
+
 - Usarem l'Script scraper Llibreria AMAZON!
+- Introducció i anàlisi del problema [Bernat]
 
 #Ontologia
 
@@ -19,6 +22,7 @@
 
 ##Frame Gènere
 
+- Tipus [Policíaca, Terror, Fantasia, Sci-fi, Romàntica]
 
 ##Frame Autor
 - Nom
@@ -35,8 +39,8 @@
 - Idioma preferent [català, castellà, estranger]
 
 ##Associacions
-pertany_a(Llibre, Gènere)
-escrit_per(Llibre, Autor)
+- pertany_a(Llibre, Gènere)
+- escrit_per(Llibre, Autor)
 
 
 #Info recollida del professor
