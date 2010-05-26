@@ -1,0 +1,46 @@
+\documentclass[a4paper]{report}
+\usepackage{latexjrom}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\lhead{Pràctica de Sistemes Basats en el Coneixement}
+\chead{} 
+\rhead{\nouppercase{\leftmark}}
+% \lfoot{\today}
+% \cfoot{}
+% \rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+% \renewcommand{\footrulewidth}{0.4pt}
+
+\renewcommand{\chaptermark}[1]{%
+\markboth{\chaptername.  \thechapter. #1}{}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\author{Bernat Farrero Badal \\Jordi Romero de Villalonga}
+\title{Pràctica de Sistemes Basats en el Coneixement \\ Intel·ligència Artificial}
+\date{12 d'Abril de 2010}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\chapter{Introducció}
+\input{introduccio}
+
+\chapter{Analisi problema}
+\input{analisi_problema}
+
+\chapter{Formalització}
+\input{formalitzacio}
+
+\chapter{Conclusions}
+\input{conclusions}
+
+
+\end{document}
