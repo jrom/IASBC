@@ -37,11 +37,29 @@
 - Lloc de lectura
 - Interès en best-sellers
 - Idioma preferent [català, castellà, estranger]
+- Gèneres preferits
 
 ##Associacions
-- pertany_a(Llibre, Gènere)
-- escrit_per(Llibre, Autor)
-
+- **pertany_a**
+  - D: Llibre
+  - R: Gènere
+  - C: 1
+  - I: te_llibres(N)
+  - Tr: No
+  - Con: No
+  - De: -
+  - H: -
+  
+- **escrit_per**
+  - D: Llibre
+  - R: Autor
+  - C: N _(més d'un autor?)_
+  - I: ha_escrit(N)
+  - Tr: No
+  - Con: No
+  - De: -
+  - H: -
+  
 
 #Info recollida del professor
 
