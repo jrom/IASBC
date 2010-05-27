@@ -1,4 +1,4 @@
-; Thu May 27 20:40:03 CEST 2010
+; Thu May 27 20:47:22 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[llibreter_ProjectKB_Class108]
-		[llibreter_ProjectKB_Class109]
-		[llibreter_ProjectKB_Class110]))
+		[llibreter_ProjectKB_Class114]
+		[llibreter_ProjectKB_Class115]
+		[llibreter_ProjectKB_Class116]))
 
 ([CLSES_TAB] of  Widget
 
@@ -535,17 +535,17 @@
 
 	(name "SearchTab_Query"))
 
-([llibreter_ProjectKB_Class108] of  String
+([llibreter_ProjectKB_Class114] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([llibreter_ProjectKB_Class109] of  String
+([llibreter_ProjectKB_Class115] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([llibreter_ProjectKB_Class110] of  String
+([llibreter_ProjectKB_Class116] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))

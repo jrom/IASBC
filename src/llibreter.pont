@@ -1,4 +1,4 @@
-; Thu May 27 20:40:03 CEST 2010
+; Thu May 27 20:47:22 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -7,11 +7,6 @@
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
-	(single-slot Orientacio
-		(type SYMBOL)
-		(allowed-values adult juvenil infantil)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot Idioma
 		(type SYMBOL)
 		(allowed-values catala castella altres)
@@ -21,14 +16,14 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Format
+	(single-slot MomentLectura
 		(type SYMBOL)
-		(allowed-values gran mitja petit)
+		(allowed-values mati tarda nit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Pes
+	(single-slot Tipus
 		(type SYMBOL)
-		(allowed-values gran mitja petit)
+		(allowed-values Policiaca Terror Fantasia Scifi Romantica)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Pagines
@@ -37,6 +32,74 @@
 		(create-accessor read-write))
 	(single-slot Titol
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot FrequenciaDisponible
+		(type SYMBOL)
+		(allowed-values diari setmanal mensual anual)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot DuracioDisponible
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot EdatLector
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Edat
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Numedicions
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Vendesanuals
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Estil
+		(type SYMBOL)
+		(allowed-values simple complicat profund)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot IdiomaPreferent
+		(type SYMBOL)
+		(allowed-values catala castella altres)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Orientacio
+		(type SYMBOL)
+		(allowed-values adult juvenil infantil)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Nacionalitat
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Format
+		(type SYMBOL)
+		(allowed-values gran mitja petit)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot InteresBestsellers
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Generacio
+		(type SYMBOL)
+		(allowed-values no-recordo-els-valors)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot llibreter_Class29
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Pes
+		(type SYMBOL)
+		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Anyedicio
@@ -48,12 +111,9 @@
 		(allowed-values butxaca tapadura tapatova)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Numedicions
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Vendesanuals
-		(type INTEGER)
+	(single-slot LlocLectura
+		(type SYMBOL)
+		(allowed-values casa transport exterior)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Preu
@@ -130,12 +190,72 @@
 
 (defclass Genere
 	(is-a USER)
-	(role concrete))
+	(role concrete)
+	(single-slot Tipus
+		(type SYMBOL)
+		(allowed-values Policiaca Terror Fantasia Scifi Romantica)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
 
 (defclass Autor
 	(is-a USER)
-	(role concrete))
+	(role concrete)
+	(single-slot Edat
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Generacio
+		(type SYMBOL)
+		(allowed-values no-recordo-els-valors)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Estil
+		(type SYMBOL)
+		(allowed-values simple complicat profund)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Nacionalitat
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
 
 (defclass Lector
 	(is-a USER)
-	(role concrete))
+	(role concrete)
+	(single-slot LlocLectura
+		(type SYMBOL)
+		(allowed-values casa transport exterior)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot FrequenciaDisponible
+		(type SYMBOL)
+		(allowed-values diari setmanal mensual anual)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot DuracioDisponible
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot EdatLector
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot InteresBestsellers
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot llibreter_Class29
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot IdiomaPreferent
+		(type SYMBOL)
+		(allowed-values catala castella altres)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot MomentLectura
+		(type SYMBOL)
+		(allowed-values mati tarda nit)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
