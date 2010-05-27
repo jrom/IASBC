@@ -1,0 +1,141 @@
+; Thu May 27 20:40:03 CEST 2010
+; 
+;+ (version "3.4.4")
+;+ (build "Build 579")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot Orientacio
+		(type SYMBOL)
+		(allowed-values adult juvenil infantil)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Idioma
+		(type SYMBOL)
+		(allowed-values catala castella altres)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ISBN
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Format
+		(type SYMBOL)
+		(allowed-values gran mitja petit)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Pes
+		(type SYMBOL)
+		(allowed-values gran mitja petit)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Pagines
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Titol
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Anyedicio
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Enquadernacio
+		(type SYMBOL)
+		(allowed-values butxaca tapadura tapatova)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Numedicions
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Vendesanuals
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Preu
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Bestseller
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Llibre
+	(is-a USER)
+	(role concrete)
+	(single-slot Anyedicio
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Enquadernacio
+		(type SYMBOL)
+		(allowed-values butxaca tapadura tapatova)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Orientacio
+		(type SYMBOL)
+		(allowed-values adult juvenil infantil)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Idioma
+		(type SYMBOL)
+		(allowed-values catala castella altres)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ISBN
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Format
+		(type SYMBOL)
+		(allowed-values gran mitja petit)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Numedicions
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Vendesanuals
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Preu
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Bestseller
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Pes
+		(type SYMBOL)
+		(allowed-values gran mitja petit)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Pagines
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Titol
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Genere
+	(is-a USER)
+	(role concrete))
+
+(defclass Autor
+	(is-a USER)
+	(role concrete))
+
+(defclass Lector
+	(is-a USER)
+	(role concrete))
