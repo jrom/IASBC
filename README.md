@@ -1,7 +1,9 @@
 #TODO
 
 - Usarem l'Script scraper Llibreria AMAZON!
-- Introducció i anàlisi del problema [Bernat]
+- <del>Introducció</del> [Bernat]
+- Formalització de l'ontologia a Protégé [Bernat] **En procés**
+- Anàlisi del Problema [Bernat]
 
 #Ontologia
 
