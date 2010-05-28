@@ -8,14 +8,32 @@ La identificació del problema és la primera fase de l'anàlisi del problema. E
 
 Si es vol que el sistema sigui pràctic de cara a l'usuari, les bases de dades de llibres amb les que treballa han de ser molt grans, parlaríem de l'ordre de milions de llibres. Evidentment, si el sistema fos algorísmic, basat en qualsevol algorisme de cerca exhaustiva sobre tots aquests llibres, els resultats serien dolents i es trigaria molt en arribar a una solució. Com que el problema es defineix com un conjunt de restriccions i preferències, deduïm fàcilment que es pot resoldre amb un sistema basat en regles, com ara el que ofereix CLIPS.
 
-En quant a la viabilitat econòmica del projecte, considerem que el mercat de les ventes de llibres per Internet es troba en constant creixement, on cada dia es presenta una nova plataforma de venta de llibres online. La majoria d'aquestes plataformes ofereixen avançats sistemes de cerca i molta informació a l'usuari, però no ofereixen sistemes intel·ligents de recomanació. Per tant, seria una aportació útil i innovativa pel mercat.
+En quant a la viabilitat econòmica del projecte, considerem que el mercat de les ventes de llibres per Internet es troba en constant creixement, on cada dia es presenta una nova plataforma de venta de llibres en línia. La majoria d'aquestes plataformes ofereixen avançats sistemes de cerca i molta informació a l'usuari, però no ofereixen sistemes intel·ligents de recomanació. Per tant, seria una aportació útil i innovadora pel mercat.
 
 \subsection{Fonts de coneixement}
 
-entrevista jordi romero + amazon.com + barnes and noble + la casa de libro + preguntar companys i amics
+La informació disponible dels llibres l'hem extret de diverses llibreries en línia. En particular, hem usat Amazon.com, Barnes&Noble i La Casa del Llibre. Les instàncies particulars les hem extret (mitjançant la programació d'un programa \emph{scrapper}) dels llocs web esmentats.
 
-\subsection{Hipòtesis extretes}
+Evidentment, podem comptar només amb aquella informació que és pública: la descripció dels llibres i tots els seus camps característics i de l'autor, tot i que no podem conèixer a priori detalls personals de l'autor ni quines influències ha tingut per comparar-les amb l'usuari. Tampoc tenim la possibilitat que el sistema aprengui noves regles a força d'ús. Per exemple, seria interessant que el sistema pogués rebre una valoració positiva quan una recomanació és adequada o negativa quan no ho és, i corregir o reescriure automàticament algunes de les seves regles (sistema conegut com aprenentatge basat en explicacions).
+
+Les hipòtesis i abstraccions heurístiques (definicionals, qualitatives i de generalització) sobre el problema les hem obtingut contactant amb un expert, que en aquest cas és un lector habitual. En particular, hem entrevistat a Jordi Romero (entrevista a l'annex), que publica un blog de lectura. També hem obtingut informació de la valoració que ens han fet companys i amics i de consells que hem trobat en llibreries en línia.
+
+
+\subsection{Evidències, hipòtesis i abstraccions heurístiques extretes}
+
+\textbf{AQUÍ VA LA LLISTA D'ABSTRACCIONS HEURÍSTIQUES QUE DECIDIM}
 
 \subsection{Objectius del sistema}
+
+L'objectiu del sistema és generar una llista de llibres recomanats ordenat per gran d'adequació.
+
+[falta redactar]
+
+Possiblitats 
+
+- Llibres molt recomanables
+- Llibres rescomanables
+- Llibres parcialment recomanables
+
 
 
