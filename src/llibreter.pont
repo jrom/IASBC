@@ -1,4 +1,4 @@
-; Fri May 28 17:29:28 CEST 2010
+; Fri May 28 18:08:00 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -29,10 +29,6 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot num_edicions
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot pes
 		(type SYMBOL)
 		(allowed-values gran mitja petit)
@@ -42,11 +38,6 @@
 		(type SYMBOL)
 		(allowed-values butxaca tapadura tapatova)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot pertany_a
-		(type INSTANCE)
-;+		(allowed-classes)
-;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot preu
 		(type FLOAT)
@@ -62,9 +53,9 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot genere
-		(type SYMBOL)
-		(allowed-values cienciaficcio terror erotica policiaca historica humor fantasia romantica ficcio)
-;+		(cardinality 0 1)
+		(type INSTANCE)
+;+		(allowed-classes Genere)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot vendes_anuals
 		(type INTEGER)
@@ -93,11 +84,6 @@
 ;+		(allowed-classes Autor)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot es_genere
-		(type INSTANCE)
-;+		(allowed-classes Genere)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot num_pagines
 		(type INTEGER)
 ;+		(cardinality 0 1)
@@ -109,15 +95,6 @@
 	(single-slot idioma
 		(type SYMBOL)
 		(allowed-values catala castella altres)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot pertany_a
-		(type INSTANCE)
-;+		(allowed-classes)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot num_edicions
-		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot pes
@@ -147,6 +124,11 @@
 		(allowed-values adult juvenil infantil)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot genere
+		(type INSTANCE)
+;+		(allowed-classes Genere)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot escrit_per
 		(type INSTANCE)
 ;+		(allowed-classes Autor)
@@ -156,11 +138,6 @@
 		(type SYMBOL)
 		(allowed-values butxaca tapadura tapatova)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot es_genere
-		(type INSTANCE)
-;+		(allowed-classes Genere)
-;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot num_pagines
 		(type INTEGER)
@@ -204,8 +181,11 @@
 (defclass Genere
 	(is-a USER)
 	(role concrete)
-	(single-slot genere
-		(type SYMBOL)
-		(allowed-values cienciaficcio terror erotica policiaca historica humor fantasia romantica ficcio)
+	(single-slot nom
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
+
+(defclass %3AUNDEFINED
+	(is-a USER)
+	(role concrete))

@@ -1,7 +1,158 @@
-; Fri May 28 17:29:28 CEST 2010
+; Fri May 28 18:08:00 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
+
+([AliceSebold] of  Autor
+
+	(anynaixement 1963)
+	(estil simple)
+	(nacionalitat "Estats Units")
+	(nom "Alice Sebold"))
+
+([Amanecer] of  Llibre
+
+	(any_edicio 2008)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [StephenieMeyer])
+	(format mitja)
+	(genere [Terror])
+	(idioma castella)
+	(isbn "607110033X")
+	(num_pagines 829)
+	(orientacio juvenil)
+	(pes gran)
+	(preu 20.0)
+	(titol "Amanecer")
+	(vendes_anuals 3536))
+
+([CarlosRuizZafon] of  Autor
+
+	(anynaixement 1964)
+	(estil simple)
+	(nacionalitat "Espanya")
+	(nom "Carlos Ruiz Zafón"))
+
+([DanBrown] of  Autor
+
+	(anynaixement 1964)
+	(estil simple)
+	(nacionalitat "Estats Units")
+	(nom "Dan Brown"))
+
+([ElAlquimista] of  Llibre
+
+	(any_edicio 1994)
+	(enquadernacio tapatova)
+	(escrit_per [PauloCoelho])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "0062511408")
+	(num_pagines 192)
+	(orientacio adult)
+	(pes petit)
+	(preu 14.0)
+	(titol "El alquimista")
+	(vendes_anuals 9422))
+
+([ElSimboloPerdido] of  Llibre
+
+	(any_edicio 2009)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [DanBrown])
+	(format mitja)
+	(genere [Thriller])
+	(idioma castella)
+	(isbn "8408089250")
+	(num_pagines 619)
+	(orientacio adult)
+	(pes gran)
+	(preu 25.0)
+	(titol "El símbolo perdido")
+	(vendes_anuals 4078))
+
+([Fantasia] of  Genere
+
+	(nom "fantasia"))
+
+([Ficcio] of  Genere
+
+	(nom "ficcio"))
+
+([HarryPotterPiedra] of  Llibre
+
+	(any_edicio 2001)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [JKRowling])
+	(format mitja)
+	(genere [Fantasia])
+	(idioma castella)
+	(isbn "8478886540")
+	(num_pagines 256)
+	(orientacio infantil)
+	(pes petit)
+	(preu 10.0)
+	(titol "Harry Potter y la piedra filosofal")
+	(vendes_anuals 10903))
+
+([IsabelAllende] of  Autor
+
+	(anynaixement 1942)
+	(estil simple)
+	(nacionalitat "Chile")
+	(nom "Isabel Allende"))
+
+([JKRowling] of  Autor
+
+	(anynaixement 1965)
+	(estil simple)
+	(nacionalitat "Gran Bretanya")
+	(nom "J. K. Rowling"))
+
+([LaIslaBajoElMar] of  Llibre
+
+	(any_edicio 2009)
+	(bestseller TRUE)
+	(enquadernacio tapadura)
+	(escrit_per [IsabelAllende])
+	(format mitja)
+	(genere [Social])
+	(idioma castella)
+	(isbn "0307476049")
+	(num_pagines 512)
+	(orientacio adult)
+	(pes gran)
+	(preu 27.0)
+	(titol "La isla bajo el mar")
+	(vendes_anuals 6198))
+
+([Eclipse] of  Llibre
+
+	(any_edicio 2007)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [StephenieMeyer])
+	(format mitja)
+	(genere [Terror])
+	(idioma castella)
+	(isbn "1603960228")
+	(num_pagines 637)
+	(orientacio juvenil)
+	(pes mitja)
+	(preu 16.0)
+	(titol "Eclipse")
+	(vendes_anuals 2958))
+
+([PauloCoelho] of  Autor
+
+	(anynaixement 1947)
+	(estil simple)
+	(nacionalitat "Brasil")
+	(nom "Paulo Coelho"))
 
 ([RaymondCarver] of  Autor
 
@@ -9,3 +160,22 @@
 	(estil complicat)
 	(nacionalitat "Estats Units")
 	(nom "Raymond Carver"))
+
+([Social] of  Genere
+
+	(nom "social"))
+
+([StephenieMeyer] of  Autor
+
+	(anynaixement 1973)
+	(estil simple)
+	(nacionalitat "Estats Units")
+	(nom "Stephenie Meyer"))
+
+([Terror] of  Genere
+
+	(nom "terror"))
+
+([Thriller] of  Genere
+
+	(nom "thriller"))
