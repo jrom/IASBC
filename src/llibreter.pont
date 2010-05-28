@@ -1,4 +1,4 @@
-; Thu May 27 20:47:22 CEST 2010
+; Fri May 28 17:20:38 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -7,183 +7,206 @@
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
-	(single-slot Idioma
+	(single-slot idioma
 		(type SYMBOL)
 		(allowed-values catala castella altres)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot ISBN
+	(single-slot nacionalitat
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot MomentLectura
-		(type SYMBOL)
-		(allowed-values mati tarda nit)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Tipus
-		(type SYMBOL)
-		(allowed-values Policiaca Terror Fantasia Scifi Romantica)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Pagines
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Titol
+	(single-slot nom
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot FrequenciaDisponible
-		(type SYMBOL)
-		(allowed-values diari setmanal mensual anual)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot DuracioDisponible
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot EdatLector
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Edat
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Numedicions
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Vendesanuals
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Estil
-		(type SYMBOL)
-		(allowed-values simple complicat profund)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot IdiomaPreferent
-		(type SYMBOL)
-		(allowed-values catala castella altres)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Orientacio
-		(type SYMBOL)
-		(allowed-values adult juvenil infantil)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Nacionalitat
+	(single-slot isbn
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Format
+	(single-slot format
 		(type SYMBOL)
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot InteresBestsellers
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
+	(single-slot num_edicions
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Generacio
-		(type SYMBOL)
-		(allowed-values no-recordo-els-valors)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot llibreter_Class29
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Pes
+	(single-slot pes
 		(type SYMBOL)
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Anyedicio
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Enquadernacio
+	(single-slot enquadernacio
 		(type SYMBOL)
 		(allowed-values butxaca tapadura tapatova)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot LlocLectura
-		(type SYMBOL)
-		(allowed-values casa transport exterior)
-;+		(cardinality 0 1)
+	(single-slot pertany_a
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot Preu
+	(single-slot preu
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Bestseller
+	(single-slot genere
+		(type SYMBOL)
+		(allowed-values cienciaficcio terror erotica policiaca historica humor fantasia romantica)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot orientacio
+		(type SYMBOL)
+		(allowed-values adult juvenil infantil)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot vendes_anuals
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot generacio
+		(type SYMBOL)
+		(allowed-values no-recordo-els-valors)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot titol
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot bestseller
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot edat
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot estil
+		(type SYMBOL)
+		(allowed-values simple complicat profund)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot any_edicio
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot escrit_per
+		(type INSTANCE)
+;+		(allowed-classes Autor)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot es_genere
+		(type INSTANCE)
+;+		(allowed-classes Genere)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot num_pagines
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass Llibre
 	(is-a USER)
 	(role concrete)
-	(single-slot Anyedicio
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Enquadernacio
-		(type SYMBOL)
-		(allowed-values butxaca tapadura tapatova)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Orientacio
-		(type SYMBOL)
-		(allowed-values adult juvenil infantil)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Idioma
+	(single-slot idioma
 		(type SYMBOL)
 		(allowed-values catala castella altres)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot ISBN
-		(type STRING)
+	(single-slot pertany_a
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot num_edicions
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Format
+	(single-slot pes
 		(type SYMBOL)
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Numedicions
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Vendesanuals
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Preu
+	(single-slot preu
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Bestseller
+	(single-slot titol
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot bestseller
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Pes
+	(single-slot any_edicio
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot orientacio
+		(type SYMBOL)
+		(allowed-values adult juvenil infantil)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot escrit_per
+		(type INSTANCE)
+;+		(allowed-classes Autor)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot enquadernacio
+		(type SYMBOL)
+		(allowed-values butxaca tapadura tapatova)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot es_genere
+		(type INSTANCE)
+;+		(allowed-classes Genere)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot isbn
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot format
 		(type SYMBOL)
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Pagines
+	(single-slot vendes_anuals
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Titol
+	(single-slot num_pagines
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Autor
+	(is-a USER)
+	(role concrete)
+	(single-slot generacio
+		(type SYMBOL)
+		(allowed-values no-recordo-els-valors)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nom
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot edat
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot estil
+		(type SYMBOL)
+		(allowed-values simple complicat profund)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nacionalitat
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -191,71 +214,8 @@
 (defclass Genere
 	(is-a USER)
 	(role concrete)
-	(single-slot Tipus
+	(single-slot genere
 		(type SYMBOL)
-		(allowed-values Policiaca Terror Fantasia Scifi Romantica)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Autor
-	(is-a USER)
-	(role concrete)
-	(single-slot Edat
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Generacio
-		(type SYMBOL)
-		(allowed-values no-recordo-els-valors)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Estil
-		(type SYMBOL)
-		(allowed-values simple complicat profund)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Nacionalitat
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Lector
-	(is-a USER)
-	(role concrete)
-	(single-slot LlocLectura
-		(type SYMBOL)
-		(allowed-values casa transport exterior)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot FrequenciaDisponible
-		(type SYMBOL)
-		(allowed-values diari setmanal mensual anual)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot DuracioDisponible
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot EdatLector
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot InteresBestsellers
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot llibreter_Class29
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot IdiomaPreferent
-		(type SYMBOL)
-		(allowed-values catala castella altres)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot MomentLectura
-		(type SYMBOL)
-		(allowed-values mati tarda nit)
+		(allowed-values cienciaficcio terror erotica policiaca historica humor fantasia romantica)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
