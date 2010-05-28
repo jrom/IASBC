@@ -1,4 +1,4 @@
-; Fri May 28 17:20:38 CEST 2010
+; Fri May 28 17:29:28 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -20,13 +20,13 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot isbn
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot format
 		(type SYMBOL)
 		(allowed-values gran mitja petit)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot isbn
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot num_edicions
@@ -52,9 +52,8 @@
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot genere
-		(type SYMBOL)
-		(allowed-values cienciaficcio terror erotica policiaca historica humor fantasia romantica)
+	(single-slot anynaixement
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot orientacio
@@ -62,13 +61,13 @@
 		(allowed-values adult juvenil infantil)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot vendes_anuals
-		(type INTEGER)
+	(single-slot genere
+		(type SYMBOL)
+		(allowed-values cienciaficcio terror erotica policiaca historica humor fantasia romantica ficcio)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot generacio
-		(type SYMBOL)
-		(allowed-values no-recordo-els-valors)
+	(single-slot vendes_anuals
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot titol
@@ -78,10 +77,6 @@
 	(single-slot bestseller
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot edat
-		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot estil
@@ -130,12 +125,12 @@
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot preu
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot titol
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot preu
+		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot bestseller
@@ -167,8 +162,12 @@
 ;+		(allowed-classes Genere)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot isbn
-		(type STRING)
+	(single-slot num_pagines
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot vendes_anuals
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot format
@@ -176,28 +175,19 @@
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot vendes_anuals
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot num_pagines
-		(type INTEGER)
+	(single-slot isbn
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass Autor
 	(is-a USER)
 	(role concrete)
-	(single-slot generacio
-		(type SYMBOL)
-		(allowed-values no-recordo-els-valors)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot nom
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot edat
+	(single-slot anynaixement
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -216,6 +206,6 @@
 	(role concrete)
 	(single-slot genere
 		(type SYMBOL)
-		(allowed-values cienciaficcio terror erotica policiaca historica humor fantasia romantica)
+		(allowed-values cienciaficcio terror erotica policiaca historica humor fantasia romantica ficcio)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))

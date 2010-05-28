@@ -1,4 +1,11 @@
-; Fri May 28 17:20:38 CEST 2010
+; Fri May 28 17:29:28 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
+
+([RaymondCarver] of  Autor
+
+	(anynaixement 1939)
+	(estil complicat)
+	(nacionalitat "Estats Units")
+	(nom "Raymond Carver"))
