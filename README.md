@@ -24,7 +24,7 @@
 
 ##Frame Gènere
 
-- Tipus [Policíaca, Terror, Fantasia, Sci-fi, Romàntica]
+- Tipus [Policíaca, Terror, Fantasia, Sci-fi, Romàntica, Novela Histórica]
 
 ##Frame Autor
 - Nom
