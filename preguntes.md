@@ -23,14 +23,14 @@
 - Temps de lectura
   - Hores
   - No ho sé
-- Gènere preferit (no té perquè ser únic)
+- Quin és el teu gènere preferit (no té perquè ser l'únic)
   - Llista de gèneres
   - No tinc gènere preferit
   - Altres
   - No ho sé
 - T'agrada experimentar amb nous gèneres?
-  - Si, molt
-  - Si, bastant
+  - Molt
+  - Bastant
   - Indiferent
   - Poc
   - Gens
@@ -41,17 +41,23 @@
   - A tot arreu
   - No ho sé
 - T'agraden els llibres ben enquadernats?
-  - Si, molt
-  - Si, bastant
+  - Molt
+  - Bastant
   - Indiferent
   - Poc
   - Gens
 - El preu és un factor prioritari
-  - Si, molt
-  - Si, bastant
+  - Molt
+  - Bastant
   - Indiferent
   - Poc
   - Gens
+- T'agraden els llibres amb contingut explícit?
+  - Molt
+  - Bastant
+  - Indiferent
+  - Poc
+  - Gens  
 - Tens preferència pels llibres actuals
   - Si
   - Normalment
@@ -59,26 +65,74 @@
   - A vegades
   - Mai
 - T'agraden els best-sellers
-  - Si, molt
-  - Si, bastant
+  - Molt
+  - Bastant
   - Indiferent
   - Poc
   - Gens
-- Estàs disposat a llegir llibres groixuts?
+- Estàs disposat a llegir llibres gruixuts?
   - Si
   - Normalment
   - Indiferent
   - A vegades
   - Mai
-- Tens preferència pels llibres de fàcil lectura?
-  - Si, molt
-  - Si, bastant
+- Prefereixes que el vocabulari usat sigui senzill?
+  - Si
+  - Normalment
+  - Indiferent
+  - A vegades
+  - Mai  
+- T'agraden els llibres de trama enrevessada?
+  - Molt
+  - Bastant
   - Indiferent
   - Poc
   - Gens
-- Quins llibres acostumes a llegir?
+- T'agraden els llibres amb molts personatges?
+  - Molt
+  - Bastant
+  - Indiferent
+  - Poc
+  - Gens
+- Quina és la teva preferència per la nacionalitat de l'autor?
   - Catalans
   - Catalans i espanyols
+  - Espanyols
   - Qualsevol
   - Estrangers
+- En quina llengua prefereixes llegir?
+  - Català
+  - Castellà
+  - Altres
+
   
+##Pregunta específica
+
+[Persona jove]
+- Prefereixes que el tipus de lletra sigui gran?
+  - Molt
+  - Bastant
+  - Indiferent
+  - Poc
+  - Gens
+[Usuari que llegeix fora de casa]
+- Prefereixes llibres lleugers?
+  - Molt
+  - Bastant
+  - Indiferent
+  - Poc
+  - Gens
+[Usuari que no li agraden els bestsellers]
+Si estàs entre dos llibres, prefereixes aquell que es ven més?
+  - Si
+  - No
+  - Indiferent
+[Usuari que no li agraden els llibres fàcils]
+Prefereixes un llibre reflexiu i profund o complex i enrevessat?
+  - profund
+  - complex
+[Usuari que li importa el preu]
+Fins quan estaries disposat a gastar-te en un llibre
+  - 20€
+  - 15€
+  - 10€
