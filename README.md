@@ -32,6 +32,7 @@
 - Estil [simple, complicat, profund]
 - Generació
 - Nacionalitat
+- Gènere principal
 
 ##Frame Lector
 - Edat

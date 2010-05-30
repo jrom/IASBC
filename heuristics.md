@@ -25,12 +25,11 @@ Es tracta de fer el menor número de preguntes possibles i inferir el màxim d'i
 ##Popularitat dels llibres
 - Un llibre més venut es recomana abans que un llibre menys venut
 - Usuari que li agraden els best-sellers li agradaran els llibres més venuts
-- Usuari que es considera "diferent" no li influeix el número de llibres venuts
 
 ##Dates
 - Usuari que prefereix "novetats" se li recomanen llibres amb data de publicació superior a fa 1 any.
 - Usuari que prefereix llibres "moderns" se li recomanen llibres d'autors nascuts fa més de 60 anys i amb data de publicació superior a fa 10 anys.
-- Usuari que prefereix llibres "clàssics" se li recomanen
+- Usuari que prefereix llibres "clàssics" se li recomanen llibres amb data anterior a fa 20 anys
 
 #Temps de lectura
 - Usuari que dedica molt temps a la lectura se li recomanen (en més grau) llibres d'estil profund/complex.

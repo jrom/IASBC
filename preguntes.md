@@ -1,0 +1,84 @@
+##Mòdul perfil d'usuari
+- Nom
+- Edat
+- Sexe
+- Llengua materna
+  - Català
+  - Castellà
+  - Altres
+  
+- Perfil d'ocupació:
+  - Estudiant
+  - Acadèmic
+  - Professional
+  - Desocupat
+
+##Mòdul preguntes comunes
+
+- Freqüència de lectura
+  - Diari
+  - Setmanal
+  - Mensual
+  - No ho sé
+- Temps de lectura
+  - Hores
+  - No ho sé
+- Gènere preferit (no té perquè ser únic)
+  - Llista de gèneres
+  - No tinc gènere preferit
+  - Altres
+  - No ho sé
+- T'agrada experimentar amb nous gèneres?
+  - Si, molt
+  - Si, bastant
+  - Indiferent
+  - Poc
+  - Gens
+- On llegeixes habitualment
+  - A casa
+  - Exterior  
+  - Transport
+  - A tot arreu
+  - No ho sé
+- T'agraden els llibres ben enquadernats?
+  - Si, molt
+  - Si, bastant
+  - Indiferent
+  - Poc
+  - Gens
+- El preu és un factor prioritari
+  - Si, molt
+  - Si, bastant
+  - Indiferent
+  - Poc
+  - Gens
+- Tens preferència pels llibres actuals
+  - Si
+  - Normalment
+  - Indiferent
+  - A vegades
+  - Mai
+- T'agraden els best-sellers
+  - Si, molt
+  - Si, bastant
+  - Indiferent
+  - Poc
+  - Gens
+- Estàs disposat a llegir llibres groixuts?
+  - Si
+  - Normalment
+  - Indiferent
+  - A vegades
+  - Mai
+- Tens preferència pels llibres de fàcil lectura?
+  - Si, molt
+  - Si, bastant
+  - Indiferent
+  - Poc
+  - Gens
+- Quins llibres acostumes a llegir?
+  - Catalans
+  - Catalans i espanyols
+  - Qualsevol
+  - Estrangers
+  
