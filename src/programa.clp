@@ -65,6 +65,7 @@
 
 (defrule a-preguntes-comunes
 	(declare (salience -1))
+	; WTF?
 	=>
 	(focus preguntes-comunes)
 )
