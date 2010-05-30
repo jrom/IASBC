@@ -21,6 +21,7 @@
 - Orientat a edat [infantil, juvenil, adults]
 - Pes
 - Número de ventes anuals
+- *Tamany lletra (afegit)* [M'ho va dir el Gawyn i m'ho ha tornat a dir mon pare, que ell diu que no hi veu]
 
 ##Frame Gènere
 

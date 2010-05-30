@@ -1,1 +1,13 @@
 %!TEX root = document.tex
+
+En aquesta fase s'intenta adquirir la perspectiva de l'expert. De la interacció amb l'expert o experts en la recomanació de llibres n'hem d'extreure la dimensió final del domini i l'ontologia. A  la vegada, hem de descomposar el problema en subproblemes i realitzar un anàlisis per refinaments successius amb l'objectiu d'obtenir la relació jeràrquica entre les diferents fases de resolució fins als operadors de raonament més elementals. Cal, doncs, identificar quin és el flux de raonament necessari en la resolució del problema des del punt de vista de l'expert.
+
+\subsection{Elements del domini}
+
+El domini del nostre SBC es basa en:
+
+\begin{itemize}
+\item Els llibres: El seu títol, el preu, l'any d'edició, el número d'edicions, el format, l'idioma, el número de pàgines, la mesura de la lletra, si és un best-seller o no ho és, l'enquadernació, l'edat a la qual està orientat i el \emph{ranking} de ventes són les seves característiques directes principals.
+\item Els autors: El seu nom, l'estil en que escriuen i la nacionalitat en la qual pertanyen.
+\item Els gèneres: Dins del gènere de ficció, hi ha molts gèneres diferents. En guardem el seu nom.
+\end{itemize}

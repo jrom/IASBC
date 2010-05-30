@@ -5,25 +5,30 @@ Es tracta de fer el menor número de preguntes possibles i inferir el màxim d'i
 - Es recomanen llibres pertanyents a aquells gèneres que l'usuari té com a preferits
 - Usuari que li agrada la Ciència ficció també li pot agradar (en menys grau) la fantasia
 - Usuari que li agrada terror també li pot agradar (en menys grau) la fantasia i la ciència ficció
-- Usuari que li agraden les novela històrica, també li pot agradar (en menys grau) els clàssics (i viceversa)
+- Usuari que li agrada la novela històrica, també li pot agradar (en menys grau) els clàssics (i viceversa)
+- Usuari que li agrada la novela històrica o clàssics se li poden recomanar llibres de tapa dura
+- Usuari que li agrada la novela thriller no li agrada la novela històrica o clàssics.
+
 
 ##Llocs de lectura
 - Usuari que sovint llegeix al metro o durant transports se li recomanen llibres de butxaca
 - Usuari que llegeix només al sofà de casa se li recomanen llibres de tapa dura
 
 ##Preus
-- Usuari que li influeix el preu del llibre se li recomanen llibres per sota dels 12€
+- Usuari que li influeix el preu del llibre se li recomanen llibres per sota dels 12€ i llibres de butxaca
 
 ##Format del llibre
-- Usuari que prefereix llibre ben enquadernat o bé llibre de tamany gran no li importen el número de pàgines
+- Usuari que prefereix llibre ben enquadernat o bé llibre de tamany gran no li importen el número de pàgines ni el pes del llibre
+- Usuari no jove prefereix llibres amb tamany de lletra gran.
 
 ##Popularitat dels llibres
-- Un llibres més venut es recomana abans que un llibre menys venut
+- Un llibre més venut es recomana abans que un llibre menys venut
 - Usuari que li agraden els best-sellers li agradaran els llibres més venuts
+- Usuari que es considera "diferent" no li influeix el número de llibres venuts
 
 ##Dates
 - Usuari que prefereix "novetats" se li recomanen llibres amb data de publicació superior a fa 1 any.
-- Usuari que li prefereix llibres "moderns" se li recomanen llibres d'autors nascuts fa més de 60 anys i amb data de publicació superior a fa 10 anys.
+- Usuari que prefereix llibres "moderns" se li recomanen llibres d'autors nascuts fa més de 60 anys i amb data de publicació superior a fa 10 anys.
 - Usuari que prefereix llibres "clàssics" se li recomanen
 
 ##Llibres llegits
