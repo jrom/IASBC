@@ -1,4 +1,4 @@
-; Fri May 28 18:08:00 CEST 2010
+; Sat May 29 21:26:07 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -41,9 +41,27 @@
 	(nacionalitat "Estats Units")
 	(nom "Dan Brown"))
 
+([Eclipse] of  Llibre
+
+	(any_edicio 2007)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [StephenieMeyer])
+	(format mitja)
+	(genere [Terror])
+	(idioma castella)
+	(isbn "1603960228")
+	(num_pagines 637)
+	(orientacio juvenil)
+	(pes mitja)
+	(preu 16.0)
+	(titol "Eclipse")
+	(vendes_anuals 2958))
+
 ([ElAlquimista] of  Llibre
 
 	(any_edicio 1994)
+	(bestseller TRUE)
 	(enquadernacio tapatova)
 	(escrit_per [PauloCoelho])
 	(format mitja)
@@ -130,7 +148,7 @@
 	(titol "La isla bajo el mar")
 	(vendes_anuals 6198))
 
-([Eclipse] of  Llibre
+([llibreter_Class0] of  Llibre
 
 	(any_edicio 2007)
 	(bestseller TRUE)
@@ -139,13 +157,497 @@
 	(format mitja)
 	(genere [Terror])
 	(idioma castella)
-	(isbn "1603960228")
-	(num_pagines 637)
+	(isbn "9705800235")
+	(num_pagines 674)
 	(orientacio juvenil)
+	(pes gran)
+	(preu 15.0)
+	(titol "Luna Nueva")
+	(vendes_anuals 11895))
+
+([llibreter_Class1] of  Llibre
+
+	(any_edicio 2009)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [CarlosRuizZafon])
+	(format mitja)
+	(genere [Thriller])
+	(idioma castella)
+	(isbn "0307472590")
+	(num_pagines 276)
+	(orientacio adult)
+	(pes gran)
+	(preu 18.0)
+	(titol "La sombra del viento")
+	(vendes_anuals 12262))
+
+([llibreter_Class10] of  Llibre
+
+	(any_edicio 2006)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class11])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "9584215000")
+	(num_pagines 274)
+	(orientacio adult)
 	(pes mitja)
+	(preu 19.0)
+	(titol "El olvido que seremos")
+	(vendes_anuals 19000))
+
+([llibreter_Class11] of  Autor
+
+	(anynaixement 1958)
+	(estil simple)
+	(nacionalitat "Colombia")
+	(nom "Hector Abad Faciolince"))
+
+([llibreter_Class12] of  Llibre
+
+	(any_edicio 1994)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class13])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "0679755268")
+	(num_pagines 19700)
+	(orientacio adult)
+	(pes petit)
+	(preu 11.0)
+	(titol "La casa en Mango Street")
+	(vendes_anuals 18700))
+
+([llibreter_Class13] of  Autor
+
+	(anynaixement 1954)
+	(estil simple)
+	(nacionalitat "Estats Units")
+	(nom "Sandra Cisneros"))
+
+([llibreter_Class14] of  Llibre
+
+	(any_edicio 2001)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class17])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "0385721234")
+	(num_pagines 256)
+	(orientacio adult)
+	(pes mitja)
+	(preu 14.0)
+	(titol "Como agua para chocolate")
+	(vendes_anuals 21092))
+
+([llibreter_Class17] of  Autor
+
+	(anynaixement 1951)
+	(estil simple)
+	(nacionalitat "Mèxic")
+	(nom "Laura Esquivel"))
+
+([llibreter_Class18] of  Llibre
+
+	(any_edicio 1995)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [IsabelAllende])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "0060951303")
+	(num_pagines 464)
+	(orientacio adult)
+	(pes mitja)
+	(preu 14.0)
+	(titol "La casa de los espíritus")
+	(vendes_anuals 21380))
+
+([llibreter_Class19] of  Llibre
+
+	(any_edicio 2001)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class20])
+	(format petit)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "0156013924")
+	(num_pagines 96)
+	(orientacio infantil)
+	(pes petit)
+	(preu 11.0)
+	(titol "El Principito")
+	(vendes_anuals 22400))
+
+([llibreter_Class2] of  Llibre
+
+	(any_edicio 2010)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class3])
+	(format mitja)
+	(genere [Thriller])
+	(idioma castella)
+	(isbn "8423341615")
+	(num_pagines 864)
+	(orientacio adult)
+	(pes gran)
+	(preu 26.0)
+	(titol "La reina en el palacio de las corrientes de aire")
+	(vendes_anuals 12917))
+
+([llibreter_Class20] of  Autor
+
+	(anynaixement 1900)
+	(estil simple)
+	(nacionalitat "França")
+	(nom "Antoine de Saint-Exupéry"))
+
+([llibreter_Class21] of  Llibre
+
+	(any_edicio 2001)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [JKRowling])
+	(format mitja)
+	(genere [Fantasia])
+	(idioma castella)
+	(isbn "8478886567")
+	(num_pagines 286)
+	(orientacio infantil)
+	(pes mitja)
+	(preu 10.0)
+	(titol "Harry Potter y la cámara secreta")
+	(vendes_anuals 29800))
+
+([llibreter_Class22] of  Llibre
+
+	(any_edicio 2008)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [CarlosRuizZafon])
+	(format mitja)
+	(genere [Thriller])
+	(idioma castella)
+	(isbn "0307455378")
+	(num_pagines 672)
+	(orientacio adult)
+	(pes gran)
+	(preu 18.0)
+	(titol "El juego del angel")
+	(vendes_anuals 23800))
+
+([llibreter_Class23] of  Llibre
+
+	(any_edicio 2009)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [DanBrown])
+	(format mitja)
+	(genere [Thriller])
+	(idioma castella)
+	(isbn "8492516518")
+	(num_pagines 725)
+	(orientacio adult)
+	(pes gran)
+	(preu 15.0)
+	(titol "Angeles y demonios")
+	(vendes_anuals 2366))
+
+([llibreter_Class24] of  Llibre
+
+	(any_edicio 2001)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [JKRowling])
+	(format mitja)
+	(genere [Fantasia])
+	(idioma castella)
+	(isbn "8478886559")
+	(num_pagines 359)
+	(orientacio infantil)
+	(pes mitja)
+	(preu 12.0)
+	(titol "Harry Potter y el prisionero de Azkaban")
+	(vendes_anuals 24032))
+
+([llibreter_Class25] of  Llibre
+
+	(any_edicio 2002)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class26])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "0618226168")
+	(num_pagines 144)
+	(orientacio infantil)
+	(pes petit)
+	(preu 7.0)
+	(titol "Cajas De Carton")
+	(vendes_anuals 25000))
+
+([llibreter_Class26] of  Autor
+
+	(anynaixement 1943)
+	(estil simple)
+	(nacionalitat "Mèxic")
+	(nom "Francisco Jimenez"))
+
+([llibreter_Class27] of  Llibre
+
+	(any_edicio 2007)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class6])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "0307387267")
+	(num_pagines 464)
+	(orientacio adult)
+	(pes mitja)
+	(preu 15.0)
+	(titol "El amor en los tiempos del cólera")
+	(vendes_anuals 25400))
+
+([llibreter_Class28] of  Llibre
+
+	(any_edicio 2008)
+	(enquadernacio tapadura)
+	(escrit_per [PauloCoelho])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "161554268X")
+	(num_pagines 256)
+	(orientacio adult)
+	(pes mitja)
+	(preu 25.0)
+	(titol "Brida")
+	(vendes_anuals 25400))
+
+([llibreter_Class29] of  Llibre
+
+	(any_edicio 2009)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class30])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "0307475956")
+	(num_pagines 1136)
+	(orientacio adult)
+	(pes gran)
+	(preu 20.0)
+	(titol "2666")
+	(vendes_anuals 28170))
+
+([llibreter_Class3] of  Autor
+
+	(anynaixement 1954)
+	(estil simple)
+	(nacionalitat "Estats Units")
+	(nom "Stieg Larsson"))
+
+([llibreter_Class30] of  Autor
+
+	(anynaixement 1953)
+	(estil profund)
+	(nacionalitat "Xile")
+	(nom "Roberto Bolaño"))
+
+([llibreter_Class31] of  Llibre
+
+	(any_edicio 2003)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class6])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "1400034957")
+	(num_pagines 128)
+	(orientacio adult)
+	(preu 13.0)
+	(titol "Crónica de una muerte anunciada")
+	(vendes_anuals 28800))
+
+([llibreter_Class32] of  Llibre
+
+	(any_edicio 2010)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class33])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "9788433975263")
+	(num_pagines 300)
+	(orientacio adult)
+	(pes mitja)
+	(preu 19.0)
+	(titol "Nada que temer"))
+
+([llibreter_Class33] of  Autor
+
+	(anynaixement 1946)
+	(estil simple)
+	(nacionalitat "Gran Bretanya")
+	(nom "Julian Barnes"))
+
+([llibreter_Class34] of  Llibre
+
+	(any_edicio 2010)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class35])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "9788433975362")
+	(num_pagines 259)
+	(orientacio adult)
+	(pes mitja)
+	(preu 18.0)
+	(titol "Necrópolis"))
+
+([llibreter_Class35] of  Autor
+
+	(anynaixement 1913)
+	(estil complicat)
+	(nacionalitat "Eslovènia")
+	(nom "Boris Pahor"))
+
+([llibreter_Class36] of  Llibre
+
+	(any_edicio 2010)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class37])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "9788483832073")
+	(num_pagines 1337)
+	(orientacio adult)
+	(pes gran)
+	(preu 32.0)
+	(titol "Contraluz"))
+
+([llibreter_Class37] of  Autor
+
+	(anynaixement 1937)
+	(estil simple)
+	(nacionalitat "Estats Units")
+	(nom "Thomas Pynchon"))
+
+([llibreter_Class38] of  Llibre
+
+	(any_edicio 2010)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class33])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma catala)
+	(isbn "9788492758760")
+	(num_pagines 285)
+	(orientacio adult)
+	(pes mitja)
+	(preu 20.0)
+	(titol "Res a témer"))
+
+([llibreter_Class4] of  Llibre
+
+	(any_edicio 2009)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [AliceSebold])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "0307475344")
+	(num_pagines 336)
+	(orientacio adult)
+	(pes mitja)
+	(preu 15.0)
+	(titol "Desde mi cielo")
+	(vendes_anuals 15000))
+
+([llibreter_Class5] of  Llibre
+
+	(any_edicio 2007)
+	(bestseller TRUE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class6])
+	(format gran)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "8420471836")
+	(num_pagines 756)
+	(orientacio adult)
+	(pes gran)
 	(preu 16.0)
-	(titol "Eclipse")
-	(vendes_anuals 2958))
+	(titol "Cien años de soledad")
+	(vendes_anuals 15800))
+
+([llibreter_Class6] of  Autor
+
+	(anynaixement 1928)
+	(estil profund)
+	(nacionalitat "Mèxic")
+	(nom "Gabriel García Márquez"))
+
+([llibreter_Class7] of  Llibre
+
+	(any_edicio 2010)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class3])
+	(format mitja)
+	(genere [Thriller])
+	(idioma castella)
+	(isbn "8423341003")
+	(num_pagines 752)
+	(orientacio adult)
+	(pes gran)
+	(preu 26.0)
+	(titol "La chica que sonaba con un cerillo y un galon de gasolina")
+	(vendes_anuals 17800))
+
+([llibreter_Class8] of  Llibre
+
+	(any_edicio 2003)
+	(enquadernacio tapatova)
+	(escrit_per [IsabelAllende])
+	(format mitja)
+	(genere [Ficcio])
+	(idioma castella)
+	(isbn "0060510323")
+	(num_pagines 416)
+	(orientacio infantil)
+	(pes mitja)
+	(preu 9.0)
+	(titol "La ciudad de las bestias")
+	(vendes_anuals 17100))
+
+([llibreter_Class9] of  Llibre
+
+	(any_edicio 2009)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class3])
+	(format mitja)
+	(genere [Thriller])
+	(idioma castella)
+	(isbn "8423340449")
+	(num_pagines 665)
+	(orientacio adult)
+	(pes gran)
+	(preu 25.0)
+	(titol "Los hombres que no amaban a las mujeres")
+	(vendes_anuals 18700))
 
 ([PauloCoelho] of  Autor
 
