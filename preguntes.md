@@ -104,34 +104,35 @@
   - Català
   - Castellà
   - Altres
-
+  
+- Quin és el títol de l'últim llibre que t'ha encantat?
   
 ##Pregunta específica
 
-[Persona jove]
+**Persona jove**
 - Prefereixes que el tipus de lletra sigui gran?
   - Molt
   - Bastant
   - Indiferent
   - Poc
   - Gens
-[Usuari que llegeix fora de casa]
+**Usuari que llegeix fora de casa**
 - Prefereixes llibres lleugers?
   - Molt
   - Bastant
   - Indiferent
   - Poc
   - Gens
-[Usuari que no li agraden els bestsellers]
+**Usuari que no li agraden els bestsellers**
 Si estàs entre dos llibres, prefereixes aquell que es ven més?
   - Si
   - No
   - Indiferent
-[Usuari que no li agraden els llibres fàcils]
+**Usuari que no li agraden els llibres fàcils**
 Prefereixes un llibre reflexiu i profund o complex i enrevessat?
   - profund
   - complex
-[Usuari que li importa el preu]
+**Usuari que li importa el preu**
 Fins quan estaries disposat a gastar-te en un llibre
   - 20€
   - 15€

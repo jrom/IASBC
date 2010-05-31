@@ -2,12 +2,85 @@
 
 En aquesta fase s'intenta adquirir la perspectiva de l'expert. De la interacció amb l'expert o experts en la recomanació de llibres n'hem d'extreure la dimensió final del domini i l'ontologia. A  la vegada, hem de descomposar el problema en subproblemes i realitzar un anàlisis per refinaments successius amb l'objectiu d'obtenir la relació jeràrquica entre les diferents fases de resolució fins als operadors de raonament més elementals. Cal, doncs, identificar quin és el flux de raonament necessari en la resolució del problema des del punt de vista de l'expert.
 
-\subsection{Elements del domini}
+\section{Elements del domini}
 
 El domini del nostre SBC es basa en:
 
+Els primers elements a considerar són aquells que formen part de l'ontologia permanent del sistema, és a dir, els llibres, els autors i els gèneres.
 \begin{itemize}
-\item Els llibres: El seu títol, el preu, l'any d'edició, el número d'edicions, el format, l'idioma, el número de pàgines, la mesura de la lletra, si és un best-seller o no ho és, l'enquadernació, l'edat a la qual està orientat i el \emph{ranking} de ventes són les seves característiques directes principals.
-\item Els autors: El seu nom, l'estil en que escriuen i la nacionalitat en la qual pertanyen.
-\item Els gèneres: Dins del gènere de ficció, hi ha molts gèneres diferents. En guardem el seu nom.
+  \item Els llibres: El seu títol, el preu, l'any d'edició, el número d'edicions, el format, l'idioma, el número de pàgines, la mesura de la lletra, si és un best-seller o no ho és, l'enquadernació, l'edat a la qual està orientat i el \emph{ranking} de ventes són les seves característiques directes principals.
+  \item Els autors: El seu nom, l'estil en que escriuen i la nacionalitat en la qual pertanyen.
+  \item Els gèneres: Dins del gènere de ficció, hi ha molts gèneres diferents. En guardem el seu nom.
 \end{itemize}
+
+També forma part del domini l'usuari: les seves característiques i preferències comunes i específiques (en funció de les respostes a les preguntes comunes).
+\begin{itemize}
+  \item Característiques: El seu nom, l'edat, el sexe, la llengua materna i el seu perfil d'ocupació.
+  \item Preferències comunes: La freqüència i el temps de lectura, el gènere preferit, si li agrada experimentar amb nous gèneres, lloc habitual de lectura, tipus d'enquadernació preferida, importància del preu, preferència per llibres amb contingut explícit, preferència per llibres actuals, preferència per best-sellers, preferència per llibres gruixuts, preferència per llibres amb vocabulari senzill, preferència per llibres de trama enrevessada, preferència per llibres amb molts personatges, origen preferit de l'autor i llengua de lectura preferida.
+  \item Preferències específiques: Preferència per tipus de lletra gran, preferència per llibres lleugers, preferència per llibres més venuts, preferència per llibres complexos o profunds 
+\end{itemize}
+  **\textbf{ACABAR}**
+
+Per últim forma part també del domini les recomanacions emeses pel sistema, que estan ordenades per ordre de més apropiades a menys. Les tres millors són les que es retornen a l'usuari.
+
+\section{Evidències, hipòtesis i abstraccions heurístiques extretes}
+
+Després d'entrevistar de forma exhaustiva el nostre expert, n'hem extret unes quantes abstraccions heurístiques i evidències que s'acostumen a tenir en compte en un procés de recomanació de llibres. Aquí les detallarem per temes, en aquesta fase es mostren tal com l'expert ens les especifica.
+
+\subsection{Gèneres}
+Evidències:
+\begin{itemize}
+  \item Se li recomanen preferentment els llibres del gèneres preferit de l'usuari.
+\end{itemize}
+Abstraccions heurístiques:
+\begin{itemize}
+  \item Els usuaris amb gènere preferit la ciència ficció, la fantasia o el terror també els pot agradar els altres dos d'gèneres.
+  \item Als usuaris amb gènere preferit la novel·la històrica també li poden agradar els clàssics (i viceversa).
+  \item Als usuaris amb gènere preferit la novel·la \emph{thriller} no acostuma a agradar els clàssics ni la novel·la històrica (i viceversa).
+\end{itemize}
+
+\subsection{Llocs de lectura}
+Abstraccions heurístiques:
+\begin{itemize}
+  \item Els usuaris que llegeixen en transports públics prefereixen llibres de butxaca o tapa tova.
+\end{itemize}
+
+\subsection{Influència del preu}
+Abstraccions heurístiques:
+\begin{itemize}
+  \item Els usuaris que els influeix molt el preu prefereixen llibres per sota dels 12 euros o llibres de butxaca.
+\end{itemize}
+
+\subsection{Format del preu}
+Abstraccions heurístiques:
+\begin{itemize}
+  \item Els usuaris que prefereixen un llibre de tapa dura o bé de gran mesura no els influeix el número de pàgines o el pes.
+  \item Els usuaris que tenen més de 50 anys prefereixen un tipus de lletra gran.
+  \item Els usuaris que prefereixen un tipus de lletra gran no se'ls recomana llibres de butxaca.
+\end{itemize}
+
+\subsection{Popularitat dels llibres}
+Abstraccions heurístiques:
+\begin{itemize}
+  \item A tots els usuaris que no especifiquin el contrari, se'ls recomana un llibre més venut abans que un llibre menys venut.
+  \item Els usuaris que els agraden els best-sellers se'ls recomana preferentment els llibres més venuts.
+\end{itemize}
+
+\subsection{Dates de publicació dels llibres}
+Abstraccions heurístiques:
+\begin{itemize}
+  \item Usuari que li agraden les novetats se li recomanen els llibres de l'últim any.
+  \item Usuari que li agraden els llibres moderns se li recomanen els llibres dels  últims 20 anys i d'autors nascuts en els últims 60 anys.
+\end{itemize}
+
+\subsection{Llibres llegits}
+Abstraccions heurístiques:
+\begin{itemize}
+  \item Usuari que ha llegit més de dos cops un mateix tipus de llibre se li recomanen aquell tipus de llibre preferentment.
+\end{itemize}
+
+\section{Descomposició en subproblemes}
+
+Una vegada l'usuari ha detallat les seves característiques cal descartar tots aquells llibres incompatibles amb el seu perfil. 
+
+

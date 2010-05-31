@@ -33,6 +33,7 @@ Es tracta de fer el menor número de preguntes possibles i inferir el màxim d'i
 
 #Temps de lectura
 - Usuari que dedica molt temps a la lectura se li recomanen (en més grau) llibres d'estil profund/complex.
+- Usuari que dedica poc temps a la lectura se li recomanen llibres de poques pàgines
 
 ##Llibres llegits
 - Usuari se li recomanen llibres semblants a tipus de llibres que ha llegit (especialment si ha llegit més d'un llibre d'aquell tipus). 

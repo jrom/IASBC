@@ -4,13 +4,13 @@
 
 La identificació del problema és la primera fase de l'anàlisi del problema. En primer lloc, consisteix en analitzar la viabilitat del sistema de coneixement (SBC) proposat. Cal justificar el sistema, demostrar que és adequat i que és capaç d'arribar a solucions satisfactòries. És també necessari especificar quines seran les fonts de coneixement que tindrem i quin d'aquest coneixement serà necessari pel sistema. Determinarem quins són els objectius del sistema, i quins tipus de sortides serà capaç d'oferir. També detallarem les hipòtesis prèvies que assumim.
 
-\subsection{El SBC és viable}
+\section{El SBC és viable}
 
 Si es vol que el sistema sigui pràctic de cara a l'usuari, les bases de dades de llibres amb les que treballa han de ser molt grans, parlaríem de l'ordre de milions de llibres. Evidentment, si el sistema fos algorísmic, basat en qualsevol algorisme de cerca exhaustiva sobre tots aquests llibres, els resultats serien dolents i es trigaria molt en arribar a una solució. Com que el problema es defineix com un conjunt de restriccions i preferències, deduïm fàcilment que es pot resoldre amb un sistema basat en regles, com ara el que ofereix CLIPS.
 
 En quant a la viabilitat econòmica del projecte, considerem que el mercat de les ventes de llibres per Internet es troba en constant creixement, on cada dia es presenta una nova plataforma de venta de llibres en línia. La majoria d'aquestes plataformes ofereixen avançats sistemes de cerca i molta informació a l'usuari, però no ofereixen sistemes intel·ligents de recomanació. Per tant, seria una aportació útil i innovadora pel mercat.
 
-\subsection{Fonts de coneixement}
+\section{Fonts de coneixement}
 
 La informació disponible dels llibres l'hem extret de diverses llibreries en línia. En particular, hem usat Amazon.com, Barnes\&Noble i La Casa del Llibre. Les instàncies particulars les hem extret (mitjançant la programació d'un programa \emph{scrapper}) dels llocs web esmentats.
 
@@ -21,17 +21,7 @@ Les hipòtesis i abstraccions heurístiques (definicionals, qualitatives i de ge
 El coneixement necessari pel sistema es divideix en aquell coneixement.
 
 
-\subsection{Evidències, hipòtesis i abstraccions heurístiques extretes}
-
-\emph{En procés de discussió a /heuristics.md}
-
-\textbf{Evidències: }
-
-\textbf{Abstraccions heurístiques: }
-
-
-
-\subsection{Objectius del sistema}
+\section{Objectius del sistema}
 
 L'objectiu del sistema és generar una llista de \textbf{tres} llibres recomanats ordenat per grau d'adequació. Si algun d'aquests llibres és parcialment recomanat (perquè no compleix algun criteri) s'informarà l'usuari del criteri que no compleix. Però en principi i amb un domini suficientment gran, haurien d'existir almenys tres llibres recomanables per qualsevol combinació de preferències i restriccions de l'usuari.
 
