@@ -2,5 +2,6 @@
 ; (batch sistema.clp)
 
 (load llibreter.pont)
-(load-instances llibreter.pins)
 (load programa.clp)
+(reset)
+(load-instances llibreter.pins)
