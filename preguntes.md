@@ -1,7 +1,14 @@
 ##Mòdul perfil d'usuari
 - Nom
 - Edat
+  - Preguntem numero, pero jo he fet (provisionalment) aquesta classificacio
+    - < 14 nen
+    - < 30 jove
+    - < 60 adult
+    - >= 60 gran
 - Sexe
+  - Home
+  - Dona
 - Llengua materna
   - Català
   - Castellà
@@ -12,6 +19,7 @@
   - Acadèmic
   - Professional
   - Desocupat
+  - Altres (ama de casa, NS/NC, ...)
 
 ##Mòdul preguntes comunes
 
