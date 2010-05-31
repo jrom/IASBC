@@ -1,40 +1,37 @@
-#TODO
-
-- Usarem l'Script scraper Llibreria AMAZON!
-- <del>Introducció</del> [Bernat]
-- Formalització de l'ontologia a Protégé [Bernat] **En procés**
-- Anàlisi del Problema [Bernat]
-
 #Ontologia
 
-##Frame Llibre
+## Frame Llibre
 - Títol
 - Preu
-- Any primera edició
-- Número d'edicions
-- Format [gran, petit, mitjà]
-- Idioma
+- Any edició
+- Any publicació
+- Format [gran, mitja, petit]
+- Pes [gran, mitja, petit]
+- Idioma [catala, castella, altres]
 - Número de pàgines
 - Best-seller?
-- Enquadernació
+- Enquadernació [tapadura, tapatova, butxaca]
 - ISBN
-- Orientat a edat [infantil, juvenil, adults]
-- Pes
-- Número de ventes anuals
-- *Tamany lletra (afegit)* [M'ho va dir el Gawyn i m'ho ha tornat a dir mon pare, que ell diu que no hi veu]
+- Orientació [infantil, juvenil, adult]
+- Vendes anuals
+- Trama: [simple, complexa]
+- Vocabulari: [simple, complex]
+- Personatges: [molts, pocs]
 
-##Frame Gènere
+## Frame Gènere
 
-- Tipus [Policíaca, Terror, Fantasia, Sci-fi, Romàntica, Novela Histórica]
+- Nom
+  - Ficcio
+  - ...
 
-##Frame Autor
+## Frame Autor
 - Nom
 - Estil [simple, complicat, profund]
 - Generació
 - Nacionalitat
 - Gènere principal
 
-##Frame Lector
+## Perfil Lector
 - Edat
 - Temps disponible [freqüència + duració]
 - Moment de lectura
@@ -43,7 +40,8 @@
 - Idioma preferent [català, castellà, estranger]
 - Gèneres preferits
 
-##Associacions
+## Associacions
+
 - **pertany_a**
   - D: Llibre
   - R: Gènere
