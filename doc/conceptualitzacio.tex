@@ -23,11 +23,13 @@ També forma part del domini l'usuari: les seves característiques i preferènci
 
 Per últim forma part també del domini les recomanacions emeses pel sistema, que estan ordenades per ordre de més apropiades a menys. Les tres millors són les que es retornen a l'usuari.
 
-\section{Descomposició en subproblemes}
+\section{Descomposició en subproblemes i flux de raonament}
 
-Una vegada l'usuari ha detallat les característiques que el defineixen, caldrà descartar, si s'escau, aquells llibres incompatibles amb el seu perfil. Per exemple, si es tracta d'una persona major de 60 anys es descarten aquells llibres de butxaca o amb lletra molt petita o bé si es tracta d'un infant se li recomanen llibres de gènere infantil i es descarten els altres. La resta de llibres no descartats podran veure modificada la seva puntuació de cara a la recomanació. Per exemple, si el perfil d'ocupació és acadèmic, la puntuació dels llibres clàssics o històrics es veurà incrementada o pels desocupats s'entendrà que tenen més temps per llegir i s'incrementarà la puntuació dels llibres llargs. 
+Partim de la presumpció que tot llibre és recomanable per l'usuari en un inici. En la primera interacció amb l'usuari se li demanarà les característiques que el defineixen. Un cop assimilades, caldrà descartar, si s'escau, aquells llibres incompatibles amb el seu perfil. Per exemple, si es tracta d'una persona major de 60 anys es descarten aquells llibres de butxaca o amb lletra molt petita o bé si es tracta d'un infant se li recomanaran llibres de gènere infantil i per tant es descarten els altres. La resta de llibres no descartats podran veure modificada la seva puntuació de cara a la recomanació. Per exemple, si el perfil d'ocupació és acadèmic, la puntuació dels llibres clàssics o històrics es veurà incrementada o pels desocupats s'entendrà que tenen més temps per llegir i s'incrementarà la puntuació dels llibres llargs. 
 
-Després es procedirà a fer les preguntes comunes. En funció de la rotunditat o incertesa de la resposta a cada pregunta comuna es procedirà sumar punts, restar-ne o bé esborrar aquells llibres que compleixen el criteri de la llista.
+Després es procedirà a fer les preguntes comunes. En funció de la rotunditat o incertesa de la resposta a cada pregunta comuna es procedirà sumar punts, restar-ne o bé esborrar aquells llibres en funció de les evidències i abstraccions heurístiques prèviament definides. Un cop respostes les preguntes comunes, es tindrà un \emph{ranking} limitat de llibres (sempre en funció del nivell de certesa de les respostes) i estarà ordenat de més recomanable a menys.
+
+Finalment es passarà a realitzar les preguntes específiques, en funció del perfil de preferències que el sistema ha obtingut de l'usuari. Per exemple, l'usuari que ha respost que li influeix el preu se li pregunta entre quins marges es pot moure, o l'usuari que llegeix fora de casa se li pregunta fins a quin punt el pes del llibre pot resultar un problema. En acabar cada pregunta d'aquest apartat s'avaluarà si les tres primeres recomanacions del \emph{ranking} ja són suficientment bones o bé si són les úniques que hi ha. En aquest cas es pararà de fer més preguntes i s'oferirà el resultat a l'usuari.
 
 \section{Evidències, hipòtesis i abstraccions heurístiques}
 
