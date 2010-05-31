@@ -23,7 +23,13 @@ També forma part del domini l'usuari: les seves característiques i preferènci
 
 Per últim forma part també del domini les recomanacions emeses pel sistema, que estan ordenades per ordre de més apropiades a menys. Les tres millors són les que es retornen a l'usuari.
 
-\section{Evidències, hipòtesis i abstraccions heurístiques extretes}
+\section{Descomposició en subproblemes}
+
+Una vegada l'usuari ha detallat les característiques que el defineixen, caldrà descartar, si s'escau, aquells llibres incompatibles amb el seu perfil. Per exemple, si es tracta d'una persona major de 60 anys es descarten aquells llibres de butxaca o amb lletra molt petita o bé si es tracta d'un infant se li recomanen llibres de gènere infantil i es descarten els altres. La resta de llibres no descartats podran veure modificada la seva puntuació de cara a la recomanació. Per exemple, si el perfil d'ocupació és acadèmic, la puntuació dels llibres clàssics o històrics es veurà incrementada o pels desocupats s'entendrà que tenen més temps per llegir i s'incrementarà la puntuació dels llibres llargs. 
+
+Després es procedirà a fer les preguntes comunes. En funció de la rotunditat o incertesa de la resposta a cada pregunta comuna es procedirà sumar punts, restar-ne o bé esborrar aquells llibres que compleixen el criteri de la llista.
+
+\section{Evidències, hipòtesis i abstraccions heurístiques}
 
 Després d'entrevistar de forma exhaustiva el nostre expert, n'hem extret unes quantes abstraccions heurístiques i evidències que s'acostumen a tenir en compte en un procés de recomanació de llibres. Aquí les detallarem per temes, en aquesta fase es mostren tal com l'expert ens les especifica.
 
@@ -79,8 +85,6 @@ Abstraccions heurístiques:
   \item Usuari que ha llegit més de dos cops un mateix tipus de llibre se li recomanen aquell tipus de llibre preferentment.
 \end{itemize}
 
-\section{Descomposició en subproblemes}
 
-Una vegada l'usuari ha detallat les seves característiques cal descartar tots aquells llibres incompatibles amb el seu perfil. 
 
 

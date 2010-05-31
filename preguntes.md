@@ -1,5 +1,5 @@
 ##Mòdul perfil d'usuari
-- Nom
+1. Nom
 - Edat
   - Preguntem numero, pero jo he fet (provisionalment) aquesta classificacio
     - < 14 nen
@@ -23,7 +23,7 @@
 
 ##Mòdul preguntes comunes
 
-- Freqüència de lectura
+1. Freqüència de lectura
   - Diari
   - Setmanal
   - Mensual
@@ -48,13 +48,13 @@
   - Transport
   - A tot arreu
   - No ho sé
-- T'agraden els llibres ben enquadernats?
+- El preu és un factor prioritari
   - Molt
   - Bastant
   - Indiferent
   - Poc
   - Gens
-- El preu és un factor prioritari
+- T'agraden els llibres ben enquadernats?
   - Molt
   - Bastant
   - Indiferent
@@ -90,7 +90,7 @@
   - Indiferent
   - A vegades
   - Mai  
-- T'agraden els llibres de trama enrevessada?
+- Ets dels que t'agraden prendre notes al costat dels llibres
   - Molt
   - Bastant
   - Indiferent
@@ -112,10 +112,11 @@
   - Català
   - Castellà
   - Altres
+- Quin d'aquests autors t'agrada més?
+  - Llista
+  - Cap d'aquests
   
-- Quin és el títol de l'últim llibre que t'ha encantat?
-  
-##Pregunta específica
+##Mòdul preguntes específiques
 
 **Persona jove**
 

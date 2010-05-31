@@ -29,18 +29,18 @@ Es tracta de fer el menor número de preguntes possibles i inferir el màxim d'i
 ##Dates
 - Usuari que prefereix "novetats" se li recomanen llibres amb data de publicació superior a fa 1 any.
 - Usuari que prefereix llibres "moderns" se li recomanen llibres d'autors nascuts fa més de 60 anys i amb data de publicació superior a fa 10 anys.
-- Usuari que prefereix llibres "clàssics" se li recomanen llibres amb data anterior a fa 20 anys
-
+- Usuari que li agraden els llibres "clàssics" no li importa la data de publicació.
 #Temps de lectura
 - Usuari que dedica molt temps a la lectura se li recomanen (en més grau) llibres d'estil profund/complex.
 - Usuari que dedica poc temps a la lectura se li recomanen llibres de poques pàgines
 
 ##Llibres llegits
-- Usuari se li recomanen llibres semblants a tipus de llibres que ha llegit (especialment si ha llegit més d'un llibre d'aquell tipus). 
+<!-- Usuari se li recomanen llibres semblants a tipus de llibres que ha llegit (especialment si ha llegit més d'un llibre d'aquell tipus).  -->
 - Usuari que llegeix molt prefereix tapa dura.
 
-##Estil de l'autor
-- Usuari que pren notes al costat dels llibres se li recomanen llibres profunds/complexes.
+##Autor
+- Usuari que pren notes al costat dels llibres se li recomanen llibres profunds, complexos, amb trama enrevessada i amb molts personatges.
+- Usuari que amb autor preferit X se li recomanen aquells autors de la mateixa edat, nacionalitat i estil.
 
 ##Llengua
 - Usuari que prefereix llibres nacionals se li recomanen llibres d'autors de la mateixa nacionalitat que l'usuari.
