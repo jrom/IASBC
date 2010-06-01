@@ -12,6 +12,15 @@
 	(slot ocupacio)
 )
 
+(deftemplate recomanacio
+	(slot isbn)
+	(slot qualitat)
+	(slot moltadequat)
+	(slot adequat)
+	(slot inadequat)
+	(slot moltinadequat)
+)
+
 ;; Lector per defecte
 
 ;; Tot ha de ser desconegut pero per simplificar en development faig un cas on ja esta definit
@@ -72,6 +81,30 @@
 	?resposta
 )
 
+;;; Pregunta on li entres una llista i accepta numeros com a respostes
+(deffunction pregunta-llista-index (?pregunta $?respostes)
+	(bind ?linia (format nil "%s" ?pregunta))
+	(printout t crlf ?linia crlf)
+	(progn$ (?var ?respostes) 
+			(bind ?linia (format nil "  %d. %s" ?var-index ?var))
+			(printout t ?linia crlf)
+	)
+	(format t "%s" "Indica el numero corresponent: ")
+	(bind ?resp (read))
+	(bind $?llista (create$ ))
+	(if (and (integerp ?resp) (and (>= ?resp 1) (<= ?resp (length$ ?respostes))))
+		then 
+			(bind ?elem (nth$ ?resp ?respostes))
+			(if (not (member$ ?elem ?llista))
+				then (bind ?llista (insert$ ?llista 1 ?elem))
+			)
+			else
+			(bind ?llista (pregunta-llista-index ?pregunta ?respostes))
+		) 
+	)
+	?llista
+)
+
 (defrule banner "Banner"
 	(declare (salience 10))
 	=>
@@ -79,8 +112,6 @@
 	(printout t "============ INICI =============" crlf)
 	(focus preguntes-perfil-lector)
 )
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; PERFIL LECTOR
@@ -172,16 +203,15 @@
 (defrule genere-preferit
 	=>
 	(bind ?generes "")
-	(printout t "Gèneres disponibles:" crlf)
 	(do-for-all-instances
 		((?genere Genere))
 		TRUE
-		(printout t " | " ?genere:nom crlf)
 		(bind ?generes (str-cat ?generes " " ?genere:nom))
 	)
+	(bind ?generes (str-cat ?generes " indiferent"))
 	(bind ?resposta (pregunta-opts "Gènere: " (explode$ ?generes)))
+	(assert (genere-preferit ?resposta))
 )
-
 
 (defrule experimentar
 	=>
@@ -193,14 +223,166 @@
 	(assert (lloc (pregunta-opts "On llegeixes habitualment?" casa exterior transport indiferent)))
 )
 
+(defrule preu
+	=>
+	(assert (preu (pregunta-mp "El preu és un factor prioritari?")))
+)
 
+(defrule enquadernacio
+	=>
+	(assert (enquadernacio (pregunta-mp "Prefereixes els llibres ben enquadernats?")))
+)
+
+(defrule contingut-explicit
+	=>
+	(assert (contingut-explicit (pregunta-mp "Prefereixes els llibres amb contingut explícit (violència o sexe)?")))
+)
+
+(defrule actual
+	=>
+	(assert (actual (pregunta-mp "Prefereixes els llibres actuals?")))
+)
+
+(defrule bestseller
+	=>
+	(assert (bestseller (pregunta-mp "T'agraden els best-sellers?")))
+)
+
+(defrule gruixuts
+	=>
+	(assert (gruixuts (pregunta-mp "Estàs disposat a llegir llibres gruixuts?")))
+)
+
+(defrule vocabulari-facil
+	=>
+	(assert (vocabulari-facil (pregunta-mp "Prefereixes que el vocabulari usat sigui senzill?")))
+)
+
+(defrule notes
+	=>
+	(assert (notes (pregunta-mp "T'agrada prendre notes al costat dels llibres?")))
+)
+
+(defrule personatges
+	=>
+	(assert (personatges (pregunta-mp "T'agraden els llibres amb molts personatges?")))
+)
+
+(defrule nacionalitat
+	=>
+	(assert (nacionalitat (pregunta-opts "Quina és la teva preferència per la nacionalitat de l'autor?" catala espanyol catala-espanyol estranger indiferent)))
+)
+
+(defrule llengua
+	=>
+	(assert (llengua (pregunta-opts "En quina llengua prefereixes llegir?" catala castella altres indiferent)))
+)
+
+(defrule autor-preferit
+	=>
+	(bind ?autors (create$))
+	(do-for-all-instances
+		((?autor Autor))
+		TRUE
+		(bind ?autors (insert$ ?autors 1 ?autor:nom))
+	)
+	(bind ?autors (insert$ ?autors 1 "Cap dels anteriors"))
+	(bind ?resposta (pregunta-llista-index "Autor preferit: " ?autors))
+	(assert (autor-preferit ?resposta))
+)
+
+
+;;; Saltem a preguntes comunes
+(defrule a-preguntes-especifiques
+	(declare (salience -1))
+	=>
+	(focus preguntes-especifiques)
+)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; PREGUNTES ESPECIFIQUES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defmodule preguntes-especifiques "Preguntes especifiques"
+	(import preguntes-comunes ?ALL)
+	(export ?ALL)
+)
+
+(defrule lletra-gran
+	(lector (edat jove | adult))
+	=>
+	(assert (lletra-gran (pregunta-mp "Prefereixes que la lletra sigui gran?")))
+)
+
+(defrule llibres-lleugers
+	(lloc exterior | transport)
+	=>
+	(assert (llibres-lleugers (pregunta-mp "Prefereixes els llibres lleugers?")))
+)
+
+(defrule vendes
+	(bestseller molt | bastant)
+	=>
+	(assert (vendes (pregunta-mp "Si estàs entre dos llibres, prefereixes aquell que es ven més?")))
+)
+
+(defrule preu-detall
+	(preu molt | bastant)
+	=>
+	(assert (preu-detall (pregunta-opts "Fins quan estàs disposat a gastar-te en un llibre?" 20 15 10 indiferent)))
+)
+
+(defrule a-heuristiques
+	(declare (salience -1))
+	=>
+	(focus heuristiques)
+)
+
+
+
+;;; ASSIGNACIONS INCONDICIONALS
+
+;;; ESBORRAR RECOMANACIONS que no compleixen
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ASSOCIACIO HEURISTICA
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defmodule heuristiques "Heuristiques"
+	(import preguntes-especifiques ?ALL)
+	(export ?ALL)
+)
+
+(defrule crea-recomanacions
+	?llibre <- (object (is-a Llibre))
+	=>
+	(assert
+		(recomanacio
+			(isbn (send ?llibre get-isbn))
+			(qualitat desconegut)
+			(moltadequat 0)
+			(adequat 0)
+			(inadequat 0)
+			(moltinadequat 0)
+		)
+	)
+)
+
+(defrule satisfaccio-genere
+	?llibre <- (object (is-a Llibre))
+	=>
+
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; FINAL
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defrule bannerfilan
-	(declare (salience -1))
-	=>
-	(printout t "============ FINAL =============" crlf crlf)
-)
+;(defrule banner-final
+;	(declare (salience -1))
+;	=>
+;	(printout t "============ FINAL =============" crlf crlf)
+;)
+;

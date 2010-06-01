@@ -5,15 +5,17 @@
     - < 14 nen
     - < 30 jove
     - < 60 adult
-    - >= 60 gran
+    - \>= 60 gran
+
 - Sexe
   - Home
   - Dona
+
 - Llengua materna
   - Català
   - Castellà
   - Altres
-  
+
 - Perfil d'ocupació:
   - Estudiant
   - Acadèmic
@@ -28,97 +30,117 @@
   - Setmanal
   - Mensual
   - No ho sé
+
 - Temps de lectura
   - Hores
   - No ho sé
+
 - Quin és el teu gènere preferit (no té perquè ser l'únic)
   - Llista de gèneres
   - No tinc gènere preferit
   - Altres
   - No ho sé
+
 - T'agrada experimentar amb nous gèneres?
   - Molt
   - Bastant
   - Indiferent
   - Poc
   - Gens
+
 - On llegeixes habitualment
   - A casa
   - Exterior  
   - Transport
   - A tot arreu
   - No ho sé
+
 - El preu és un factor prioritari
   - Molt
   - Bastant
   - Indiferent
   - Poc
   - Gens
+
 - T'agraden els llibres ben enquadernats?
   - Molt
   - Bastant
   - Indiferent
   - Poc
   - Gens
+
 - T'agraden els llibres amb contingut explícit?
   - Molt
   - Bastant
   - Indiferent
   - Poc
   - Gens  
+
 - Tens preferència pels llibres actuals
   - Si
   - Normalment
   - Indiferent
   - A vegades
   - Mai
+
 - T'agraden els best-sellers
   - Molt
   - Bastant
   - Indiferent
   - Poc
   - Gens
+
 - Estàs disposat a llegir llibres gruixuts?
-  - Si
-  - Normalment
+  - Molt
+  - Bastant
   - Indiferent
-  - A vegades
-  - Mai
+  - Poc
+  - Gens
+
 - Prefereixes que el vocabulari usat sigui senzill?
-  - Si
-  - Normalment
+  - Molt
+  - Bastant
   - Indiferent
-  - A vegades
-  - Mai  
+  - Poc
+  - Gens
+
 - Ets dels que t'agraden prendre notes al costat dels llibres
   - Molt
   - Bastant
   - Indiferent
   - Poc
   - Gens
+
 - T'agraden els llibres amb molts personatges?
   - Molt
   - Bastant
   - Indiferent
   - Poc
   - Gens
+
 - Quina és la teva preferència per la nacionalitat de l'autor?
   - Catalans
   - Catalans i espanyols
   - Espanyols
-  - Qualsevol
   - Estrangers
+  - Indiferent
+
 - En quina llengua prefereixes llegir?
   - Català
   - Castellà
   - Altres
-- Quin d'aquests autors t'agrada més?
+  - Indiferent
+
+- Escull algun d'aquests autors si t'agraden
   - Llista
   - Cap d'aquests
-  
+  - Indiferent
+
 ##Mòdul preguntes específiques
 
-**Persona jove**
+**Persona jove o adulta**
+
+Per tant excloem: nens i gent gran que decidim que prefereixen els llibres amb lletra gran!
 
 - Prefereixes que el tipus de lletra sigui gran?
   - Molt
