@@ -1,10 +1,8 @@
 #Hipòtesis: extretes de les entrevistes amb experts
-Es tracta de fer el menor número de preguntes possibles i inferir el màxim d'informació de cada pregunta.
 
 ##Gèneres
 - Es recomanen llibres pertanyents a aquells gèneres que l'usuari té com a preferits
-- Usuari que li agrada la Ciència ficció també li pot agradar (en menys grau) la fantasia
-- Usuari que li agrada terror també li pot agradar (en menys grau) la fantasia i la ciència ficció
+- Usuari que li agrada la Ciència ficció també li pot agradar (en menys grau) la fantasia (i viceversa)
 - Usuari que li agrada la novela històrica, també li pot agradar (en menys grau) els clàssics (i viceversa)
 - Usuari que li agrada la novela històrica o clàssics se li poden recomanar llibres de tapa dura
 
@@ -13,7 +11,10 @@ Es tracta de fer el menor número de preguntes possibles i inferir el màxim d'i
 - Usuari que llegeix només al sofà de casa se li recomanen llibres de tapa dura
 
 ##Preus
-- Usuari que li influeix el preu del llibre se li recomanen llibres per sota dels 12€ i llibres de butxaca
+- Usuari que li influeix el preu
+  - Se li recomanen llibres per sota de 10€
+  - Se li des-recomanen llibres per sobre de 15€
+  - Se li recomanen llibres de butxaca i tapa tova
 
 ##Format del llibre
 - Usuari que prefereix llibre ben enquadernat o bé llibre de tamany gran no li importen el número de pàgines ni el pes del llibre
