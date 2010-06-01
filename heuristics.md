@@ -1,4 +1,4 @@
-#Abstraccions heurístiques extretes de les entrevistes amb experts
+#Hipòtesis: extretes de les entrevistes amb experts
 Es tracta de fer el menor número de preguntes possibles i inferir el màxim d'informació de cada pregunta.
 
 ##Gèneres
@@ -40,7 +40,7 @@ Es tracta de fer el menor número de preguntes possibles i inferir el màxim d'i
 
 ##Autor
 - Usuari que pren notes al costat dels llibres se li recomanen llibres profunds, complexos, amb trama enrevessada i amb molts personatges.
-- Usuari que amb autor preferit X se li recomanen aquells autors de la mateixa edat, nacionalitat i estil.
+- Usuari amb autor preferit X se li recomanen aquells autors de la mateixa edat, nacionalitat i estil.
 
 ##Llengua
 - Usuari que prefereix llibres nacionals se li recomanen llibres d'autors de la mateixa nacionalitat que l'usuari.

@@ -27,20 +27,21 @@ Per últim forma part també del domini les recomanacions emeses pel sistema, qu
 
 Partim de la presumpció que tot llibre és recomanable per l'usuari en un inici. En la primera interacció amb l'usuari se li demanarà les característiques que el defineixen. Un cop assimilades, caldrà descartar, si s'escau, aquells llibres incompatibles amb el seu perfil. Per exemple, si es tracta d'una persona major de 60 anys es descarten aquells llibres de butxaca o amb lletra molt petita o bé si es tracta d'un infant se li recomanaran llibres de gènere infantil i per tant es descarten els altres. La resta de llibres no descartats podran veure modificada la seva puntuació de cara a la recomanació. Per exemple, si el perfil d'ocupació és acadèmic, la puntuació dels llibres clàssics o històrics es veurà incrementada o pels desocupats s'entendrà que tenen més temps per llegir i s'incrementarà la puntuació dels llibres llargs. 
 
-Després es procedirà a fer les preguntes comunes. En funció de la rotunditat o incertesa de la resposta a cada pregunta comuna es procedirà sumar punts, restar-ne o bé esborrar aquells llibres en funció de les evidències i abstraccions heurístiques prèviament definides. Un cop respostes les preguntes comunes, es tindrà un \emph{ranking} limitat de llibres (sempre en funció del nivell de certesa de les respostes) i estarà ordenat de més recomanable a menys.
+Després es procedirà a fer les preguntes comunes. En funció de la rotunditat o incertesa de la resposta a cada pregunta comuna es procedirà sumar punts, restar-ne o bé esborrar aquells llibres en funció de les evidències i hipòtesis prèviament definides. Un cop respostes les preguntes comunes, es tindrà un \emph{ranking} limitat de llibres (sempre en funció del nivell de certesa de les respostes) i estarà ordenat de més recomanable a menys.
 
-Finalment es passarà a realitzar les preguntes específiques, en funció del perfil de preferències que el sistema ha obtingut de l'usuari. Per exemple, l'usuari que ha respost que li influeix el preu se li pregunta entre quins marges es pot moure, o l'usuari que llegeix fora de casa se li pregunta fins a quin punt el pes del llibre pot resultar un problema. En acabar cada pregunta d'aquest apartat s'avaluarà si les tres primeres recomanacions del \emph{ranking} ja són suficientment bones o bé si són les úniques que hi ha. En aquest cas es pararà de fer més preguntes i s'oferirà el resultat a l'usuari.
+Finalment es passarà a realitzar les preguntes específiques, en funció del perfil de preferències que el sistema ha obtingut de l'usuari. Per exemple, l'usuari que ha respost que li influeix el preu se li pregunta entre quins marges es pot moure, o l'usuari que llegeix fora de casa se li pregunta fins a quin punt el pes del llibre pot resultar un problema. Igual que en l'anterior fase, les respostes que dóna l'usuari serviran per eliminar llibres o per variar-ne la seva puntuació. Quan s'han acabat de fer totes les preguntes s'analitzarà quins llibres són els més adequats i s'establirà l'ordre final. Si hi ha 3 o més llibres a la llista s'oferirà els 3 millors llibres a l'usuari com a recomanació.
 
-\section{Evidències, hipòtesis i abstraccions heurístiques}
 
-Després d'entrevistar de forma exhaustiva el nostre expert, n'hem extret unes quantes abstraccions heurístiques i evidències que s'acostumen a tenir en compte en un procés de recomanació de llibres. Aquí les detallarem per temes, en aquesta fase es mostren tal com l'expert ens les especifica.
+\section{Evidències i hipòtesis}
+
+Després d'entrevistar de forma exhaustiva el nostre expert, n'hem extret unes quantes hipòtesis i evidències que s'acostumen a tenir en compte en un procés de recomanació de llibres i que serviran en la següent fase per elaborar el procés d'associació heurística i refinament. Aquí les detallarem per temes, en aquesta fase es mostren tal com l'expert ens les especifica.
 
 \subsection{Gèneres}
 Evidències:
 \begin{itemize}
   \item Se li recomanen preferentment els llibres del gèneres preferit de l'usuari.
 \end{itemize}
-Abstraccions heurístiques:
+Hipòtesis::
 \begin{itemize}
   \item Els usuaris amb gènere preferit la ciència ficció, la fantasia o el terror també els pot agradar els altres dos d'gèneres.
   \item Als usuaris amb gènere preferit la novel·la històrica també li poden agradar els clàssics (i viceversa).
@@ -48,19 +49,19 @@ Abstraccions heurístiques:
 \end{itemize}
 
 \subsection{Llocs de lectura}
-Abstraccions heurístiques:
+Hipòtesis::
 \begin{itemize}
   \item Els usuaris que llegeixen en transports públics prefereixen llibres de butxaca o tapa tova.
 \end{itemize}
 
 \subsection{Influència del preu}
-Abstraccions heurístiques:
+Hipòtesis::
 \begin{itemize}
   \item Els usuaris que els influeix molt el preu prefereixen llibres per sota dels 12 euros o llibres de butxaca.
 \end{itemize}
 
 \subsection{Format del preu}
-Abstraccions heurístiques:
+Hipòtesis::
 \begin{itemize}
   \item Els usuaris que prefereixen un llibre de tapa dura o bé de gran mesura no els influeix el número de pàgines o el pes.
   \item Els usuaris que tenen més de 50 anys prefereixen un tipus de lletra gran.
@@ -68,21 +69,21 @@ Abstraccions heurístiques:
 \end{itemize}
 
 \subsection{Popularitat dels llibres}
-Abstraccions heurístiques:
+Hipòtesis::
 \begin{itemize}
   \item A tots els usuaris que no especifiquin el contrari, se'ls recomana un llibre més venut abans que un llibre menys venut.
   \item Els usuaris que els agraden els best-sellers se'ls recomana preferentment els llibres més venuts.
 \end{itemize}
 
 \subsection{Dates de publicació dels llibres}
-Abstraccions heurístiques:
+Hipòtesis::
 \begin{itemize}
   \item Usuari que li agraden les novetats se li recomanen els llibres de l'últim any.
   \item Usuari que li agraden els llibres moderns se li recomanen els llibres dels  últims 20 anys i d'autors nascuts en els últims 60 anys.
 \end{itemize}
 
 \subsection{Llibres llegits}
-Abstraccions heurístiques:
+Hipòtesis::
 \begin{itemize}
   \item Usuari que ha llegit més de dos cops un mateix tipus de llibre se li recomanen aquell tipus de llibre preferentment.
 \end{itemize}

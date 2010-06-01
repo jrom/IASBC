@@ -143,12 +143,6 @@
   - No
   - Indiferent
   
-**Usuari que no li agraden els llibres fàcils**
-
-- Prefereixes un llibre reflexiu i profund o complex i enrevessat?
-  - profund
-  - complex
-  
 **Usuari que li importa el preu**
 
 - Fins quan estaries disposat a gastar-te en un llibre
