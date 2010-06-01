@@ -58,14 +58,6 @@
 	?resposta
 )
 
-(deffunction pregunta-sino (?pregunta)
-	(bind ?resposta (pregunta-opts ?pregunta si no))
-	(if (eq (lowcase ?resposta) si)
-		then TRUE
-		else FALSE
-	)
-)
-
 (deffunction pregunta-mp (?pregunta)
 	(bind ?resposta (pregunta-opts ?pregunta molt bastant indiferent poc gens ))
 	?resposta
@@ -232,7 +224,7 @@
 
 (defrule preu
 	=>
-	(assert (preu (pregunta-mp "El preu és un factor prioritari?")))
+	(assert (preu (pregunta-opts "El preu és un factor prioritari?" si no indiferent)))
 )
 
 (defrule enquadernacio
@@ -324,7 +316,7 @@
 )
 
 (defrule llibres-lleugers
-	(lloc exterior | transport)
+	(lloc ~casa)
 	=>
 	(assert (llibres-lleugers (pregunta-mp "Prefereixes els llibres lleugers?")))
 )
@@ -336,9 +328,48 @@
 )
 
 (defrule preu-detall
-	(preu molt | bastant)
+	(preu si)
 	=>
-	(assert (preu-detall (pregunta-opts "Fins quan estàs disposat a gastar-te en un llibre?" 20 15 10 indiferent)))
+	(assert (preu-detall (pregunta-num "Fins quan estàs disposat a gastar-te en un llibre?")))
+)
+
+(defrule a-incondicionals
+	(declare (salience -1))
+	=>
+	(focus incondicionals)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ASSOCIACIONS INCONDICIONALS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defmodule incondicionals "incondicionals"
+	(import preguntes-especifiques ?ALL)
+	(export ?ALL)
+)
+
+(defrule lletra-gran-inc
+	(lector (edat nen | gran))
+	=>
+	(assert (lletra-gran molt))
+)
+
+(defrule llibres-lleugers-inc
+	(lloc casa)
+	=>
+	(assert (llibres-lleugers indiferent))
+)
+
+(defrule vendes-inc
+	(bestseller poc | indiferent | gens)
+	=>
+	(assert (vendes indiferent))
+)
+
+(defrule preu-detall-inc
+	(preu ~si)
+	=>
+	(assert (preu-detall indiferent))
 )
 
 (defrule a-esborrar
@@ -347,13 +378,12 @@
 	(focus esborrar)
 )
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; ESBORRAR RECOMANACIONS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defmodule esborrar "Heuristiques"
-	(import preguntes-especifiques ?ALL)
+(defmodule esborrar "Esborrar"
+	(import incondicionals ?ALL)
 	(export ?ALL)
 )
 
@@ -372,6 +402,7 @@
 	(export ?ALL)
 )
 
+; Iniciem recomanacions amb comptadors a 0
 (defrule crea-recomanacions
 	?llibre <- (object (is-a Llibre))
 	=>
@@ -387,19 +418,80 @@
 	)
 )
 
-(defrule satisfaccio-genere-experimentador
+; Si tenim genere preferit =>
+;; el genere es +adequat
+;; si som GENS experimentadors els altres generes son +moltinadequat
+;; si som POC experimentadors els altres generes son +inadequats
+(defrule satisfaccio-generes
 	?llibre <- (object (is-a Llibre) (isbn ?isbn))
-	(experimentar molt)
-	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a))
-	(not (vist satisfaccio-genere-experimentar ?isbn))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-generes ?isbn))
+	(genere-preferit ~indiferent)
 	(genere-preferit ?gp)
+	(experimentar ?experimentador)
 	=>
 	(bind ?genere (getnom ?llibre))
-	(assert (vist satisfaccio-genere-experimentar ?isbn))
- (if (eq (str-compare ?gp ?genere) 0)
- then
- 	(modify ?recomanacio (adequat (+ ?a 1)))
- )
+	(assert (vist satisfaccio-generes ?isbn))
+	(if (eq (str-compare ?gp ?genere) 0)
+	then
+		(modify ?recomanacio (moltadequat (+ ?ma 1)))
+	else
+		(switch ?experimentador
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+			(case gens then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
+		)
+	)
+)
+
+; Si genere preferit es [fantasia, scifi], [classics, historica] =>
+;; +adequats a tots els llibres de l'altra genere similar
+(defrule satisfaccio-generes-similars
+	?llibre <- (object (is-a Llibre) (isbn ?isbn))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-generes-similars ?isbn))
+	(genere-preferit fantasia | scifi | classics | historica)
+	(genere-preferit ?gp)
+	(experimentar ?experimentador)
+	=>
+	(bind ?genere (getnom ?llibre))
+	(switch ?gp
+		(case fantasia then (bind ?altre scifi))
+		(case scifi then (bind ?altre fantasia))
+		(case classics then (bind ?altre historica))
+		(case historica then (bind ?altre classics))
+	)
+
+	(assert (vist satisfaccio-generes-similars ?isbn))
+	(if (eq (str-compare ?altre ?genere) 0)
+	then
+		(modify ?recomanacio (adequat (+ ?a 1)))
+	)
+)
+
+; Si importa el preu =>
+;; llibres de menys de 10 euros +adequat
+;; llibres de mes 15-25 euros +inadequat
+;; llibres de mes de 25 euros +moltinadequat
+;; llibres de butxaca o tapatova +adequat
+(defrule satisfaccio-preu
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (preu ?preullibre) (format ?format))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-preu ?isbn))
+	(preu ?preu)
+	(preu-detall ?preud)
+	=>
+	(assert (vist satisfaccio-preu ?isbn))
+	(if (eq (str-compare ?preu si) 0)
+	then
+		(if (> ?preullibre 15)
+		then
+			(modify ?recomanacio (inadequat (+ ?ina 1)))
+			(if (> ?preullibre 25) then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
+		else
+			(if (< ?preullibre 10) then (modify ?recomanacio (adequat (+ ?a 1))))
+		)
+		(if (or (eq ?format butxaca) (eq ?format tapatova)) then (modify ?recomanacio (adequat (+ ?a 1))) )
+	)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
