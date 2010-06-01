@@ -72,6 +72,32 @@
 	?resposta
 )
 
+;;; Pregunta on li entres una llista i accepta numeros com a respostes
+(deffunction pregunta-llista-index (?pregunta $?respostes)
+	(bind ?linia (format nil "%s" ?pregunta))
+	(printout t crlf ?linia crlf)
+	(progn$ (?var ?respostes) 
+			(bind ?linia (format nil "  %d. %s" ?var-index ?var))
+			(printout t ?linia crlf)
+	)
+	(format t "%s" "Pots escollir tantes respostes com vulguis indicant els numeros separats per espais: ")
+	(bind ?resp (readline))
+	(bind ?nombres (str-explode ?resp))
+	(bind $?llista (create$ ))
+	(progn$ (?var ?nombres) 
+		(if (and (integerp ?var) (and (>= ?var 1) (<= ?var (length$ ?respostes))))
+			then 
+				(bind ?elem (nth$ ?var ?respostes))
+				(if (not (member$ ?elem ?llista))
+					then (bind ?llista (insert$ ?llista 1 ?elem))
+				)
+				else
+				(bind ?llista (pregunta-llista-index ?pregunta ?respostes))
+		) 
+	)
+	?llista
+)
+
 (defrule banner "Banner"
 	(declare (salience 10))
 	=>
@@ -172,14 +198,16 @@
 (defrule genere-preferit
 	=>
 	(bind ?generes "")
-	(printout t "Gèneres disponibles:" crlf)
+;	(printout t "Gèneres disponibles:" crlf)
 	(do-for-all-instances
 		((?genere Genere))
 		TRUE
-		(printout t " | " ?genere:nom crlf)
+;		(printout t " | " ?genere:nom crlf)
 		(bind ?generes (str-cat ?generes " " ?genere:nom))
 	)
+	(bind ?generes (str-cat ?generes " indiferent"))
 	(bind ?resposta (pregunta-opts "Gènere: " (explode$ ?generes)))
+	(assert (genere-preferit ?resposta))
 )
 
 
@@ -193,7 +221,59 @@
 	(assert (lloc (pregunta-opts "On llegeixes habitualment?" casa exterior transport indiferent)))
 )
 
+(defrule enquadernacio
+	=>
+	(assert (enquadernacio (pregunta-mp "Prefereixes els llibres ben enquadernats?")))
+)
 
+(defrule contingut-explicit
+	=>
+	(assert (contingut-explicit (pregunta-mp "Prefereixes els llibres amb contingut explícit (violència o sexe)?")))
+)
+
+(defrule gruixuts
+	=>
+	(assert (gruixuts (pregunta-mp "Estàs disposat a llegir llibres gruixuts?")))
+)
+
+(defrule vocabulari
+	=>
+	(assert (vocabulari (pregunta-mp "Prefereixes que el vocabulari usat sigui senzill?")))
+)
+
+(defrule notes
+	=>
+	(assert (notes (pregunta-mp "T'agrada prendre notes al costat dels llibres?")))
+)
+
+(defrule personatges
+	=>
+	(assert (personatges (pregunta-mp "T'agraden els llibres amb molts personatges?")))
+)
+
+(defrule nacionalitat
+	=>
+	(assert (nacionalitat (pregunta-opts "Quina és la teva preferència per la nacionalitat de l'autor?" catala espanyol catala-espanyol estranger qualsevol)))
+)
+
+(defrule llengua
+	=>
+	(assert (llengua (pregunta-opts "En quina llengua prefereixes llegir?" catala castella altres indiferent)))
+)
+
+(defrule autor-preferit
+	=>
+	(bind ?autors (create$))
+	(do-for-all-instances
+		((?autor Autor))
+		TRUE
+		;(bind ?autors (str-cat ?autor " " ?autor:nom))
+		(bind ?autors (insert$ ?autors 1 ?autor:nom))
+	)
+	(bind ?autors (insert$ ?autors 1 "Cap dels anteriors"))
+	(bind ?resposta (pregunta-llista-index "Autor preferit: " ?autors))
+	(assert (autor-preferit ?resposta))
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; FINAL
