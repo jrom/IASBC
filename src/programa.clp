@@ -21,6 +21,7 @@
 	(slot moltinadequat)
 )
 
+
 ;; Lector per defecte
 
 ;; Tot ha de ser desconegut pero per simplificar en development faig un cas on ja esta definit
@@ -103,6 +104,12 @@
 		) 
 	)
 	?llista
+)
+
+(deffunction getnom (?llibre)
+	(bind ?genere (send ?llibre get-genere))
+	(bind ?nom (send ?genere get-nomGenere))
+	?nom
 )
 
 (defrule banner "Banner"
@@ -206,7 +213,7 @@
 	(do-for-all-instances
 		((?genere Genere))
 		TRUE
-		(bind ?generes (str-cat ?generes " " ?genere:nom))
+		(bind ?generes (str-cat ?generes " " ?genere:nomGenere))
 	)
 	(bind ?generes (str-cat ?generes " indiferent"))
 	(bind ?resposta (pregunta-opts "Gènere: " (explode$ ?generes)))
@@ -284,7 +291,7 @@
 	(do-for-all-instances
 		((?autor Autor))
 		TRUE
-		(bind ?autors (insert$ ?autors 1 ?autor:nom))
+		(bind ?autors (insert$ ?autors 1 ?autor:nomAutor))
 	)
 	(bind ?autors (insert$ ?autors 1 "Cap dels anteriors"))
 	(bind ?resposta (pregunta-llista-index "Autor preferit: " ?autors))
@@ -334,24 +341,34 @@
 	(assert (preu-detall (pregunta-opts "Fins quan estàs disposat a gastar-te en un llibre?" 20 15 10 indiferent)))
 )
 
+(defrule a-esborrar
+	(declare (salience -1))
+	=>
+	(focus esborrar)
+)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ESBORRAR RECOMANACIONS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defmodule esborrar "Heuristiques"
+	(import preguntes-especifiques ?ALL)
+	(export ?ALL)
+)
+
 (defrule a-heuristiques
 	(declare (salience -1))
 	=>
 	(focus heuristiques)
 )
 
-
-
-;;; ASSIGNACIONS INCONDICIONALS
-
-;;; ESBORRAR RECOMANACIONS que no compleixen
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; ASSOCIACIO HEURISTICA
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defmodule heuristiques "Heuristiques"
-	(import preguntes-especifiques ?ALL)
+	(import esborrar ?ALL)
 	(export ?ALL)
 )
 
@@ -370,10 +387,19 @@
 	)
 )
 
-(defrule satisfaccio-genere
-	?llibre <- (object (is-a Llibre))
+(defrule satisfaccio-genere-experimentador
+	?llibre <- (object (is-a Llibre) (isbn ?isbn))
+	(experimentar molt)
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a))
+	(not (vist satisfaccio-genere-experimentar ?isbn))
+	(genere-preferit ?gp)
 	=>
-
+	(bind ?genere (getnom ?llibre))
+	(assert (vist satisfaccio-genere-experimentar ?isbn))
+ (if (eq (str-compare ?gp ?genere) 0)
+ then
+ 	(modify ?recomanacio (adequat (+ ?a 1)))
+ )
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -1,4 +1,4 @@
-; Tue Jun 01 20:03:06 CEST 2010
+; Tue Jun 01 20:30:06 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -8,7 +8,7 @@
 	(anynaixement 1963)
 	(estil simple)
 	(nacionalitat "Estats Units")
-	(nom "Alice Sebold"))
+	(nomAutor "Alice Sebold"))
 
 ([Amanecer] of  Llibre
 
@@ -32,14 +32,14 @@
 	(anynaixement 1964)
 	(estil simple)
 	(nacionalitat "Espanya")
-	(nom "Carlos Ruiz Zafón"))
+	(nomAutor "Carlos Ruiz Zafón"))
 
 ([DanBrown] of  Autor
 
 	(anynaixement 1964)
 	(estil simple)
 	(nacionalitat "Estats Units")
-	(nom "Dan Brown"))
+	(nomAutor "Dan Brown"))
 
 ([Eclipse] of  Llibre
 
@@ -94,11 +94,11 @@
 
 ([fantasia] of  Genere
 
-	(nom "fantasia"))
+	(nomGenere "fantasia"))
 
 ([ficcio] of  Genere
 
-	(nom "ficcio"))
+	(nomGenere "ficcio"))
 
 ([HarryPotterPiedra] of  Llibre
 
@@ -122,14 +122,14 @@
 	(anynaixement 1942)
 	(estil simple)
 	(nacionalitat "Chile")
-	(nom "Isabel Allende"))
+	(nomAutor "Isabel Allende"))
 
 ([JKRowling] of  Autor
 
 	(anynaixement 1965)
 	(estil simple)
 	(nacionalitat "Gran Bretanya")
-	(nom "J. K. Rowling"))
+	(nomAutor "J. K. Rowling"))
 
 ([LaIslaBajoElMar] of  Llibre
 
@@ -204,7 +204,7 @@
 	(anynaixement 1958)
 	(estil simple)
 	(nacionalitat "Colombia")
-	(nom "Hector Abad Faciolince"))
+	(nomAutor "Hector Abad Faciolince"))
 
 ([llibreter_Class12] of  Llibre
 
@@ -227,7 +227,7 @@
 	(anynaixement 1954)
 	(estil simple)
 	(nacionalitat "Estats Units")
-	(nom "Sandra Cisneros"))
+	(nomAutor "Sandra Cisneros"))
 
 ([llibreter_Class14] of  Llibre
 
@@ -250,7 +250,7 @@
 	(anynaixement 1951)
 	(estil simple)
 	(nacionalitat "Mèxic")
-	(nom "Laura Esquivel"))
+	(nomAutor "Laura Esquivel"))
 
 ([llibreter_Class18] of  Llibre
 
@@ -307,7 +307,7 @@
 	(anynaixement 1900)
 	(estil simple)
 	(nacionalitat "França")
-	(nom "Antoine de Saint-Exupéry"))
+	(nomAutor "Antoine de Saint-Exupéry"))
 
 ([llibreter_Class21] of  Llibre
 
@@ -398,7 +398,7 @@
 	(anynaixement 1943)
 	(estil simple)
 	(nacionalitat "Mèxic")
-	(nom "Francisco Jimenez"))
+	(nomAutor "Francisco Jimenez"))
 
 ([llibreter_Class27] of  Llibre
 
@@ -453,14 +453,14 @@
 	(anynaixement 1954)
 	(estil simple)
 	(nacionalitat "Estats Units")
-	(nom "Stieg Larsson"))
+	(nomAutor "Stieg Larsson"))
 
 ([llibreter_Class30] of  Autor
 
 	(anynaixement 1953)
 	(estil profund)
 	(nacionalitat "Xile")
-	(nom "Roberto Bolaño"))
+	(nomAutor "Roberto Bolaño"))
 
 ([llibreter_Class31] of  Llibre
 
@@ -497,7 +497,7 @@
 	(anynaixement 1946)
 	(estil simple)
 	(nacionalitat "Gran Bretanya")
-	(nom "Julian Barnes"))
+	(nomAutor "Julian Barnes"))
 
 ([llibreter_Class34] of  Llibre
 
@@ -519,7 +519,7 @@
 	(anynaixement 1913)
 	(estil complicat)
 	(nacionalitat "Eslovènia")
-	(nom "Boris Pahor"))
+	(nomAutor "Boris Pahor"))
 
 ([llibreter_Class36] of  Llibre
 
@@ -541,7 +541,7 @@
 	(anynaixement 1937)
 	(estil simple)
 	(nacionalitat "Estats Units")
-	(nom "Thomas Pynchon"))
+	(nomAutor "Thomas Pynchon"))
 
 ([llibreter_Class38] of  Llibre
 
@@ -597,7 +597,7 @@
 	(anynaixement 1928)
 	(estil profund)
 	(nacionalitat "Mèxic")
-	(nom "Gabriel García Márquez"))
+	(nomAutor "Gabriel García Márquez"))
 
 ([llibreter_Class7] of  Llibre
 
@@ -654,30 +654,30 @@
 	(anynaixement 1947)
 	(estil simple)
 	(nacionalitat "Brasil")
-	(nom "Paulo Coelho"))
+	(nomAutor "Paulo Coelho"))
 
 ([RaymondCarver] of  Autor
 
 	(anynaixement 1939)
 	(estil complicat)
 	(nacionalitat "Estats Units")
-	(nom "Raymond Carver"))
+	(nomAutor "Raymond Carver"))
 
 ([social] of  Genere
 
-	(nom "social"))
+	(nomGenere "social"))
 
 ([StephenieMeyer] of  Autor
 
 	(anynaixement 1973)
 	(estil simple)
 	(nacionalitat "Estats Units")
-	(nom "Stephenie Meyer"))
+	(nomAutor "Stephenie Meyer"))
 
 ([terror] of  Genere
 
-	(nom "terror"))
+	(nomGenere "terror"))
 
 ([thriller] of  Genere
 
-	(nom "thriller"))
+	(nomGenere "thriller"))
