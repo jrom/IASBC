@@ -12,7 +12,7 @@ En quant a la viabilitat econòmica del projecte, considerem que el mercat de le
 
 \section{Fonts de coneixement}
 
-La informació disponible dels llibres l'hem extret de diverses llibreries en línia. En particular, hem usat Amazon.com, Barnes\&Noble i La Casa del Llibre. Les instàncies particulars les hem extret (mitjançant la programació d'un programa \emph{scrapper}) dels llocs web esmentats.
+La informació disponible dels llibres l'hem extret de diverses llibreries en línia. En particular, hem usat Amazon.com, La Central, Barnes\&Noble i La Casa del Llibre. Les instàncies particulars les hem extret (mitjançant la programació d'un programa \emph{scrapper}) dels llocs web esmentats.
 
 Evidentment, podem comptar només amb aquella informació que és pública: la descripció dels llibres i tots els seus camps característics i de l'autor, tot i que no podem conèixer a priori detalls personals de l'autor ni quines influències ha tingut per comparar-les amb l'usuari. Tampoc tenim la possibilitat que el sistema aprengui noves regles a força d'ús. Per exemple, seria interessant que el sistema pogués rebre una valoració positiva quan una recomanació és adequada o negativa quan no ho és, i corregir o reescriure automàticament algunes de les seves regles (sistema conegut com aprenentatge basat en explicacions).
 
@@ -23,7 +23,7 @@ El coneixement necessari pel sistema es divideix en aquell coneixement.
 
 \section{Objectius del sistema}
 
-L'objectiu del sistema és generar una llista de \textbf{tres} llibres recomanats ordenat per grau d'adequació. Si algun d'aquests llibres és parcialment recomanat (perquè no compleix algun criteri) s'informarà l'usuari del criteri que no compleix. Però en principi i amb un domini suficientment gran, haurien d'existir almenys tres llibres recomanables per qualsevol combinació de preferències i restriccions de l'usuari.
+L'objectiu del sistema és generar una llista de \textbf{tres} llibres recomanats ordenat per grau d'adequació. Ara bé, si l'usuari ha respost de manera clarament negativa totes les preguntes llavors no se li recomanarà cap llibre. De la mateixa manera, si l'usuari respon amb indiferència totes les preguntes, la recomanació vindrà donada només per les característiques del seu perfil. S'entén que en condicions normals, i amb un domini suficientment gran, haurien d'existir almenys tres llibres recomanables per qualsevol combinació de preferències i restriccions de l'usuari.
 
 
 

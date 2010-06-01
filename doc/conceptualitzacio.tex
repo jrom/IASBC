@@ -4,12 +4,10 @@ En aquesta fase s'intenta adquirir la perspectiva de l'expert. De la interacció
 
 \section{Elements del domini}
 
-El domini del nostre SBC es basa en:
-
 Els primers elements a considerar són aquells que formen part de l'ontologia permanent del sistema, és a dir, els llibres, els autors i els gèneres.
 \begin{itemize}
-  \item Els llibres: El seu títol, el preu, l'any d'edició, el número d'edicions, el format, l'idioma, el número de pàgines, la mesura de la lletra, si és un best-seller o no ho és, l'enquadernació, l'edat a la qual està orientat i el \emph{ranking} de ventes són les seves característiques directes principals.
-  \item Els autors: El seu nom, l'estil en que escriuen i la nacionalitat en la qual pertanyen.
+  \item Els llibres: El seu títol, el preu, l'any d'edició, el número d'edicions, el format, l'idioma, el número de pàgines, la mesura de la lletra, si és un best-seller o no ho és, l'enquadernació, l'edat a la qual està orientat, el \emph{ranking} de ventes, la trama, el vocabulari usat i si hi apareixen un gran nombre de personatges en són les seves característiques directes principals.
+  \item Els autors: El seu nom, l'estil en que escriuen, la nacionalitat i el seu gènere principal.
   \item Els gèneres: Dins del gènere de ficció, hi ha molts gèneres diferents. En guardem el seu nom.
 \end{itemize}
 
@@ -19,15 +17,18 @@ També forma part del domini l'usuari: les seves característiques i preferènci
   \item Preferències comunes: La freqüència i el temps de lectura, el gènere preferit, si li agrada experimentar amb nous gèneres, lloc habitual de lectura, tipus d'enquadernació preferida, importància del preu, preferència per llibres amb contingut explícit, preferència per llibres actuals, preferència per best-sellers, preferència per llibres gruixuts, preferència per llibres amb vocabulari senzill, preferència per llibres de trama enrevessada, preferència per llibres amb molts personatges, origen preferit de l'autor i llengua de lectura preferida.
   \item Preferències específiques: Preferència per tipus de lletra gran, preferència per llibres lleugers, preferència per llibres més venuts, preferència per llibres complexos o profunds 
 \end{itemize}
+
   **\textbf{ACABAR}**
 
 Per últim forma part també del domini les recomanacions emeses pel sistema, que estan ordenades per ordre de més apropiades a menys. Les tres millors són les que es retornen a l'usuari.
 
 \section{Descomposició en subproblemes i flux de raonament}
 
-Partim de la presumpció que tot llibre és recomanable per l'usuari en un inici. En la primera interacció amb l'usuari se li demanarà les característiques que el defineixen. Un cop assimilades, caldrà descartar, si s'escau, aquells llibres incompatibles amb el seu perfil. Per exemple, si es tracta d'una persona major de 60 anys es descarten aquells llibres de butxaca o amb lletra molt petita o bé si es tracta d'un infant se li recomanaran llibres de gènere infantil i per tant es descarten els altres. La resta de llibres no descartats podran veure modificada la seva puntuació de cara a la recomanació. Per exemple, si el perfil d'ocupació és acadèmic, la puntuació dels llibres clàssics o històrics es veurà incrementada o pels desocupats s'entendrà que tenen més temps per llegir i s'incrementarà la puntuació dels llibres llargs. 
+Partim de la presumpció que tot llibre és recomanable per l'usuari en un inici. 
 
-Després es procedirà a fer les preguntes comunes. En funció de la rotunditat o incertesa de la resposta a cada pregunta comuna es procedirà sumar punts, restar-ne o bé esborrar aquells llibres en funció de les evidències i hipòtesis prèviament definides. Un cop respostes les preguntes comunes, es tindrà un \emph{ranking} limitat de llibres (sempre en funció del nivell de certesa de les respostes) i estarà ordenat de més recomanable a menys.
+En la primera interacció amb l'usuari se li demanarà les característiques que el defineixen. Un cop assimilades, caldrà descartar, si s'escau, aquells llibres incompatibles amb el seu perfil. Per exemple, si es tracta d'una persona major de 60 anys es descarten aquells llibres de butxaca o amb lletra molt petita o bé si es tracta d'un infant se li recomanaran llibres de gènere infantil i per tant es descarten els altres. La resta de llibres no descartats podran veure modificada la seva puntuació de cara a la recomanació. Per exemple, si el perfil d'ocupació és acadèmic, la puntuació dels llibres clàssics o històrics es veurà incrementada o pels desocupats s'entendrà que tenen més temps per llegir i s'incrementarà la puntuació dels llibres llargs. 
+
+Després es procedirà a fer les preguntes comunes. En funció de la rotunditat o incertesa de les respostes es procedirà sumar punts, restar-ne o bé esborrar aquells llibres en funció de les evidències i hipòtesis prèviament definides. Un cop respostes les preguntes comunes, es tindrà un \emph{ranking} limitat de llibres (sempre en funció del nivell de certesa de les respostes) i estarà ordenat de més recomanable a menys.
 
 Finalment es passarà a realitzar les preguntes específiques, en funció del perfil de preferències que el sistema ha obtingut de l'usuari. Per exemple, l'usuari que ha respost que li influeix el preu se li pregunta entre quins marges es pot moure, o l'usuari que llegeix fora de casa se li pregunta fins a quin punt el pes del llibre pot resultar un problema. Igual que en l'anterior fase, les respostes que dóna l'usuari serviran per eliminar llibres o per variar-ne la seva puntuació. Quan s'han acabat de fer totes les preguntes s'analitzarà quins llibres són els més adequats i s'establirà l'ordre final. Si hi ha 3 o més llibres a la llista s'oferirà els 3 millors llibres a l'usuari com a recomanació.
 
