@@ -7,8 +7,6 @@ Es tracta de fer el menor número de preguntes possibles i inferir el màxim d'i
 - Usuari que li agrada terror també li pot agradar (en menys grau) la fantasia i la ciència ficció
 - Usuari que li agrada la novela històrica, també li pot agradar (en menys grau) els clàssics (i viceversa)
 - Usuari que li agrada la novela històrica o clàssics se li poden recomanar llibres de tapa dura
-- Usuari que li agrada la novela thriller no li agrada la novela històrica o clàssics.
-
 
 ##Llocs de lectura
 - Usuari que sovint llegeix al metro o durant transports se li recomanen llibres de butxaca

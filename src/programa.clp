@@ -12,6 +12,15 @@
 	(slot ocupacio)
 )
 
+(deftemplate recomanacio
+	(slot isbn)
+	(slot qualitat)
+	(slot moltadequat)
+	(slot adequat)
+	(slot inadequat)
+	(slot moltinadequat)
+)
+
 ;; Lector per defecte
 
 ;; Tot ha de ser desconegut pero per simplificar en development faig un cas on ja esta definit
@@ -80,19 +89,17 @@
 			(bind ?linia (format nil "  %d. %s" ?var-index ?var))
 			(printout t ?linia crlf)
 	)
-	(format t "%s" "Pots escollir tantes respostes com vulguis indicant els numeros separats per espais: ")
-	(bind ?resp (readline))
-	(bind ?nombres (str-explode ?resp))
+	(format t "%s" "Indica el numero corresponent: ")
+	(bind ?resp (read))
 	(bind $?llista (create$ ))
-	(progn$ (?var ?nombres) 
-		(if (and (integerp ?var) (and (>= ?var 1) (<= ?var (length$ ?respostes))))
-			then 
-				(bind ?elem (nth$ ?var ?respostes))
-				(if (not (member$ ?elem ?llista))
-					then (bind ?llista (insert$ ?llista 1 ?elem))
-				)
-				else
-				(bind ?llista (pregunta-llista-index ?pregunta ?respostes))
+	(if (and (integerp ?resp) (and (>= ?resp 1) (<= ?resp (length$ ?respostes))))
+		then 
+			(bind ?elem (nth$ ?resp ?respostes))
+			(if (not (member$ ?elem ?llista))
+				then (bind ?llista (insert$ ?llista 1 ?elem))
+			)
+			else
+			(bind ?llista (pregunta-llista-index ?pregunta ?respostes))
 		) 
 	)
 	?llista
@@ -105,8 +112,6 @@
 	(printout t "============ INICI =============" crlf)
 	(focus preguntes-perfil-lector)
 )
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; PERFIL LECTOR
@@ -198,18 +203,15 @@
 (defrule genere-preferit
 	=>
 	(bind ?generes "")
-;	(printout t "Gèneres disponibles:" crlf)
 	(do-for-all-instances
 		((?genere Genere))
 		TRUE
-;		(printout t " | " ?genere:nom crlf)
 		(bind ?generes (str-cat ?generes " " ?genere:nom))
 	)
 	(bind ?generes (str-cat ?generes " indiferent"))
 	(bind ?resposta (pregunta-opts "Gènere: " (explode$ ?generes)))
 	(assert (genere-preferit ?resposta))
 )
-
 
 (defrule experimentar
 	=>
@@ -282,7 +284,6 @@
 	(do-for-all-instances
 		((?autor Autor))
 		TRUE
-		;(bind ?autors (str-cat ?autor " " ?autor:nom))
 		(bind ?autors (insert$ ?autors 1 ?autor:nom))
 	)
 	(bind ?autors (insert$ ?autors 1 "Cap dels anteriors"))
@@ -333,12 +334,55 @@
 	(assert (preu-detall (pregunta-opts "Fins quan estàs disposat a gastar-te en un llibre?" 20 15 10 indiferent)))
 )
 
+(defrule a-heuristiques
+	(declare (salience -1))
+	=>
+	(focus heuristiques)
+)
+
+
+
+;;; ASSIGNACIONS INCONDICIONALS
+
+;;; ESBORRAR RECOMANACIONS que no compleixen
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ASSOCIACIO HEURISTICA
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defmodule heuristiques "Heuristiques"
+	(import preguntes-especifiques ?ALL)
+	(export ?ALL)
+)
+
+(defrule crea-recomanacions
+	?llibre <- (object (is-a Llibre))
+	=>
+	(assert
+		(recomanacio
+			(isbn (send ?llibre get-isbn))
+			(qualitat desconegut)
+			(moltadequat 0)
+			(adequat 0)
+			(inadequat 0)
+			(moltinadequat 0)
+		)
+	)
+)
+
+(defrule satisfaccio-genere
+	?llibre <- (object (is-a Llibre))
+	=>
+
+)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; FINAL
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defrule banner-final
-	(declare (salience -1))
-	=>
-	(printout t "============ FINAL =============" crlf crlf)
-)
+;(defrule banner-final
+;	(declare (salience -1))
+;	=>
+;	(printout t "============ FINAL =============" crlf crlf)
+;)
+;
