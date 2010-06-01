@@ -221,6 +221,11 @@
 	(assert (lloc (pregunta-opts "On llegeixes habitualment?" casa exterior transport indiferent)))
 )
 
+(defrule preu
+	=>
+	(assert (preu (pregunta-mp "El preu és un factor prioritari?")))
+)
+
 (defrule enquadernacio
 	=>
 	(assert (enquadernacio (pregunta-mp "Prefereixes els llibres ben enquadernats?")))
@@ -231,14 +236,24 @@
 	(assert (contingut-explicit (pregunta-mp "Prefereixes els llibres amb contingut explícit (violència o sexe)?")))
 )
 
+(defrule actual
+	=>
+	(assert (actual (pregunta-mp "Prefereixes els llibres actuals?")))
+)
+
+(defrule bestseller
+	=>
+	(assert (bestseller (pregunta-mp "T'agraden els best-sellers?")))
+)
+
 (defrule gruixuts
 	=>
 	(assert (gruixuts (pregunta-mp "Estàs disposat a llegir llibres gruixuts?")))
 )
 
-(defrule vocabulari
+(defrule vocabulari-facil
 	=>
-	(assert (vocabulari (pregunta-mp "Prefereixes que el vocabulari usat sigui senzill?")))
+	(assert (vocabulari-facil (pregunta-mp "Prefereixes que el vocabulari usat sigui senzill?")))
 )
 
 (defrule notes
@@ -253,7 +268,7 @@
 
 (defrule nacionalitat
 	=>
-	(assert (nacionalitat (pregunta-opts "Quina és la teva preferència per la nacionalitat de l'autor?" catala espanyol catala-espanyol estranger qualsevol)))
+	(assert (nacionalitat (pregunta-opts "Quina és la teva preferència per la nacionalitat de l'autor?" catala espanyol catala-espanyol estranger indiferent)))
 )
 
 (defrule llengua
@@ -275,11 +290,54 @@
 	(assert (autor-preferit ?resposta))
 )
 
+
+;;; Saltem a preguntes comunes
+(defrule a-preguntes-especifiques
+	(declare (salience -1))
+	=>
+	(focus preguntes-especifiques)
+)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; PREGUNTES ESPECIFIQUES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defmodule preguntes-especifiques "Preguntes especifiques"
+	(import preguntes-comunes ?ALL)
+	(export ?ALL)
+)
+
+(defrule lletra-gran
+	(lector (edat jove | adult))
+	=>
+	(assert (lletra-gran (pregunta-mp "Prefereixes que la lletra sigui gran?")))
+)
+
+(defrule llibres-lleugers
+	(lloc exterior | transport)
+	=>
+	(assert (llibres-lleugers (pregunta-mp "Prefereixes els llibres lleugers?")))
+)
+
+(defrule vendes
+	(bestseller molt | bastant)
+	=>
+	(assert (vendes (pregunta-mp "Si estàs entre dos llibres, prefereixes aquell que es ven més?")))
+)
+
+(defrule preu-detall
+	(preu molt | bastant)
+	=>
+	(assert (preu-detall (pregunta-opts "Fins quan estàs disposat a gastar-te en un llibre?" 20 15 10 indiferent)))
+)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; FINAL
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defrule bannerfilan
+(defrule banner-final
 	(declare (salience -1))
 	=>
 	(printout t "============ FINAL =============" crlf crlf)

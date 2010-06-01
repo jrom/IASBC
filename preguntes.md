@@ -138,7 +138,9 @@
 
 ##Mòdul preguntes específiques
 
-**Persona jove**
+**Persona jove o adulta**
+
+Per tant excloem: nens i gent gran que decidim que prefereixen els llibres amb lletra gran!
 
 - Prefereixes que el tipus de lletra sigui gran?
   - Molt
