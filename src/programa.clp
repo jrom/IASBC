@@ -527,7 +527,7 @@
 	then
 		(send ?llibre delete)
 	)
-)
+)s
 
 
 (defrule a-heuristiques
@@ -858,7 +858,7 @@
 	(assert (vist satisfaccio-personatges ?isbn))
 	(if ?moltspersonatges
 	then
-		(switch ?enq
+		(switch ?personatges
 			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
 			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
 			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
@@ -879,7 +879,7 @@
 	(assert (vist satisfaccio-explicit ?isbn))
 	(if ?explicit
 	then
-		(switch ?enq
+		(switch ?contingutexplicit
 			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
 			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
 			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
