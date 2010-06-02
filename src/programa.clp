@@ -222,11 +222,6 @@
 	(assert (lloc (pregunta-opts "On llegeixes habitualment?" casa exterior transport indiferent)))
 )
 
-(defrule preu
-	=>
-	(assert (preu (pregunta-opts "El preu és un factor prioritari?" si no indiferent)))
-)
-
 (defrule enquadernacio
 	=>
 	(assert (enquadernacio (pregunta-mp "Prefereixes els llibres ben enquadernats?")))
@@ -327,6 +322,12 @@
 	(assert (vendes (pregunta-mp "Si estàs entre dos llibres, prefereixes aquell que es ven més?")))
 )
 
+(defrule preu
+	(lector (ocupacio academic | professional | altres))
+	=>
+	(assert (preu (pregunta-opts "El preu és un factor prioritari?" si no indiferent)))
+)
+
 (defrule preu-detall
 	(preu si)
 	=>
@@ -366,6 +367,12 @@
 	(assert (vendes indiferent))
 )
 
+(defrule preu-estudiant-desocupat
+	(lector (ocupacio estudiant | desocupat))
+	=>
+	(assert (preu si))
+)
+
 (defrule preu-detall-inc
 	(preu ~si)
 	=>
@@ -386,6 +393,9 @@
 	(import incondicionals ?ALL)
 	(export ?ALL)
 )
+
+
+;;; TODO ESBORRAR LLIBRES!
 
 (defrule a-heuristiques
 	(declare (salience -1))
@@ -478,7 +488,6 @@
 	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
 	(not (vist satisfaccio-preu ?isbn))
 	(preu ?preu)
-	(preu-detall ?preud)
 	=>
 	(assert (vist satisfaccio-preu ?isbn))
 	(if (eq (str-compare ?preu si) 0)
