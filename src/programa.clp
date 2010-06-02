@@ -10,6 +10,7 @@
 	(slot sexe)
 	(slot llengua)
 	(slot ocupacio)
+	(multislot reco)
 )
 
 (deftemplate recomanacio
@@ -37,6 +38,8 @@
 		(sexe home)
 		(llengua catala)
 		(ocupacio estudiant)
+
+		(reco (create$))
 		)
 )
 
@@ -98,10 +101,43 @@
 	?llista
 )
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; FUNCIONS AUXILIARS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (deffunction getnom (?llibre)
 	(bind ?genere (send ?llibre get-genere))
 	(bind ?nom (send ?genere get-nomGenere))
 	?nom
+)
+
+; Molt adequat +3
+; adequat +1
+; inadequat -1
+; molt inadequat -3
+(deffunction getranking (?recomanacio)
+	(bind ?ma (fact-slot-value ?recomanacio moltadequat))
+	(bind ?a (fact-slot-value ?recomanacio adequat))
+	(bind ?ina (fact-slot-value ?recomanacio inadequat))
+	(bind ?mina (fact-slot-value ?recomanacio moltinadequat))
+	(bind ?res (+ (* ?ma 3) ?a) )
+	(bind ?res (- ?res (+ (* ?mina 3) ?ina)) )
+	?res
+)
+
+(deffunction >recomanacio (?recomanacio1 ?recomanacio2)
+	(bind ?res1 (getranking ?recomanacio1) )
+	(bind ?res2 (getranking ?recomanacio2) )
+	(< ?res1 ?res2)
+)
+
+(deffunction mostra-llibre (?llibre)
+	(printout t "===============================================" crlf)
+	(printout t "Titol:   " (send ?llibre get-titol) crlf)
+	(printout t "ISBN:    " (send ?llibre get-isbn) crlf)
+	(printout t "Gènere:  " (getnom ?llibre) crlf)
+	(printout t "===============================================" crlf)
 )
 
 (defrule banner "Banner"
@@ -304,9 +340,19 @@
 	(export ?ALL)
 )
 
+
+(defrule lletra-gran-inc
+	(lector (edat nen | gran))
+	=>
+	(assert (lletra-gran molt))
+)
+
+
 (defrule lletra-gran
 	(lector (edat jove | adult))
+	(not (vist lletra-gran))
 	=>
+	(assert (vist lletra-gran))
 	(assert (lletra-gran (pregunta-mp "Prefereixes que la lletra sigui gran?")))
 )
 
@@ -326,6 +372,12 @@
 	(lector (ocupacio academic | professional | altres))
 	=>
 	(assert (preu (pregunta-opts "El preu és un factor prioritari?" si no indiferent)))
+)
+
+(defrule preu-estudiant-desocupat
+	(lector (ocupacio estudiant | desocupat))
+	=>
+	(assert (preu si))
 )
 
 (defrule preu-detall
@@ -349,12 +401,6 @@
 	(export ?ALL)
 )
 
-(defrule lletra-gran-inc
-	(lector (edat nen | gran))
-	=>
-	(assert (lletra-gran molt))
-)
-
 (defrule llibres-lleugers-inc
 	(lloc casa)
 	=>
@@ -365,18 +411,6 @@
 	(bestseller poc | indiferent | gens)
 	=>
 	(assert (vendes indiferent))
-)
-
-(defrule preu-estudiant-desocupat
-	(lector (ocupacio estudiant | desocupat))
-	=>
-	(assert (preu si))
-)
-
-(defrule preu-detall-inc
-	(preu ~si)
-	=>
-	(assert (preu-detall indiferent))
 )
 
 (defrule grau-lectura
@@ -429,6 +463,37 @@
 	(export ?ALL)
 )
 
+
+(defrule esborrar-massa-cars
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (preu ?preu))
+	(preu si)
+	(preu-detall ?p)
+	=>
+	(if (> ?preu ?p)
+	then
+		(send ?llibre delete)
+	)
+)
+
+(defrule esborrar-massa-infantils
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (orientacio ?orientacio))
+	?l <- (lector (edat ~nen))
+	=>
+	(if (eq (str-compare ?orientacio infantil) 0)
+	then
+		(send ?llibre delete)
+	)
+)
+
+(defrule esborrar-massa-adults
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (orientacio ?orientacio))
+	?l <- (lector (edat nen))
+	=>
+	(if (neq (str-compare ?orientacio infantil) 0)
+	then
+		(send ?llibre delete)
+	)
+)
 
 ;;; TODO ESBORRAR LLIBRES!
 
@@ -523,19 +588,17 @@
 	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
 	(not (vist satisfaccio-preu ?isbn))
 	(preu ?preu)
+	(test (neq (str-compare ?preu si) 0)) ;no entrem si no ens importa el preu
 	=>
 	(assert (vist satisfaccio-preu ?isbn))
-	(if (eq (str-compare ?preu si) 0)
+	(if (> ?preullibre 25)
 	then
-		(if (> ?preullibre 15)
-		then
-			(modify ?recomanacio (inadequat (+ ?ina 1)))
-			(if (> ?preullibre 25) then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
-		else
-			(if (< ?preullibre 10) then (modify ?recomanacio (adequat (+ ?a 1))))
-		)
-		(if (or (eq ?format butxaca) (eq ?format tapatova)) then (modify ?recomanacio (adequat (+ ?a 1))) )
+		(modify ?recomanacio (inadequat (+ ?ina 1)))
+		(if (> ?preullibre 40) then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
+	else
+		(if (< ?preullibre 10) then (modify ?recomanacio (adequat (+ ?a 1))))
 	)
+	(if (or (eq ?format butxaca) (eq ?format tapatova)) then (modify ?recomanacio (adequat (+ ?a 1))))
 )
 
 
@@ -750,7 +813,45 @@
 	)	
 )
 
+(defrule a-refinament
+	(declare (salience -1))
+	=>
+	(focus refinament)
+)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; REFINAMENT
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defmodule refinament "Refinament"
+	(import heuristiques ?ALL)
+	(export ?ALL)
+)
+
+(defrule fer-ranking
+	?lector <- (lector)
+	?llibre <- (object (is-a Llibre) (isbn ?isbn))
+	?recomanacio <- (recomanacio (isbn ?isbn))
+	(not (vist fer-ranking ?isbn))
+	=>
+	(assert (vist fer-ranking ?isbn))
+	(bind ?reco (fact-slot-value ?lector reco))
+	(modify ?lector (reco (insert$ ?reco 1 ?recomanacio)))
+)
+
+(defrule mostrar-ranking
+	?lector <- (lector)
+	=>
+	(bind ?reco (fact-slot-value ?lector reco))
+	(bind ?reco (sort >recomanacio ?reco))
+	(bind ?reco (subseq$ ?reco 1 3))
+	(printout t crlf crlf crlf "Mostrant les tres millors recomanacions (si n'hi ha)" crlf)
+	(progn$ (?r ?reco)
+		(bind ?isbn (fact-slot-value ?r isbn))
+		(bind ?l (nth$ 1 (find-instance ((?llibre Llibre)) (eq (str-compare ?llibre:isbn ?isbn) 0) )) )
+		(mostra-llibre ?l)
+	)
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; FINAL
