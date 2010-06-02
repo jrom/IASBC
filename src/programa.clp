@@ -112,13 +112,17 @@
 	?nom
 )
 
+; Molt adequat +3
+; adequat +1
+; inadequat -1
+; molt inadequat -3
 (deffunction getranking (?recomanacio)
 	(bind ?ma (fact-slot-value ?recomanacio moltadequat))
 	(bind ?a (fact-slot-value ?recomanacio adequat))
 	(bind ?ina (fact-slot-value ?recomanacio inadequat))
 	(bind ?mina (fact-slot-value ?recomanacio moltinadequat))
-	(bind ?res (+ (* ?ma 5) ?a) )
-	(bind ?res (- ?res (+ (* ?mina 5) ?ina)) )
+	(bind ?res (+ (* ?ma 3) ?a) )
+	(bind ?res (- ?res (+ (* ?mina 3) ?ina)) )
 	?res
 )
 
@@ -409,12 +413,6 @@
 	(assert (vendes indiferent))
 )
 
-(defrule preu-detall-inc
-	(preu ~si)
-	=>
-	(assert (preu-detall indiferent))
-)
-
 (defrule grau-lectura
 	(frequencia ?freq) ; diaria setmanal mensual
 	(tempslectura ?temps)
@@ -465,6 +463,37 @@
 	(export ?ALL)
 )
 
+
+(defrule esborrar-massa-cars
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (preu ?preu))
+	(preu si)
+	(preu-detall ?p)
+	=>
+	(if (> ?preu ?p)
+	then
+		(send ?llibre delete)
+	)
+)
+
+(defrule esborrar-massa-infantils
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (orientacio ?orientacio))
+	?l <- (lector (edat ~nen))
+	=>
+	(if (eq (str-compare ?orientacio infantil) 0)
+	then
+		(send ?llibre delete)
+	)
+)
+
+(defrule esborrar-massa-adults
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (orientacio ?orientacio))
+	?l <- (lector (edat nen))
+	=>
+	(if (neq (str-compare ?orientacio infantil) 0)
+	then
+		(send ?llibre delete)
+	)
+)
 
 ;;; TODO ESBORRAR LLIBRES!
 
@@ -559,19 +588,17 @@
 	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
 	(not (vist satisfaccio-preu ?isbn))
 	(preu ?preu)
+	(test (neq (str-compare ?preu si) 0)) ;no entrem si no ens importa el preu
 	=>
 	(assert (vist satisfaccio-preu ?isbn))
-	(if (eq (str-compare ?preu si) 0)
+	(if (> ?preullibre 25)
 	then
-		(if (> ?preullibre 15)
-		then
-			(modify ?recomanacio (inadequat (+ ?ina 1)))
-			(if (> ?preullibre 25) then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
-		else
-			(if (< ?preullibre 10) then (modify ?recomanacio (adequat (+ ?a 1))))
-		)
-		(if (or (eq ?format butxaca) (eq ?format tapatova)) then (modify ?recomanacio (adequat (+ ?a 1))) )
+		(modify ?recomanacio (inadequat (+ ?ina 1)))
+		(if (> ?preullibre 40) then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
+	else
+		(if (< ?preullibre 10) then (modify ?recomanacio (adequat (+ ?a 1))))
 	)
+	(if (or (eq ?format butxaca) (eq ?format tapatova)) then (modify ?recomanacio (adequat (+ ?a 1))))
 )
 
 
