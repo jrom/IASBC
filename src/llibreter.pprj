@@ -1,4 +1,4 @@
-; Wed Jun 02 12:51:33 CEST 2010
+; Wed Jun 02 17:23:28 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -20,12 +20,12 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[llibreter_ProjectKB_Class20140]
-		[llibreter_ProjectKB_Class20141]
-		[llibreter_ProjectKB_Class20142]
-		[llibreter_ProjectKB_Class20143]
-		[llibreter_ProjectKB_Class20144]
-		[llibreter_ProjectKB_Class20145]))
+		[llibreter_ProjectKB_Class10072]
+		[llibreter_ProjectKB_Class10073]
+		[llibreter_ProjectKB_Class10074]
+		[llibreter_ProjectKB_Class10075]
+		[llibreter_ProjectKB_Class10076]
+		[llibreter_ProjectKB_Class10077]))
 
 ([CLSES_TAB] of  Widget
 
@@ -77,9 +77,9 @@
 ([KB_561275_Class1] of  Map
 
 	(entries
-		[llibreter_ProjectKB_Class20146]
-		[llibreter_ProjectKB_Class20147]
-		[llibreter_ProjectKB_Class20148]))
+		[llibreter_ProjectKB_Class10078]
+		[llibreter_ProjectKB_Class10079]
+		[llibreter_ProjectKB_Class10080]))
 
 ([KB_561275_Class100] of  Property_List
 )
@@ -173,7 +173,7 @@
 ([KB_561275_Class99] of  Property_List
 )
 
-([KB_944931_Class3] of  Map
+([KB_887741_Class3] of  Map
 )
 
 ([LAYOUT_PROPERTIES] of  Property_List
@@ -190,33 +190,56 @@
 ([llibreter_ProjectKB_Class10] of  Property_List
 )
 
-([llibreter_ProjectKB_Class10007] of  Widget
+([llibreter_ProjectKB_Class10072] of  String
 
-	(height 60)
-	(is_hidden FALSE)
-	(name "llibreter_Class10001")
-	(property_list [llibreter_ProjectKB_Class10008])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 0))
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
 
-([llibreter_ProjectKB_Class10008] of  Property_List
-)
+([llibreter_ProjectKB_Class10073] of  String
 
-([llibreter_ProjectKB_Class10013] of  Widget
+	(name "Autor")
+	(string_value "nomAutor"))
 
-	(height 60)
-	(is_hidden FALSE)
-	(name "estil")
-	(property_list [llibreter_ProjectKB_Class10014])
-	(widget_class_name "edu.stanford.smi.protege.widget.ComboBoxWidget")
-	(width 100)
-	(x 300)
-	(y 60))
+([llibreter_ProjectKB_Class10074] of  String
 
-([llibreter_ProjectKB_Class10014] of  Property_List
-)
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([llibreter_ProjectKB_Class10075] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([llibreter_ProjectKB_Class10076] of  String
+
+	(name "Genere")
+	(string_value "nomAutor"))
+
+([llibreter_ProjectKB_Class10077] of  String
+
+	(name "Llibre")
+	(string_value "titol"))
+
+([llibreter_ProjectKB_Class10078] of  Map_Entry
+
+	(key "add_name_on_instance_form")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([llibreter_ProjectKB_Class10079] of  Map_Entry
+
+	(key "change_tracking_active")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([llibreter_ProjectKB_Class10080] of  Map_Entry
+
+	(key "suppress_instance_counting")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
 
 ([llibreter_ProjectKB_Class107] of  String
 
@@ -269,127 +292,6 @@
 
 ([llibreter_ProjectKB_Class20] of  Property_List
 )
-
-([llibreter_ProjectKB_Class20066] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "any_publicacio")
-	(property_list [llibreter_ProjectKB_Class20067])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 240))
-
-([llibreter_ProjectKB_Class20067] of  Property_List
-)
-
-([llibreter_ProjectKB_Class20088] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "tramasimple")
-	(property_list [llibreter_ProjectKB_Class20089])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 300))
-
-([llibreter_ProjectKB_Class20089] of  Property_List
-)
-
-([llibreter_ProjectKB_Class20092] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "moltspersonatges")
-	(property_list [llibreter_ProjectKB_Class20093])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 360))
-
-([llibreter_ProjectKB_Class20093] of  Property_List
-)
-
-([llibreter_ProjectKB_Class20096] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "vocabularisimple")
-	(property_list [llibreter_ProjectKB_Class20097])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 420))
-
-([llibreter_ProjectKB_Class20097] of  Property_List
-)
-
-([llibreter_ProjectKB_Class20100] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "explicit")
-	(property_list [llibreter_ProjectKB_Class20101])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 480))
-
-([llibreter_ProjectKB_Class20101] of  Property_List
-)
-
-([llibreter_ProjectKB_Class20140] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([llibreter_ProjectKB_Class20141] of  String
-
-	(name "Autor")
-	(string_value "nomAutor"))
-
-([llibreter_ProjectKB_Class20142] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([llibreter_ProjectKB_Class20143] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([llibreter_ProjectKB_Class20144] of  String
-
-	(name "Genere")
-	(string_value "nomAutor"))
-
-([llibreter_ProjectKB_Class20145] of  String
-
-	(name "Llibre")
-	(string_value "titol"))
-
-([llibreter_ProjectKB_Class20146] of  Map_Entry
-
-	(key "add_name_on_instance_form")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
-
-([llibreter_ProjectKB_Class20147] of  Map_Entry
-
-	(key "change_tracking_active")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
-
-([llibreter_ProjectKB_Class20148] of  Map_Entry
-
-	(key "suppress_instance_counting")
-	(key_class "java.lang.String")
-	(value "false")
-	(value_class "java.lang.String"))
 
 ([llibreter_ProjectKB_Class21] of  Widget
 
@@ -773,8 +675,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_FACET_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
+		[STANDARD_FACET_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")

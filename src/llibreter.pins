@@ -1,4 +1,4 @@
-; Wed Jun 02 12:51:33 CEST 2010
+; Wed Jun 02 17:23:28 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -36,6 +36,10 @@
 	(anynaixement 1964)
 	(nacionalitat "Espanya")
 	(nomAutor "Carlos Ruiz Zafón"))
+
+([classics] of  Genere
+
+	(nomGenere "classics"))
 
 ([DanBrown] of  Autor
 
@@ -139,6 +143,10 @@
 	(vendes_anuals 10903)
 	(vocabularisimple FALSE))
 
+([historica] of  Genere
+
+	(nomGenere "historica"))
+
 ([IsabelAllende] of  Autor
 
 	(anynaixement 1942)
@@ -238,6 +246,212 @@
 	(tramasimple FALSE)
 	(vendes_anuals 19000)
 	(vocabularisimple FALSE))
+
+([llibreter_Class10001] of  Llibre
+
+	(any_edicio 2007)
+	(any_publicacio 2007)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class10002])
+	(explicit FALSE)
+	(format mitja)
+	(genere [scifi])
+	(idioma catala)
+	(isbn "8497916824")
+	(moltspersonatges TRUE)
+	(num_pagines 230)
+	(orientacio adult)
+	(pes mitja)
+	(preu 11.8)
+	(titol "Tots tenim secrets")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10002] of  Autor
+
+	(anynaixement 1965)
+	(nacionalitat "Espanya")
+	(nomAutor "Carme Lafay"))
+
+([llibreter_Class10003] of  Genere
+)
+
+([llibreter_Class10004] of  Llibre
+
+	(any_edicio 2008)
+	(any_publicacio 2008)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class10005])
+	(explicit FALSE)
+	(format gran)
+	(genere [social])
+	(idioma catala)
+	(isbn "978-84-935927-5-2")
+	(moltspersonatges FALSE)
+	(num_pagines 185)
+	(orientacio adult)
+	(pes gran)
+	(preu 19.0)
+	(titol "L'elegància de quan es dorm")
+	(tramasimple TRUE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class10005] of  Autor
+
+	(anynaixement 1972)
+	(nacionalitat "Argentina")
+	(nomAutor "Vizconde de Lascano Tegui"))
+
+([llibreter_Class10006] of  Llibre
+
+	(any_edicio 2009)
+	(any_publicacio 1960)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class10007])
+	(explicit FALSE)
+	(format mitja)
+	(genere [scifi])
+	(idioma catala)
+	(isbn "9788492672196")
+	(moltspersonatges FALSE)
+	(num_pagines 220)
+	(orientacio adult)
+	(pes mitja)
+	(preu 13.0)
+	(titol "2001, Una odissea a l'espai")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10007] of  Autor
+
+	(anynaixement 1917)
+	(nacionalitat "Estats Units")
+	(nomAutor "Arthur C. Clarke"))
+
+([llibreter_Class10008] of  Llibre
+
+	(any_edicio 2006)
+	(any_publicacio 2001)
+	(bestseller FALSE)
+	(enquadernacio butxaca)
+	(escrit_per [llibreter_Class10009])
+	(explicit FALSE)
+	(format petit)
+	(genere [scifi])
+	(idioma catala)
+	(isbn "978-84-96581-57-9")
+	(moltspersonatges FALSE)
+	(num_pagines 359)
+	(orientacio juvenil)
+	(pes mitja)
+	(preu 8.0)
+	(titol "El joc d'Ender")
+	(tramasimple FALSE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10009] of  Autor
+
+	(anynaixement 1951)
+	(nacionalitat "Estats Units")
+	(nomAutor "Orson Scott Card"))
+
+([llibreter_Class10010] of  Llibre
+
+	(any_edicio 2010)
+	(any_publicacio 2006)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class10009])
+	(explicit FALSE)
+	(format mitja)
+	(genere [scifi])
+	(idioma catala)
+	(isbn "978-84-96581-57-12")
+	(moltspersonatges TRUE)
+	(num_pagines 400)
+	(orientacio juvenil)
+	(pes mitja)
+	(preu 20.0)
+	(titol "Ender a l'exili")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10011] of  Llibre
+
+	(any_edicio 2005)
+	(any_publicacio 2000)
+	(bestseller TRUE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class10012])
+	(explicit FALSE)
+	(format mitja)
+	(genere [scifi])
+	(idioma castella)
+	(isbn "9788433912473")
+	(moltspersonatges TRUE)
+	(num_pagines 285)
+	(orientacio adult)
+	(pes petit)
+	(preu 14.0)
+	(titol "Guia de l'autostopista galáctico")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10012] of  Autor
+
+	(anynaixement 1952)
+	(nacionalitat "Regne Unit")
+	(nomAutor "Douglas Adams"))
+
+([llibreter_Class10013] of  Llibre
+
+	(any_edicio 2008)
+	(any_publicacio 2006)
+	(bestseller FALSE)
+	(enquadernacio butxaca)
+	(escrit_per [llibreter_Class10012])
+	(explicit FALSE)
+	(format petit)
+	(genere [scifi])
+	(idioma catala)
+	(isbn "9788433912411")
+	(moltspersonatges TRUE)
+	(num_pagines 208)
+	(orientacio adult)
+	(pes petit)
+	(preu 6.0)
+	(titol "El restaurant de la fi del món")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10014] of  Llibre
+
+	(any_edicio 2006)
+	(any_publicacio 1872)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class10015])
+	(explicit FALSE)
+	(format mitja)
+	(genere [classics])
+	(idioma catala)
+	(isbn "9788433911236")
+	(num_pagines 113)
+	(orientacio juvenil)
+	(pes mitja)
+	(preu 10.0)
+	(titol "La volta al món en 80 dies")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10015] of  Autor
+
+	(anynaixement 1828)
+	(nacionalitat "França")
+	(nomAutor "Jules Verne"))
 
 ([llibreter_Class11] of  Autor
 
@@ -372,18 +586,6 @@
 	(anynaixement 1900)
 	(nacionalitat "França")
 	(nomAutor "Antoine de Saint-Exupéry"))
-
-([scifi] of  Genere
-
-	(nomGenere "scifi"))
-
-([historica] of  Genere
-
-	(nomGenere "historica"))
-
-([classics] of  Genere
-
-	(nomGenere "classics"))
 
 ([llibreter_Class21] of  Llibre
 
@@ -818,6 +1020,10 @@
 	(vendes_anuals 18700)
 	(vocabularisimple FALSE))
 
+([negra] of  Genere
+
+	(nomGenere "negra"))
+
 ([PauloCoelho] of  Autor
 
 	(anynaixement 1947)
@@ -829,6 +1035,14 @@
 	(anynaixement 1939)
 	(nacionalitat "Estats Units")
 	(nomAutor "Raymond Carver"))
+
+([romantica] of  Genere
+
+	(nomGenere "romantica"))
+
+([scifi] of  Genere
+
+	(nomGenere "scifi"))
 
 ([social] of  Genere
 
@@ -847,11 +1061,3 @@
 ([thriller] of  Genere
 
 	(nomGenere "thriller"))
-
-([romantica] of  Genere
-
-	(nomGenere "romantica"))
-
-([negra] of  Genere
-
-	(nomGenere "negra"))

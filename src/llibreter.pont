@@ -1,4 +1,4 @@
-; Wed Jun 02 12:51:33 CEST 2010
+; Wed Jun 02 17:23:28 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -22,14 +22,14 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot isbn
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot format
 		(type SYMBOL)
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot isbn
-		(type STRING)
-;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot pes
 		(type SYMBOL)
@@ -57,14 +57,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot orientacio
-		(type SYMBOL)
-		(allowed-values adult juvenil infantil)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot genere
 		(type INSTANCE)
 ;+		(allowed-classes Genere)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot orientacio
+		(type SYMBOL)
+		(allowed-values adult juvenil infantil)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot explicit
@@ -135,12 +135,12 @@
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot titol
-		(type STRING)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot preu
 		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot titol
+		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot bestseller
@@ -159,14 +159,14 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot orientacio
-		(type SYMBOL)
-		(allowed-values adult juvenil infantil)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot genere
 		(type INSTANCE)
 ;+		(allowed-classes Genere)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot orientacio
+		(type SYMBOL)
+		(allowed-values adult juvenil infantil)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot escrit_per
@@ -194,21 +194,21 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot num_pagines
-		(type INTEGER)
+	(single-slot isbn
+		(type STRING)
 ;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot vendes_anuals
-		(type INTEGER)
-;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot format
 		(type SYMBOL)
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot isbn
-		(type STRING)
+	(single-slot vendes_anuals
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_pagines
+		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
