@@ -1,4 +1,4 @@
-; Tue Jun 01 20:30:06 CEST 2010
+; Wed Jun 02 12:51:33 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -10,13 +10,15 @@
 	(single-slot idioma
 		(type SYMBOL)
 		(allowed-values catala castella altres)
-;+		(cardinality 0 1)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot vocabularisimple
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default TRUE)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot nacionalitat
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot isbn
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -24,6 +26,10 @@
 		(type SYMBOL)
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot isbn
+		(type STRING)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot pes
 		(type SYMBOL)
@@ -33,41 +39,39 @@
 	(single-slot enquadernacio
 		(type SYMBOL)
 		(allowed-values butxaca tapadura tapatova)
-;+		(cardinality 0 1)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot nomAutor
 		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot llibreter_Class10001
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot preu
 		(type FLOAT)
-;+		(cardinality 0 1)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot nomGenere
 		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot llibreter_Class10000
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot anynaixement
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot orientacio
+		(type SYMBOL)
+		(allowed-values adult juvenil infantil)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot genere
 		(type INSTANCE)
 ;+		(allowed-classes Genere)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot orientacio
+	(single-slot explicit
 		(type SYMBOL)
-		(allowed-values adult juvenil infantil)
-;+		(cardinality 0 1)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot vendes_anuals
 		(type INTEGER)
@@ -75,17 +79,19 @@
 		(create-accessor read-write))
 	(single-slot titol
 		(type STRING)
-;+		(cardinality 0 1)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot bestseller
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
+		(default FALSE)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot estil
+	(single-slot tramasimple
 		(type SYMBOL)
-		(allowed-values simple complicat profund)
-;+		(cardinality 0 1)
+		(allowed-values FALSE TRUE)
+		(default TRUE)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot any_edicio
 		(type INTEGER)
@@ -96,9 +102,18 @@
 ;+		(allowed-classes Autor)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot any_publicacio
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot moltspersonatges
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot num_pagines
 		(type INTEGER)
-;+		(cardinality 0 1)
+;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
 (defclass Llibre
@@ -107,39 +122,52 @@
 	(single-slot idioma
 		(type SYMBOL)
 		(allowed-values catala castella altres)
-;+		(cardinality 0 1)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot vocabularisimple
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default TRUE)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot pes
 		(type SYMBOL)
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot preu
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot titol
 		(type STRING)
-;+		(cardinality 0 1)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot preu
+		(type FLOAT)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot bestseller
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
+		(default FALSE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot tramasimple
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default TRUE)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot any_edicio
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot orientacio
+		(type SYMBOL)
+		(allowed-values adult juvenil infantil)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot genere
 		(type INSTANCE)
 ;+		(allowed-classes Genere)
 ;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot orientacio
-		(type SYMBOL)
-		(allowed-values adult juvenil infantil)
-;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot escrit_per
 		(type INSTANCE)
@@ -149,10 +177,29 @@
 	(single-slot enquadernacio
 		(type SYMBOL)
 		(allowed-values butxaca tapadura tapatova)
-;+		(cardinality 0 1)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot isbn
-		(type STRING)
+	(single-slot explicit
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot any_publicacio
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot moltspersonatges
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot num_pagines
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot vendes_anuals
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot format
@@ -160,29 +207,16 @@
 		(allowed-values gran mitja petit)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot vendes_anuals
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot num_pagines
-		(type INTEGER)
-;+		(cardinality 0 1)
+	(single-slot isbn
+		(type STRING)
+;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
 (defclass Autor
 	(is-a USER)
 	(role concrete)
-	(single-slot llibreter_Class10001
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot anynaixement
 		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot estil
-		(type SYMBOL)
-		(allowed-values simple complicat profund)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nomAutor
