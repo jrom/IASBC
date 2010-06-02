@@ -1,4 +1,21 @@
 %!TEX root = document.tex
 
 \section{Fases de desenvolupament de l'ontologia}
-(pàg 93 llibre) 
+
+En un principi no vam dedicar temps significatiu a l'anàlisi de l'ontologia. Vam fer un model simple que es pogués usar i que ens permetés avançar en les diferents fases de resolució del problema. Tanmateix, superada la fase de conceptualització, ja teníem suficient coneixement del domini com per definir el que seria l'ontologia definitiva.
+
+Per desenvolupar l'ontologia vam començar determinant el domini i la cobertura que havia de tenir, realitzant-nos a nosaltres i a l'expert les anomenades preguntes de competència, és a dir, quin tipus de preguntes i respostes es requeria fer sobre el domini. Posteriorment, vam buscar ontologies de llibres i autors existents, per si era possible reutilitzar algunes parts (sobretot basant-nos en les llibreries en línia). Llavors vam procedir a enumerar tots els termes importants que havia de tenir l'ontologia (pensant les propietats rellevants que podia tenir un llibre o un autor), ajudats de la interacció amb l'expert. Vam traslladar això a classes i establir-ne una jerarquia, tot i que en el nostre cas no vam trobar cap generalització i la comunicació de classes es resol mitjançant relacions. Per últim, quan ja estava ben definida, ens vam dedicar a crear instàncies.
+
+\section{Canvis conceptuals i decisions preses}
+
+En un inici les característiques dels llibres de la nostra ontologia eren purament físiques. Parlàvem del pes, de la mesura, l'enquadernació, el número de pàgines, etc. però no parlàvem del contingut, ja que això era quelcom difícil d'extreure de les llibreries en línia. Com que teníem la intenció que el nostre sistema de recomanació fos acurat, vam decidir introduir-hi informació sobre la trama, l'estil i els personatges dels llibres, malgrat que això compliqués el procés d'instanciació (que es convertiria en manual). Creiem que fent preguntes més personals a l'usuari es pot determinar amb més exactitud quin tipus de llibre li escau més.
+
+Una altra decisió presa és l'entitat de gènere. En un primer moment ens vam plantejar que gènere fos un atribut multivaluat dins de Llibre però després vam veure que, si l'ontologia s'havia de poder mantenir, s'hauria de poder instanciar nous gèneres i que el sistema continués responent. Per això, i per fer més eficient les cerques per gènere, vam decidir donar l'entitat de classe a gènere, que tindria un atribut nom. La relació entre gènere i llibre seria de pertinença de gènere a llibre.
+
+Una altra important decisió presa és la de no incorporar l'usuari a l'ontologia. Com hem explicat anteriorment, la nostra ontologia reflexa tota aquella informació que és permanent (o anterior al procés de recomanació) i que ha de mantenir el propi llibreter o l'adquirent del SBC. La instància de l'usuari viu durant el procés de recomanació i mor amb aquest.
+
+\section{Descripció formal}
+
+
+
+% Podéis empezar documentando la ontología, no os limitéis a describirla, explicad como la habeis elaborado, indicad las justificaciones necesarias y no omitáis las decisiones que habéis ido tomando.
