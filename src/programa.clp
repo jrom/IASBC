@@ -463,7 +463,7 @@
 	(export ?ALL)
 )
 
-
+; Esborrem llibres per sobre del pressupost maxim
 (defrule esborrar-massa-cars
 	?llibre <- (object (is-a Llibre) (isbn ?isbn) (preu ?preu))
 	(preu si)
@@ -474,7 +474,7 @@
 		(send ?llibre delete)
 	)
 )
-
+; Esborrem llibres infantils si el lector NO es un nen
 (defrule esborrar-massa-infantils
 	?llibre <- (object (is-a Llibre) (isbn ?isbn) (orientacio ?orientacio))
 	?l <- (lector (edat ~nen))
@@ -485,11 +485,23 @@
 	)
 )
 
+; Esborrem llibres NO infantils si el lector es un nen
 (defrule esborrar-massa-adults
 	?llibre <- (object (is-a Llibre) (isbn ?isbn) (orientacio ?orientacio))
 	?l <- (lector (edat nen))
 	=>
 	(if (neq (str-compare ?orientacio infantil) 0)
+	then
+		(send ?llibre delete)
+	)
+)
+
+; Esborrem els best-sellers si al lector no li agraden GENS
+(defrule esborrar-bestsellers
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (bestseller ?bestseller))
+	(bestseller gens)
+	=>
+	(if ?bestseller
 	then
 		(send ?llibre delete)
 	)
@@ -637,7 +649,6 @@
 			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
 			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
 			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
-			(case gens then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
 		)
 	)
 )
