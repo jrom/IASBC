@@ -507,7 +507,17 @@
 	)
 )
 
-;;; TODO ESBORRAR LLIBRES!
+; Esborrem els llibres amb molts personatges si al lector no li agraden GENS
+(defrule esborrar-bestsellers
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (moltspersonatges ?moltspersonatges))
+	(personatges gens)
+	=>
+	(if ?moltspersonatges
+	then
+		(send ?llibre delete)
+	)
+)
+
 
 (defrule a-heuristiques
 	(declare (salience -1))
