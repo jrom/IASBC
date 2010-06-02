@@ -834,6 +834,28 @@
 	)	
 )
 
+
+; Molts personatges? =>
+;; Es recomanen (o no) llibres amb molts personatges
+(defrule satisfaccio-personatges
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (moltspersonatges ?moltspersonatges))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-personatges ?isbn))
+	(personatges ?personatges) ; molt bastant regular poc indiferent
+	(test (neq (str-compare ?personatges indiferent) 0)) ; No entrem si es indiferent
+	=>
+	(assert (vist satisfaccio-personatges ?isbn))
+	(if ?moltspersonatges
+	then
+		(switch ?enq
+			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
+	else
+	)
+)
+
 (defrule a-refinament
 	(declare (salience -1))
 	=>
