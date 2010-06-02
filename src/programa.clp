@@ -518,6 +518,17 @@
 	)
 )
 
+; Esborrem els llibres amb contingut explicit si al lector no li agraden GENS
+(defrule esborrar-explicit
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (explicit ?explicit))
+	(contingut-explicit gens)
+	=>
+	(if ?explicit
+	then
+		(send ?llibre delete)
+	)
+)
+
 
 (defrule a-heuristiques
 	(declare (salience -1))
@@ -846,6 +857,27 @@
 	=>
 	(assert (vist satisfaccio-personatges ?isbn))
 	(if ?moltspersonatges
+	then
+		(switch ?enq
+			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
+	else
+	)
+)
+
+; Contingut explicit? =>
+;; Es recomanen (o no) llibres amb contingut explicit
+(defrule satisfaccio-explicit
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (explicit ?explicit))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-explicit ?isbn))
+	(contingut-explicit ?contingutexplicit) ; molt bastant regular poc indiferent
+	(test (neq (str-compare ?contingutexplicit indiferent) 0)) ; No entrem si es indiferent
+	=>
+	(assert (vist satisfaccio-explicit ?isbn))
+	(if ?explicit
 	then
 		(switch ?enq
 			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
