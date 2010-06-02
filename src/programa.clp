@@ -540,6 +540,17 @@
 	)
 )
 
+; Esborrem els llibres amb vocabulari facil si al lector no li agraden GENS
+(defrule esborrar-vocabulari
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (vocabularisimple ?vocabulari))
+	(vocabulari-facil gens)
+	=>
+	(if ?vocabulari
+	then
+		(send ?llibre delete)
+	)
+)
+
 (defrule a-heuristiques
 	(declare (salience -1))
 	=>
@@ -916,6 +927,32 @@
 			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
 		)
 	else
+	)
+)
+
+
+; Vocabulari facil? =>
+;; Es recomanen (o no) llibres amb vocabulari facil
+(defrule satisfaccio-vocabulari
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (vocabularisimple ?vocab))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-vocabulari ?isbn))
+	(vocabulari-facil ?vocabulari) ; molt bastant regular poc indiferent
+	(test (neq (str-compare ?vocabulari indiferent) 0)) ; No entrem si es indiferent
+	=>
+	(assert (vist satisfaccio-vocabulari ?isbn))
+	(if ?vocab
+	then
+		(switch ?vocabulari
+			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
+	else
+		(switch ?vocabulari
+			(case molt then (modify ?recomanacio (inadequat (+ ?ina 1))))
+			(case bastant then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
 	)
 )
 
