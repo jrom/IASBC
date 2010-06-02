@@ -10,6 +10,7 @@
 	(slot sexe)
 	(slot llengua)
 	(slot ocupacio)
+	(multislot reco)
 )
 
 (deftemplate recomanacio
@@ -37,8 +38,14 @@
 		(sexe home)
 		(llengua catala)
 		(ocupacio estudiant)
+		(reco (create$))
 		)
 )
+
+(deffacts globalranking-buit
+	(reco (create$))
+)
+
 
 ;; Funcions
 
@@ -98,10 +105,31 @@
 	?llista
 )
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; FUNCIONS AUXILIARS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (deffunction getnom (?llibre)
 	(bind ?genere (send ?llibre get-genere))
 	(bind ?nom (send ?genere get-nomGenere))
 	?nom
+)
+
+(deffunction getranking (?recomanacio)
+	(bind ?ma (fact-slot-value ?recomanacio moltadequat))
+	(bind ?a (fact-slot-value ?recomanacio adequat))
+	(bind ?ina (fact-slot-value ?recomanacio inadequat))
+	(bind ?mina (fact-slot-value ?recomanacio moltinadequat))
+	(bind ?res (+ (* ?ma 5) ?a) )
+	(bind ?res (- ?res (+ (* ?mina 5) ?ina)) )
+	?res
+)
+
+(deffunction >recomanacio (?recomanacio1 ?recomanacio2)
+	(bind ?res1 (getranking ?recomanacio1) )
+	(bind ?res2 (getranking ?recomanacio2) )
+	(< ?res1 ?res2)
 )
 
 (defrule banner "Banner"
@@ -304,9 +332,19 @@
 	(export ?ALL)
 )
 
+
+(defrule lletra-gran-inc
+	(lector (edat nen | gran))
+	=>
+	(assert (lletra-gran molt))
+)
+
+
 (defrule lletra-gran
 	(lector (edat jove | adult))
+	(not (vist lletra-gran))
 	=>
+	(assert (vist lletra-gran))
 	(assert (lletra-gran (pregunta-mp "Prefereixes que la lletra sigui gran?")))
 )
 
@@ -326,6 +364,12 @@
 	(lector (ocupacio academic | professional | altres))
 	=>
 	(assert (preu (pregunta-opts "El preu és un factor prioritari?" si no indiferent)))
+)
+
+(defrule preu-estudiant-desocupat
+	(lector (ocupacio estudiant | desocupat))
+	=>
+	(assert (preu si))
 )
 
 (defrule preu-detall
@@ -349,12 +393,6 @@
 	(export ?ALL)
 )
 
-(defrule lletra-gran-inc
-	(lector (edat nen | gran))
-	=>
-	(assert (lletra-gran molt))
-)
-
 (defrule llibres-lleugers-inc
 	(lloc casa)
 	=>
@@ -365,12 +403,6 @@
 	(bestseller poc | indiferent | gens)
 	=>
 	(assert (vendes indiferent))
-)
-
-(defrule preu-estudiant-desocupat
-	(lector (ocupacio estudiant | desocupat))
-	=>
-	(assert (preu si))
 )
 
 (defrule preu-detall-inc
@@ -750,7 +782,41 @@
 	)	
 )
 
+(defrule a-refinament
+	(declare (salience -1))
+	=>
+	(focus refinament)
+)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; REFINAMENT
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defmodule refinament "Refinament"
+	(import heuristiques ?ALL)
+	(export ?ALL)
+)
+
+(defrule fer-ranking
+	?lector <- (lector)
+	?llibre <- (object (is-a Llibre) (isbn ?isbn))
+	?recomanacio <- (recomanacio (isbn ?isbn))
+	(not (vist fer-ranking ?isbn))
+	=>
+	(assert (vist fer-ranking ?isbn))
+	(bind ?reco (fact-slot-value ?lector reco))
+	(modify ?lector (reco (insert$ ?reco 1 ?recomanacio)))
+)
+
+(defrule mostrar-ranking
+	?lector <- (lector)
+	=>
+	(bind ?reco (fact-slot-value ?lector reco))
+	(bind ?reco (sort >recomanacio ?reco))
+	(bind ?reco (subseq$ ?reco 1 3))
+	(printout t "MOSTRAR RANKING" crlf)	
+	(printout t "R:" (implode$ ?reco) crlf)
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; FINAL
