@@ -38,14 +38,10 @@
 		(sexe home)
 		(llengua catala)
 		(ocupacio estudiant)
+
 		(reco (create$))
 		)
 )
-
-(deffacts globalranking-buit
-	(reco (create$))
-)
-
 
 ;; Funcions
 
@@ -130,6 +126,14 @@
 	(bind ?res1 (getranking ?recomanacio1) )
 	(bind ?res2 (getranking ?recomanacio2) )
 	(< ?res1 ?res2)
+)
+
+(deffunction mostra-llibre (?llibre)
+	(printout t "===============================================" crlf)
+	(printout t "Titol:   " (send ?llibre get-titol) crlf)
+	(printout t "ISBN:    " (send ?llibre get-isbn) crlf)
+	(printout t "Gènere:  " (getnom ?llibre) crlf)
+	(printout t "===============================================" crlf)
 )
 
 (defrule banner "Banner"
@@ -814,8 +818,12 @@
 	(bind ?reco (fact-slot-value ?lector reco))
 	(bind ?reco (sort >recomanacio ?reco))
 	(bind ?reco (subseq$ ?reco 1 3))
-	(printout t "MOSTRAR RANKING" crlf)	
-	(printout t "R:" (implode$ ?reco) crlf)
+	(printout t crlf crlf crlf "Mostrant les tres millors recomanacions (si n'hi ha)" crlf)
+	(progn$ (?r ?reco)
+		(bind ?isbn (fact-slot-value ?r isbn))
+		(bind ?l (nth$ 1 (find-instance ((?llibre Llibre)) (eq (str-compare ?llibre:isbn ?isbn) 0) )) )
+		(mostra-llibre ?l)
+	)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
