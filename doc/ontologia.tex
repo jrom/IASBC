@@ -1,4 +1,5 @@
 %!TEX root = document.tex
+\label{ontologia}
 
 \section{Fases de desenvolupament de l'ontologia}
 
@@ -8,7 +9,7 @@ Per desenvolupar l'ontologia vam començar determinant el domini i la cobertura 
 
 \section{Canvis conceptuals i decisions preses}
 
-En un inici les característiques dels llibres de la nostra ontologia eren purament físiques. Parlàvem del pes, de la mesura, l'enquadernació, el número de pàgines, etc. però no parlàvem del contingut, ja que això era quelcom difícil d'extreure de les llibreries en línia. Com que teníem la intenció que el nostre sistema de recomanació fos acurat, vam decidir introduir-hi informació sobre la trama, l'estil i els personatges dels llibres, malgrat que això compliqués el procés d'instanciació (que es convertiria en manual). Creiem que fent preguntes més personals a l'usuari es pot determinar amb més exactitud quin tipus de llibre li escau més. També hem introduït l'any de publicació per resoldre el problema dels llibres clàssics, que generalment se'n fan moltes edicions i la data d'edició no es correspon amb l'any de publicació. Per això hem creat dos atributs per ambdues coses.
+En un inici les característiques dels llibres de la nostra ontologia eren purament físiques. Parlàvem del pes, de la mesura, l'enquadernació, el número de pàgines, etc. però no parlàvem del contingut, ja que això era quelcom difícil d'extreure de les llibreries en línia. Com que teníem la intenció que el nostre sistema de recomanació fos acurat, vam decidir introduir-hi informació sobre la trama, l'estil i els personatges dels llibres, malgrat que això compliqués el procés d'instanciació (que esdevindria manual i molt més lent). Creiem que fent preguntes més personals a l'usuari es pot determinar amb més exactitud quin tipus de llibre li escau més. També hem introduït l'any de publicació per resoldre el problema dels llibres clàssics, que generalment se'n fan moltes edicions i la data d'edició no es correspon amb l'any de publicació. Per això hem creat dos atributs per ambdues coses.
 
 Una altra decisió presa és l'entitat de gènere. En un primer moment ens vam plantejar que gènere fos un atribut multivaluat dins de Llibre però després vam veure que, si l'ontologia s'havia de poder mantenir, s'hauria de poder instanciar nous gèneres i que el sistema continués responent. Per això, i per fer més eficient les cerques per gènere, vam decidir donar l'entitat de classe a gènere, que tindria un atribut nom. La relació entre gènere i llibre seria de pertinença de gènere a llibre.
 
@@ -26,7 +27,7 @@ Una altra important decisió presa és la de no incorporar l'usuari a l'ontologi
   \item \textbf{Any publicació}: Any en que es va crear la primera edició del llibre.
   \item \textbf{Format} [gran, mitja, petit]: És la mesura del llibre, informació disponible en qualsevol llibreria.
   \item \textbf{Pes} [gran, mitja, petit]: El pes del llibre, abstret qualitativament a aquestes 3 opcions.
-  \item \textbf{Idiom}a [català, castellà, altres]: L'idioma en que està escrit el llibre.
+  \item \textbf{Idioma} [català, castellà, altres]: L'idioma en que està escrit el llibre.
   \item \textbf{Número de pàgines}
   \item \textbf{Best-seller?}: Si és considerat com a \emph{Best Seller} pels grans venedors.
   \item \textbf{Enquadernació} [tapadura, tapatova, butxaca]
@@ -36,24 +37,38 @@ Una altra important decisió presa és la de no incorporar l'usuari a l'ontologi
   \item \textbf{Trama}: [simple, complexa]: Com és la trama del llibre.
   \item \textbf{Vocabulari}: [simple, complex]: Com és el vocabulari i l'estil narratiu del llibre.
   \item \textbf{Personatges}: [molts, pocs]: Si es tracta d'una novel·la amb molts personatges o bé pocs.
+  \item \textbf{Contingut explícit?}: Si conté violència o sexe.
 \end{itemize}
 
 \subsection{Frame Autor}
 
 \begin{itemize}
-\item \textbf{Nom}
-\item \textbf{Any naixement}
-\item \textbf{Nacionalitat}
+\item \textbf{Nom}: El nom de l'autor.
+\item \textbf{Any naixement}: L'any de naixement de l'autor.
+\item \textbf{Nacionalitat}: La nacionalitat d'on l'autor és originari.
 \end{itemize}
 
 \subsection{Frame Gènere}
 
 \begin{itemize}
-\item \textbf{Nom}
+\item \textbf{Nom}: En un principi instanciarem Ficció, Fantasia, Ciència Ficció, Terror, Thriller, Clàssics, Històrica i Social.
 \end{itemize}
 
-\subsection{Relació pertany_a}
+\subsection{Relació pertany\_a}
+\begin{itemize}
+  \item \textbf{Domini}: Llibre
+  \item \textbf{Rang}: Gènere
+  \item \textbf{Cardinalitat}: 1   
+  \item \textbf{Inversa}: té\_llibres
+\end{itemize}
 
-\subsection{Relació escrit_per}
+
+\subsection{Relació escrit\_per}
+\begin{itemize}
+  \item \textbf{Domini}: Llibre
+  \item \textbf{Rang}: Autor
+  \item \textbf{Cardinalitat}: 1   
+  \item \textbf{Inversa}: ha\_escrit
+\end{itemize}
 
 % Podéis empezar documentando la ontología, no os limitéis a describirla, explicad como la habeis elaborado, indicad las justificaciones necesarias y no omitáis las decisiones que habéis ido tomando.

@@ -2,9 +2,9 @@
 
 \section{Formalisme de representació del coneixement}
 
-Per representar la informació del banc de llibres usarem una ontologia. En la fase anterior hem estudiat quins són els elements del nostre domini i ara determinem quins d'aquests elements seran representats per l'ontologia. En el cas del nostre problema en concret, l'ontologia la formaran els llibres, els gèneres i els autors. Tota aquella informació permanent que l'adquirent del nostre SBC mantindrà, usarà i actualitzarà estarà estructurada dins l'ontologia. Tanmateix, aquella informació provisional com és el perfil de l'usuari i les recomanacions emeses pel sistema es trobaran en el propi llenguatge de regles. El detall concret de l'ontologia es troba en el capítol \textbf{XXX} ontologia.
+Per representar la informació del banc de llibres usarem una ontologia. En la fase anterior hem estudiat quins són els elements del nostre domini i ara determinem quins d'aquests elements seran representats per l'ontologia. En el cas del nostre problema en concret, l'ontologia la formaran els llibres, els gèneres i els autors. Tota aquella informació permanent que l'adquirent del nostre SBC mantindrà, usarà i actualitzarà estarà estructurada dins l'ontologia. Tanmateix, aquella informació provisional com és el perfil de l'usuari i les recomanacions emeses pel sistema es trobaran en el propi llenguatge de regles. El detall concret de l'ontologia es troba en el capítol \ref{ontologia} d'ontologia.
 
-Per programar l'aplicació s'usarà el programa basat en regles CLIPS. CLIPS és una eina per la producció i execució de sistemes experts escrita en C. Les regles descrites s'expliquen en l'apartat \textbf{XXX} d'aquest document.
+Per programar l'aplicació s'usarà el programa basat en regles CLIPS. CLIPS és una eina per la producció i execució de sistemes experts escrita en C. Les regles descrites s'expliquen en el capítol \ref{moduls} d'aquest document.
 
 El problema proposat és un problema d'anàlisis. Parteix d'una situació inicial on tot és solució i mitjançant l'abstracció de dades, l'aplicació de regles (associació heurística) i posterior refinament s'arriba a una solució bona per l'usuari. Aquesta metodologia de resolució de problemes s'anomena classificació heurística i en els propers apartats s'explicarà amb més detalls.
 
@@ -14,13 +14,11 @@ L'espai de cerca consta bàsicament dels llibres del sistema. Com que els llibre
 
 \section{Metodologia de resolució del problema}
 
-La metodologia de resolució del problema que s'usa és la \textbf{classificació heurística}. La seva característica principal consisteix en el fet que l'expert escull una categoria concreta d'un conjunt de solucions prèviament enumerat. Aquest és precisament el cas que ens afecta. Es parteix d'un conjunt de solucions que són tots els llibres i mitjançant un procés d'anàlisi i de classificació (basat amb les respostes de l'usuari) anem descartat i avaluant el domini.
+La metodologia de resolució del problema que s'usa és la \textbf{classificació heurística}. La seva característica principal consisteix en el fet que l'expert escull una categoria concreta d'un conjunt de solucions prèviament enumerat. Aquest és precisament el cas que ens afecta. Es parteix d'un conjunt de solucions que són tots els llibres i mitjançant un procés d'anàlisi i de classificació (basat en les respostes de l'usuari) anem descartat i avaluant el domini.
 
-La classificació heurística es divideix en tres etapes. La primera etapa és l'\textbf{abstracció de les dades}. Aquesta pot ser definicional, per exemple un usuari que li agrada prendre notes al costat d'un llibre es defineix com a usuari complex, o bé pot ser qualitativa, per exemple l'edat de l'usuari al sistema es classifica com a nen, jove, adult o persona gran. Per últim pot ser de generalització, com és el cas dels usuaris a qui agraden els best-sellers, s'enregistren com a amants dels top-ventes. La segona etapa a realitzar és l'\textbf{associació heurística} i es realitzarà mitjançant les regles definides de les hipòtesis i evidències extretes de la interacció amb l'expert en l'apartat de conceptualització. Per últim, resta l'etapa de \textbf{refinament}, on s'acabaran ordenant i escollint els millors llibres per retornar a l'usuari.
+La classificació heurística es divideix en tres etapes. La primera etapa és l'\textbf{abstracció de les dades}. Aquesta pot ser definicional, per exemple un usuari que li agrada prendre notes al costat d'un llibre es defineix com a usuari complex, o bé pot ser qualitativa, per exemple l'edat de l'usuari al sistema es classifica com a nen, jove, adult o persona gran. Per últim pot ser de generalització, com és el cas dels usuaris a qui agraden els best-sellers, s'enregistren com a amants dels top-ventes. La segona etapa a realitzar és l'\textbf{associació heurística} i es realitzarà mitjançant les regles definides de les hipòtesis i evidències extretes de la interacció amb l'expert en l'apartat de conceptualització. Per últim, resta l'etapa de \textbf{refinament}, on s'acabaran ordenant i escollint els millors tres llibres per retornar a l'usuari, sempre i quan no hagin estat tots els llibres descartats. Un petit exemple es pot veure en la figura  ~\ref{fig:{img/esquemaAssocHeu.png}}.
 
-Esquema del procés i els blocs de raonament:
-
-\textbf{**Esquema**}
+\imatgePetita{img/esquemaAssocHeu.png}{Esquema del procés resolució del problema, amb un petit exemple}
 
 \section{Tractament de la incertesa}
 
