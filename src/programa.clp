@@ -194,9 +194,9 @@
 )
 
 (defrule tempslectura
-	(frequencia diaria | setmanal | mensual)
+	(frequencia ~indiferent)
 	=>
-	(assert (frequencia (pregunta-num "Quantes hores acostumes a llegir en aquesta freqüència?")))
+	(assert (tempslectura (pregunta-num "Quantes hores acostumes a llegir en aquesta freqüència?")))
 )
 
 (defrule genere-preferit
@@ -377,6 +377,41 @@
 	(preu ~si)
 	=>
 	(assert (preu-detall indiferent))
+)
+
+(defrule grau-lectura
+	(frequencia ?freq) ; diaria setmanal mensual
+	(tempslectura ?temps)
+	(test (neq (str-compare ?freq indiferent) 0))
+	=>
+	(switch ?freq
+		(case diaria then (bind ?dies 28))
+		(case setmanal then (bind ?dies 7))
+		(case mensual then (bind ?dies 1))
+	)
+	(bind ?hores (* ?dies ?temps))
+	(if (> ?hores 30)
+	then
+		(assert (grau-lectura molt))
+	else
+		(if (> ?hores 20)
+		then
+			(assert (grau-lectura bastant))
+		else
+			(if (> ?hores 10)
+			then
+				(assert (grau-lectura regular))
+			else
+				(assert (grau-lectura poc))
+			)
+		)
+	)
+)
+
+(defrule grau-lectura-indiferent
+	(frequencia indiferent)
+	=>
+	(assert (grau-lectura indiferent))
 )
 
 (defrule a-esborrar
@@ -616,6 +651,106 @@
 	)
 )
 
+;  =>
+;; Recomanem llibres de la llengua del lector
+(defrule satisfaccio-llengualector
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (idioma ?idioma))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-llengualector ?isbn))
+	?l <- (lector (llengua ?llengua))
+	=>
+	(assert (vist satisfaccio-llengualector ?isbn))
+	(if (eq (str-compare ?llengua ?idioma) 0)
+	then
+		(modify ?recomanacio (adequat (+ ?a 1)))
+	)
+)
+
+
+; Si tenim un lector molt actiu =>
+;; Recomanem llibres amb trames més complexes i vocabulari menys senzill
+;; altrament des-recomanem llibres amb trames complexes i vocabulari complicat
+(defrule satisfaccio-graulectura
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (vocabularisimple ?vocabularisimple) (tramasimple ?tramasimple))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-graulectura ?isbn))
+	(grau-lectura ?graulect) ; molt bastant regular poc indiferent
+	(test (neq (str-compare ?graulect indiferent) 0)) ;no entrem si graulectura es indiferent
+	=>
+	(assert (vist satisfaccio-graulectura ?isbn))
+	(if (or ?tramasimple ?vocabularisimple)
+	then
+		(switch ?graulect
+			(case poc then (modify ?recomanacio (adequat (+ ?a 1))))
+		)
+	else
+		(switch ?graulect
+			(case molt then (modify ?recomanacio (adequat (+ ?a 1))))
+			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
+	)	
+)
+
+
+; Si prefereixen llibres lleugers =>
+;; Es recomanen llibres lleugers i/o de butxaca
+(defrule satisfaccio-lleugers
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (pes ?pes) (enquadernacio ?enquadernacio))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-lleugers ?isbn))
+	(llibres-lleugers ?lleugers) ; molt bastant regular poc indiferent
+	(test (neq (str-compare ?lleugers indiferent) 0))
+	=>
+	(assert (vist satisfaccio-lleugers ?isbn))
+	(if (or (eq (str-compare ?pes petit) 0) (eq (str-compare ?enquadernacio butxaca) 0))
+	then
+		(switch ?lleugers
+			(case molt then (modify ?recomanacio (moltinadequat (+ ?ma 1))))
+			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+		)
+	else
+		(switch ?lleugers
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+			(case gens then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
+	)	
+)
+
+
+; Si prefereixen llibres ben enquadernats =>
+;; Es recomanen llibres de tapa dura i de tapa tova i es des-recomanen butxaca
+(defrule satisfaccio-enquadernacio
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (enquadernacio ?enquadernacio))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-enquadernacio ?isbn))
+	(enquadernacio ?enq) ; molt bastant regular poc indiferent
+	(test (neq (str-compare ?enq indiferent) 0)) ; No entrem si enquadernacio es indiferent
+	=>
+	(assert (vist satisfaccio-enquadernacio ?isbn))
+	(if (eq (str-compare ?enquadernacio butxaca) 0)
+	then
+		(switch ?enq
+			(case molt then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
+			(case bastant then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
+	else
+		(if (eq (str-compare ?enquadernacio tapatova) 0)
+		then
+			(switch ?enq
+				(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+				(case molt then (modify ?recomanacio (adequat (+ ?a 1))))
+			)
+		else
+			(switch ?enq
+				(case bastant then (modify ?recomanacio (adequat (+ ?ma 1))))
+				(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+			)
+		)
+	)	
+)
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; FINAL
@@ -626,4 +761,4 @@
 ;	=>
 ;	(printout t "============ FINAL =============" crlf crlf)
 ;)
-;
+
