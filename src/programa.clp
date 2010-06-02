@@ -33,7 +33,7 @@
 ;		(llengua desconegut)
 ;		(ocupacio desconegut)
 		(nom Jordi)
-		(edat 23)
+		(edat adult)
 		(sexe home)
 		(llengua catala)
 		(ocupacio estudiant)
@@ -132,11 +132,11 @@
 	?l <- (lector (edat desconegut))
 	=>
 	(bind ?edat(pregunta-num "Edat? "))
-	(if (< ?edat 14)
+	(if (< ?edat 12)
 	then
 		(modify ?l (edat nen))
 	else
-		(if (< ?edat 30)
+		(if (< ?edat 18)
 		then
 			(modify ?l (edat jove))
 		else
@@ -493,6 +493,69 @@
 		(if (or (eq ?format butxaca) (eq ?format tapatova)) then (modify ?recomanacio (adequat (+ ?a 1))) )
 	)
 )
+
+
+; Si el lector és un nen o una persona gran =>
+;; No se li recomanen llibres de butxaca
+(defrule satisfaccio-lletragran
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (format ?format))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-lletragran ?isbn))
+	?l <- (lector (edat nen | gran))
+	=>
+	(assert (vist satisfaccio-lletragran ?isbn))
+	(if (eq (str-compare ?format butxaca) 0)
+	then
+		(modify ?recomanacio (moltinadequat (+ ?mina 1)))
+	)
+	(if (eq (str-compare ?format tapadura) 0)
+	then
+		(modify ?recomanacio (adequat (+ ?a 1)))
+	)
+)
+
+
+; Si agraden els bestsellers (molt bastant poc gens) =>
+;; Es recomanen els bestsellers (molt bastant poc gens)
+(defrule satisfaccio-bestsellers
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (bestseller ?bs))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-bestsellers ?isbn))
+	(bestseller ?bestseller)
+	=>
+	(assert (vist satisfaccio-bestsellers ?isbn))
+	(if ?bs	
+	then
+		(switch ?bestseller
+			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+			(case gens then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
+		)
+	)
+)
+
+; Si es un jove|adult|gran =>
+;; Es recomanen llibres juvenils molt|poc|gens
+(defrule satisfaccio-jovejuvenil
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (orientacio ?orientacio))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-jovejuvenil ?isbn))
+	?l <- (lector (edat ?edat))
+	=>
+	(assert (vist satisfaccio-jovejuvenil ?isbn))
+	(if (eq (str-compare ?orientacio juvenil) 0)
+	then
+		(switch ?edat
+			(case jove then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+			(case adult then (modify ?recomanacio (inadequat (+ ?ina 1))))
+			(case gran then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
+		)
+	)
+)
+
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; FINAL
