@@ -1,4 +1,4 @@
-; Wed Jun 02 17:23:28 CEST 2010
+; Wed Jun 02 17:53:47 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -452,6 +452,252 @@
 	(anynaixement 1828)
 	(nacionalitat "França")
 	(nomAutor "Jules Verne"))
+
+([llibreter_Class10016] of  Llibre
+
+	(any_publicacio 2004)
+	(bestseller FALSE)
+	(enquadernacio butxaca)
+	(escrit_per [llibreter_Class10017])
+	(explicit FALSE)
+	(format petit)
+	(genere [fantasia])
+	(idioma altres)
+	(isbn "9780786932283")
+	(moltspersonatges FALSE)
+	(num_pagines 205)
+	(orientacio juvenil)
+	(pes petit)
+	(preu 8.8)
+	(titol "The lone drow")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10017] of  Autor
+
+	(anynaixement 1959)
+	(nacionalitat "Estats Units")
+	(nomAutor "R. A. Salvatore"))
+
+([llibreter_Class10018] of  Llibre
+
+	(any_publicacio 2006)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class10019])
+	(explicit FALSE)
+	(format mitja)
+	(genere [fantasia])
+	(idioma catala)
+	(isbn "9780786932123")
+	(moltspersonatges TRUE)
+	(num_pagines 312)
+	(orientacio juvenil)
+	(pes mitja)
+	(preu 12.0)
+	(titol "Les cròniques de Narnia")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10019] of  Autor
+
+	(anynaixement 1898)
+	(nacionalitat "Regne Unit")
+	(nomAutor "Clive Staples Lewis"))
+
+([llibreter_Class10020] of  Autor
+
+	(anynaixement 1892)
+	(nacionalitat "Regne Unit")
+	(nomAutor "J. R. R. Tolkien"))
+
+([llibreter_Class10021] of  Llibre
+
+	(any_edicio 2009)
+	(any_publicacio 1940)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class10020])
+	(explicit FALSE)
+	(format gran)
+	(genere [classics])
+	(idioma catala)
+	(isbn "9780786931294")
+	(moltspersonatges TRUE)
+	(num_pagines 840)
+	(orientacio adult)
+	(pes gran)
+	(preu 16.0)
+	(titol "El senyor dels anells")
+	(tramasimple FALSE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class10022] of  Llibre
+
+	(any_edicio 2007)
+	(any_publicacio 1937)
+	(bestseller FALSE)
+	(enquadernacio butxaca)
+	(escrit_per [llibreter_Class10020])
+	(explicit FALSE)
+	(format petit)
+	(genere [fantasia])
+	(idioma catala)
+	(isbn "9712346932283")
+	(moltspersonatges TRUE)
+	(num_pagines 220)
+	(orientacio juvenil)
+	(pes petit)
+	(preu 8.0)
+	(titol "El Hobbit")
+	(tramasimple TRUE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class10023] of  Llibre
+
+	(any_edicio 1998)
+	(any_publicacio 1949)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class10024])
+	(explicit TRUE)
+	(format mitja)
+	(genere [scifi])
+	(idioma catala)
+	(isbn "9344444932283")
+	(num_pagines 180)
+	(orientacio adult)
+	(preu 9.0)
+	(titol "1984")
+	(tramasimple FALSE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10024] of  Autor
+
+	(anynaixement 1903)
+	(nacionalitat "Regne Unit")
+	(nomAutor "George Orwell"))
+
+([llibreter_Class10025] of  Llibre
+
+	(any_edicio 1999)
+	(any_publicacio 1945)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class10024])
+	(explicit FALSE)
+	(genere [ficcio])
+	(idioma castella)
+	(isbn "9780786935553")
+	(moltspersonatges TRUE)
+	(num_pagines 201)
+	(orientacio juvenil)
+	(pes gran)
+	(preu 14.0)
+	(titol "Rebelión en la granja")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class10026] of  Llibre
+
+	(any_edicio 2005)
+	(any_publicacio 1965)
+	(bestseller FALSE)
+	(enquadernacio butxaca)
+	(escrit_per [llibreter_Class10027])
+	(explicit FALSE)
+	(format petit)
+	(genere [scifi])
+	(idioma castella)
+	(isbn "9711116932283")
+	(moltspersonatges TRUE)
+	(num_pagines 636)
+	(orientacio adult)
+	(pes petit)
+	(preu 8.95)
+	(titol "Dune")
+	(tramasimple FALSE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class10027] of  Autor
+
+	(anynaixement 1920)
+	(nacionalitat "Estats Units")
+	(nomAutor "Frank Herbert"))
+
+([llibreter_Class10028] of  Llibre
+
+	(any_edicio 1997)
+	(any_publicacio 1951)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class10029])
+	(explicit FALSE)
+	(format mitja)
+	(genere [scifi])
+	(idioma catala)
+	(isbn "9780786932888")
+	(moltspersonatges TRUE)
+	(num_pagines 799)
+	(orientacio adult)
+	(pes mitja)
+	(preu 13.0)
+	(titol "La fundació")
+	(tramasimple FALSE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class10029] of  Autor
+
+	(anynaixement 1920)
+	(nacionalitat "Rússia")
+	(nomAutor "Isaac Asimov"))
+
+([llibreter_Class10030] of  Llibre
+
+	(any_edicio 2009)
+	(any_publicacio 1950)
+	(bestseller FALSE)
+	(enquadernacio butxaca)
+	(escrit_per [llibreter_Class10029])
+	(explicit FALSE)
+	(format petit)
+	(genere [scifi])
+	(idioma altres)
+	(isbn "9755586932283")
+	(moltspersonatges FALSE)
+	(num_pagines 211)
+	(orientacio adult)
+	(preu 6.0)
+	(titol "I, Robot")
+	(tramasimple FALSE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class10031] of  Llibre
+
+	(any_edicio 1957)
+	(any_publicacio 2001)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class10032])
+	(explicit FALSE)
+	(format mitja)
+	(genere [ficcio])
+	(idioma castella)
+	(isbn "9780786234483")
+	(moltspersonatges FALSE)
+	(num_pagines 198)
+	(orientacio adult)
+	(pes mitja)
+	(preu 11.24)
+	(titol "El barón rampante")
+	(tramasimple TRUE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class10032] of  Autor
+
+	(anynaixement 1923)
+	(nacionalitat "Itàlia")
+	(nomAutor "Italo Calvino"))
 
 ([llibreter_Class11] of  Autor
 
