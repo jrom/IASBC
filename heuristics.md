@@ -43,3 +43,7 @@
 
 ##Llengua
 - Usuari que prefereix llibres nacionals se li recomanen llibres d'autors de la mateixa nacionalitat que l'usuari.
+
+
+Bibliografia:
+http://www.eurekalert.org/pub_releases/2010-02/uoia-wmt021510.php
