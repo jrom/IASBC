@@ -1,4 +1,4 @@
-; Wed Jun 02 17:53:47 CEST 2010
+; Thu Jun 03 01:03:58 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -246,6 +246,26 @@
 	(tramasimple FALSE)
 	(vendes_anuals 19000)
 	(vocabularisimple FALSE))
+
+([llibreter_Class10000] of  Llibre
+
+	(any_publicacio 2010)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class20001])
+	(explicit TRUE)
+	(format mitja)
+	(genere [ficcio])
+	(idioma catala)
+	(isbn "9788424633912")
+	(moltspersonatges FALSE)
+	(num_pagines 150)
+	(orientacio infantil)
+	(pes mitja)
+	(preu 8.95)
+	(titol "Escola de Dansa. Ha nascut una estrella")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
 
 ([llibreter_Class10001] of  Llibre
 
@@ -832,6 +852,246 @@
 	(anynaixement 1900)
 	(nacionalitat "França")
 	(nomAutor "Antoine de Saint-Exupéry"))
+
+([llibreter_Class20001] of  Autor
+
+	(anynaixement 1965)
+	(nacionalitat "Itàlia")
+	(nomAutor "Donata Pizzato"))
+
+([llibreter_Class20002] of  Llibre
+
+	(any_publicacio 2010)
+	(bestseller FALSE)
+	(enquadernacio butxaca)
+	(escrit_per [llibreter_Class20003])
+	(explicit FALSE)
+	(format mitja)
+	(genere [fantasia])
+	(idioma catala)
+	(isbn "9788448830014")
+	(moltspersonatges TRUE)
+	(num_pagines 64)
+	(orientacio infantil)
+	(pes petit)
+	(preu 6.0)
+	(titol "La muntanya de foc")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class20003] of  Autor
+
+	(anynaixement 1975)
+	(nacionalitat "Itàlia")
+	(nomAutor "Stefano Bordiglioni"))
+
+([llibreter_Class20004] of  Llibre
+
+	(any_edicio 2010)
+	(any_publicacio 2006)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class20005])
+	(explicit FALSE)
+	(format mitja)
+	(genere [thriller])
+	(idioma catala)
+	(isbn "9788493718305")
+	(moltspersonatges TRUE)
+	(num_pagines 255)
+	(orientacio adult)
+	(pes mitja)
+	(preu 32.0)
+	(titol "A contrallum")
+	(tramasimple FALSE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class20005] of  Autor
+
+	(anynaixement 1937)
+	(nacionalitat "Estats Units")
+	(nomAutor "Thomas Pynchon"))
+
+([llibreter_Class20006] of  Llibre
+
+	(any_publicacio 2009)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class20007])
+	(explicit TRUE)
+	(format mitja)
+	(genere [ficcio])
+	(idioma catala)
+	(isbn "9788492562862")
+	(moltspersonatges TRUE)
+	(num_pagines 173)
+	(orientacio adult)
+	(pes mitja)
+	(preu 13.0)
+	(titol "Petits plaers")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class20007] of  Autor
+
+	(anynaixement 1973)
+	(nacionalitat "Regne Unit")
+	(nomAutor "Jane Bowles"))
+
+([llibreter_Class20008] of  Llibre
+
+	(any_publicacio 2010)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class20009])
+	(explicit FALSE)
+	(format mitja)
+	(genere [thriller])
+	(idioma catala)
+	(isbn "9788492941025")
+	(moltspersonatges TRUE)
+	(num_pagines 255)
+	(orientacio adult)
+	(pes mitja)
+	(preu 19.95)
+	(titol "Crim en directe")
+	(tramasimple FALSE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class20009] of  Autor
+
+	(anynaixement 1975)
+	(nacionalitat "Països baixos")
+	(nomAutor "Camilla Lackberg"))
+
+([llibreter_Class20010] of  Llibre
+
+	(any_publicacio 2005)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class20011])
+	(explicit FALSE)
+	(format mitja)
+	(genere [thriller])
+	(idioma catala)
+	(isbn "9788482566207")
+	(moltspersonatges FALSE)
+	(num_pagines 255)
+	(orientacio adult)
+	(pes mitja)
+	(preu 20.0)
+	(titol "Se sabrà tot")
+	(tramasimple TRUE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class20011] of  Autor
+
+	(anynaixement 1969)
+	(nacionalitat "Espanya")
+	(nomAutor "Xavier Bosch"))
+
+([llibreter_Class20012] of  Llibre
+
+	(any_publicacio 1994)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class20013])
+	(explicit FALSE)
+	(format mitja)
+	(genere [social])
+	(idioma catala)
+	(isbn "9788429766509")
+	(moltspersonatges FALSE)
+	(num_pagines 160)
+	(orientacio adult)
+	(pes gran)
+	(preu 14.96)
+	(titol "El violí d'Auschwitz")
+	(tramasimple TRUE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class20013] of  Autor
+
+	(anynaixement 1972)
+	(nacionalitat "Espanya")
+	(nomAutor "Maria Àngels Anglada"))
+
+([llibreter_Class20014] of  Llibre
+
+	(any_publicacio 1962)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class20015])
+	(explicit FALSE)
+	(genere [ficcio])
+	(idioma altres)
+	(isbn "9788429766509")
+	(moltspersonatges TRUE)
+	(num_pagines 233)
+	(orientacio adult)
+	(pes gran)
+	(preu 13.0)
+	(titol "Revolutionary Road")
+	(tramasimple FALSE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class20015] of  Autor
+
+	(anynaixement 1926)
+	(nacionalitat "Estats Units")
+	(nomAutor "Richard Yates"))
+
+([llibreter_Class20016] of  Llibre
+
+	(any_publicacio 2003)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class20017])
+	(explicit FALSE)
+	(format mitja)
+	(genere [terror])
+	(idioma catala)
+	(isbn "9788496150010")
+	(moltspersonatges TRUE)
+	(num_pagines 182)
+	(orientacio juvenil)
+	(pes gran)
+	(preu 13.8)
+	(titol "El lladre de cossos")
+	(tramasimple FALSE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class20017] of  Autor
+
+	(anynaixement 1971)
+	(nacionalitat "França")
+	(nomAutor "Robert Luis Stevenson"))
+
+([llibreter_Class20018] of  Llibre
+
+	(any_publicacio 2010)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class20019])
+	(explicit FALSE)
+	(format mitja)
+	(genere [ficcio])
+	(idioma catala)
+	(isbn "9788492768233")
+	(moltspersonatges TRUE)
+	(num_pagines 32)
+	(orientacio juvenil)
+	(pes mitja)
+	(preu 8.0)
+	(titol "Quina selva tan boja")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class20019] of  Autor
+
+	(anynaixement 1967)
+	(nacionalitat "Espanya")
+	(nomAutor "Xavier Montaño"))
 
 ([llibreter_Class21] of  Llibre
 

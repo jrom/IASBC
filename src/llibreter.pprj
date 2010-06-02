@@ -1,4 +1,4 @@
-; Wed Jun 02 17:53:47 CEST 2010
+; Thu Jun 03 01:03:58 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -20,12 +20,12 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[llibreter_ProjectKB_Class10090]
-		[llibreter_ProjectKB_Class10091]
-		[llibreter_ProjectKB_Class10092]
-		[llibreter_ProjectKB_Class10093]
-		[llibreter_ProjectKB_Class10094]
-		[llibreter_ProjectKB_Class10095]))
+		[llibreter_ProjectKB_Class10067]
+		[llibreter_ProjectKB_Class10068]
+		[llibreter_ProjectKB_Class10069]
+		[llibreter_ProjectKB_Class10070]
+		[llibreter_ProjectKB_Class10071]
+		[llibreter_ProjectKB_Class10072]))
 
 ([CLSES_TAB] of  Widget
 
@@ -69,6 +69,9 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
+([KB_469985_Class3] of  Map
+)
+
 ([KB_561275_Class0] of  String
 
 	(name "factory_class_name")
@@ -77,9 +80,9 @@
 ([KB_561275_Class1] of  Map
 
 	(entries
-		[llibreter_ProjectKB_Class10096]
-		[llibreter_ProjectKB_Class10097]
-		[llibreter_ProjectKB_Class10098]))
+		[llibreter_ProjectKB_Class10073]
+		[llibreter_ProjectKB_Class10074]
+		[llibreter_ProjectKB_Class10075]))
 
 ([KB_561275_Class100] of  Property_List
 )
@@ -173,9 +176,6 @@
 ([KB_561275_Class99] of  Property_List
 )
 
-([KB_887741_Class3] of  Map
-)
-
 ([LAYOUT_PROPERTIES] of  Property_List
 
 	(name "layout properties")
@@ -190,51 +190,51 @@
 ([llibreter_ProjectKB_Class10] of  Property_List
 )
 
-([llibreter_ProjectKB_Class10090] of  String
+([llibreter_ProjectKB_Class10067] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([llibreter_ProjectKB_Class10091] of  String
+([llibreter_ProjectKB_Class10068] of  String
 
 	(name "Autor")
 	(string_value "nomAutor"))
 
-([llibreter_ProjectKB_Class10092] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
-([llibreter_ProjectKB_Class10093] of  String
+([llibreter_ProjectKB_Class10069] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([llibreter_ProjectKB_Class10094] of  String
+([llibreter_ProjectKB_Class10070] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([llibreter_ProjectKB_Class10071] of  String
 
 	(name "Genere")
 	(string_value "nomAutor"))
 
-([llibreter_ProjectKB_Class10095] of  String
+([llibreter_ProjectKB_Class10072] of  String
 
 	(name "Llibre")
 	(string_value "titol"))
 
-([llibreter_ProjectKB_Class10096] of  Map_Entry
+([llibreter_ProjectKB_Class10073] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([llibreter_ProjectKB_Class10097] of  Map_Entry
+([llibreter_ProjectKB_Class10074] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([llibreter_ProjectKB_Class10098] of  Map_Entry
+([llibreter_ProjectKB_Class10075] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
@@ -675,8 +675,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_SLOT_FORM_WIDGET]
 		[STANDARD_FACET_FORM_WIDGET]
+		[STANDARD_SLOT_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
