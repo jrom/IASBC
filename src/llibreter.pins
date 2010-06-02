@@ -847,3 +847,11 @@
 ([thriller] of  Genere
 
 	(nomGenere "thriller"))
+
+([romantica] of  Genere
+
+	(nomGenere "romantica"))
+
+([negra] of  Genere
+
+	(nomGenere "negra"))

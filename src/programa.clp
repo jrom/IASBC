@@ -554,7 +554,58 @@
 	)
 )
 
+; Si es un academic =>
+;; Recomanem llibres classics + historica + trama complexa
+(defrule satisfaccio-academics
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (tramasimple ?tramasimple))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-academics ?isbn))
+	?l <- (lector (ocupacio academic))
+	=>
+	(assert (vist satisfaccio-academics ?isbn))
+	(bind ?genere (getnom ?llibre))
+	(switch ?genere
+		(case classics then (modify ?recomanacio (adequat (+ ?a 1))))
+		(case historica then (modify ?recomanacio (adequat (+ ?a 1))))
+	)
+	(if (not ?tramasimple)
+	then
+		(modify ?recomanacio (adequat (+ ?a 1)))
+	)
+)
 
+
+; Si es un home =>
+;; Recomanem llibres historica i des-recomanem romantica
+(defrule satisfaccio-home
+	?llibre <- (object (is-a Llibre) (isbn ?isbn))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-home ?isbn))
+	?l <- (lector (sexe home))
+	=>
+	(assert (vist satisfaccio-home ?isbn))
+	(bind ?genere (getnom ?llibre))
+	(switch ?genere
+		(case historica then (modify ?recomanacio (adequat (+ ?a 1))))
+		(case romantica then (modify ?recomanacio (inadequat (+ ?ina 1))))
+	)
+)
+
+; Si es una dona =>
+;; Recomanem llibres thriller i novel·la negra
+(defrule satisfaccio-dona
+	?llibre <- (object (is-a Llibre) (isbn ?isbn))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-dona ?isbn))
+	?l <- (lector (sexe dona))
+	=>
+	(assert (vist satisfaccio-dona ?isbn))
+	(bind ?genere (getnom ?llibre))
+	(switch ?genere
+		(case thriller then (modify ?recomanacio (adequat (+ ?a 1))))
+		(case negra then (modify ?recomanacio (adequat (+ ?a 1))))
+	)
+)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
