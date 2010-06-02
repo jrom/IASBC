@@ -1,6 +1,7 @@
 #Ontologia
 
 ## Frame Llibre
+- ISBN
 - Títol
 - Preu
 - Any edició
@@ -11,25 +12,29 @@
 - Número de pàgines
 - Best-seller?
 - Enquadernació [tapadura, tapatova, butxaca]
-- ISBN
 - Orientació [infantil, juvenil, adult]
 - Vendes anuals
 - Trama: [simple, complexa]
 - Vocabulari: [simple, complex]
 - Personatges: [molts, pocs]
+- Contingut explicit?
 
 ## Frame Gènere
 
 - Nom
   - Ficcio
-  - ...
+  - Fantasia
+  - Ciencia ficcio
+  - Terror
+  - Thriller
+  - Classics
+  - Historica
+  - Social
 
 ## Frame Autor
 - Nom
-- Estil [simple, complicat, profund]
-- Generació
+- Any naixement
 - Nacionalitat
-- Gènere principal
 
 ## Perfil Lector
 - Edat
@@ -38,7 +43,7 @@
 - Lloc de lectura
 - Interès en best-sellers
 - Idioma preferent [català, castellà, estranger]
-- Gèneres preferits
+- Gènere preferit
 
 ## Associacions
 
