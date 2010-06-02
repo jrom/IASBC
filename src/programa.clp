@@ -527,8 +527,18 @@
 	then
 		(send ?llibre delete)
 	)
-)s
+)
 
+; Esborrem els llibres gruixuts si al lector no li agraden GENS
+(defrule esborrar-gruixuts
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (num_pagines ?pagines))
+	(gruixuts gens)
+	=>
+	(if (> ?pagines 400)
+	then
+		(send ?llibre delete)
+	)
+)
 
 (defrule a-heuristiques
 	(declare (salience -1))
@@ -880,6 +890,27 @@
 	(if ?explicit
 	then
 		(switch ?contingutexplicit
+			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
+	else
+	)
+)
+
+; Llibres gruixuts? =>
+;; Es recomanen (o no) llibres gruixuts
+(defrule satisfaccio-gruixuts
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (num_pagines ?pagines))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-gruixuts ?isbn))
+	(gruixuts ?gruixuts) ; molt bastant regular poc indiferent
+	(test (neq (str-compare ?gruixuts indiferent) 0)) ; No entrem si es indiferent
+	=>
+	(assert (vist satisfaccio-gruixuts ?isbn))
+	(if (> ?pagines 400)
+	then
+		(switch ?gruixuts
 			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
 			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
 			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
