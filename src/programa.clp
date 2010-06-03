@@ -112,6 +112,12 @@
 	?nom
 )
 
+(deffunction getnacionalitat (?llibre)
+	(bind ?autor (send ?llibre get-escrit_per))
+	(bind ?nacionalitat (send ?autor get-nacionalitat))
+	?nacionalitat
+)
+
 ; Molt adequat +3
 ; adequat +1
 ; inadequat -1
@@ -137,7 +143,6 @@
 	(printout t "Titol:   " (send ?llibre get-titol) crlf)
 	(printout t "ISBN:    " (send ?llibre get-isbn) crlf)
 	(printout t "Gènere:  " (getnom ?llibre) crlf)
-	(printout t "===============================================" crlf)
 )
 
 (defrule banner "Banner"
@@ -726,9 +731,9 @@
 )
 
 ; Si es un academic =>
-;; Recomanem llibres classics + historica + trama complexa
+;; Recomanem llibres classics + historica + trama complexa + vocabulari complex
 (defrule satisfaccio-academics
-	?llibre <- (object (is-a Llibre) (isbn ?isbn) (tramasimple ?tramasimple))
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (tramasimple ?tramasimple) (vocabularisimple ?vocabularisimple))
 	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
 	(not (vist satisfaccio-academics ?isbn))
 	?l <- (lector (ocupacio academic))
@@ -739,7 +744,7 @@
 		(case classics then (modify ?recomanacio (adequat (+ ?a 1))))
 		(case historica then (modify ?recomanacio (adequat (+ ?a 1))))
 	)
-	(if (not ?tramasimple)
+	(if (or (not ?tramasimple) (not ?vocabularisimple))
 	then
 		(modify ?recomanacio (adequat (+ ?a 1)))
 	)
@@ -1020,7 +1025,7 @@
 	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
 	(not (vist satisfaccio-notes ?isbn))
 	(notes ?notes) ; molt bastant regular poc indiferent
-	(test (neq (str-compare ?notes indiferent) 0)) ;no entrem si graulectura es indiferent
+	(test (neq (str-compare ?notes indiferent) 0)) ;no entrem si es indiferent
 	=>
 	(assert (vist satisfaccio-notes ?isbn))
 	(if (or (not ?tramasimple) (not ?vocabularisimple))
@@ -1037,6 +1042,31 @@
 
 ; Si el lector te nacionalitat de l'autor preferida =>
 ;; Recomanem llibres d'autors d'aquella nacionalitat
+(defrule satisfaccio-nacionalitat
+	?llibre <- (object (is-a Llibre) (isbn ?isbn))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-nacionalitat ?isbn))
+	(nacionalitat ?nacionalitat) ; catala espanyol catala-espanyol estranger indiferent
+	(test (neq (str-compare ?nacionalitat indiferent) 0)) ;no entrem si es indiferent
+	=>
+	(assert (vist satisfaccio-nacionalitat ?isbn))
+	(bind ?nacio (getnacionalitat ?llibre))
+	(printout t "Nacionalitat: " ?nacio crlf)
+	(switch ?nacionalitat
+		(case catala then
+			(if (eq (str-compare ?nacio Catalunya) 0) then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+		)
+		(case espanyol then
+			(if (eq (str-compare ?nacio Espanya) 0) then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+		)
+		(case catala-espanyol then
+			(if (or (eq (str-compare ?nacio Catalunya) 0) (eq (str-compare ?nacio Espanya) 0)) then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+		)
+		(case estranger then
+			(if (and (neq (str-compare ?nacio Catalunya) 0) (neq (str-compare ?nacio Espanya) 0)) then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+		)
+	)
+)
 
 ; Autor preferit? =>
 ;; Es recomanen llibres d'aquest autor i d'altres de la mateixa nacionalitat
