@@ -14,8 +14,8 @@ Els primers elements a considerar són aquells que formen part de l'ontologia pe
 També forma part del domini l'usuari: les seves característiques i preferències comunes i específiques (en funció de les respostes a les preguntes comunes).
 \begin{itemize}
   \item Característiques: El seu nom, l'edat, el sexe, la llengua materna i el seu perfil d'ocupació.
-  \item Preferències comunes: La freqüència i el temps de lectura, el gènere preferit d'una llista donada, autor preferit d'una llista donada,  si li agrada experimentar amb nous gèneres, lloc habitual de lectura, tipus d'enquadernació preferida, importància del preu, preferència per llibres amb contingut explícit, preferència per llibres actuals, preferència per best-sellers, preferència per llibres gruixuts, preferència per llibres amb vocabulari senzill, preferència per llibres de trama enrevessada, preferència per llibres amb molts personatges, origen preferit de l'autor i llengua de lectura preferida.
-  \item Preferències específiques: Preferència pels tipus de lletra grans, per aquells que no són ni nens petits ni persones grans; preferència per llibres lleugers per aquells que llegeixen fora de casa; preferència per llibres més venuts per aquells que no són fans dels best sellers; preferència per una franja de preu determinada, per aquells a qui influeix el preu.
+  \item Preferències comunes: La freqüència i el temps de lectura, el gènere preferit d'una llista donada, autor preferit d'una llista donada,  si li agrada experimentar amb nous gèneres, lloc habitual de lectura, tipus d'enquadernació preferida, importància del preu, preferència per llibres actuals, preferència per best-sellers, preferència per llibres gruixuts, preferència per llibres amb vocabulari senzill, preferència per llibres de trama enrevessada, preferència per llibres amb molts personatges, origen preferit de l'autor i llengua de lectura preferida.
+  \item Preferències específiques: Preferència pels tipus de lletra grans, per aquells que no són ni nens petits ni persones grans; preferència per llibres lleugers per aquells que llegeixen fora de casa; preferència per llibres amb contingut explícit, per usuaris que no són nens; preferència per llibres més venuts per aquells que no són fans dels best sellers; preferència per una franja de preu determinada, per aquells a qui influeix el preu.
 \end{itemize}
 
 Per últim forma part també del domini les recomanacions emeses pel sistema, que estan ordenades per ordre de més apropiades a menys. Les tres millors són les que es retornen a l'usuari.
@@ -35,15 +35,24 @@ Finalment es passarà a realitzar les preguntes específiques, en funció del pe
 
 Després d'entrevistar de forma exhaustiva el nostre expert, n'hem extret unes quantes hipòtesis i evidències que s'acostumen a tenir en compte en un procés de recomanació de llibres i que serviran en la següent fase per elaborar el procés d'associació heurística i refinament. Aquí les detallarem per temes, en aquesta fase es mostren tal com l'expert ens les especifica.
 
+\subsection{Edat de l'usuari}
+\begin{itemize}
+  \item Als nens se'ls recomana orientats a públic infantil.
+  \item Als joves se'ls recomana orientats a públic juvenil.  
+  \item Als adults se'ls recomana llibres orientats a públic adult.
+  \item Als nens no se'ls recomanen llibres amb contingut explícit.
+\end{itemize}
+
 \subsection{Gèneres}
 Evidències:
 \begin{itemize}
-  \item Se li recomanen preferentment els llibres del gèneres preferit de l'usuari.
+  \item Se li recomanen preferentment els llibres del gèneres preferit de l'usuari.  
 \end{itemize}
 Hipòtesis:
 \begin{itemize}
-  \item Els usuaris amb gènere preferit la ciència ficció o la fantasia també els pot agradar l'altre gènere.
-  \item Als usuaris amb gènere preferit la novel·la històrica també li poden agradar els clàssics (i viceversa).
+  \item Si a l'usuari li agrada experimentar, se li poden recomanar altres gèneres a part del seu preferit.  
+  \item Els usuaris amb gènere preferit la ciència ficció també els pot agradar la fantasia (i viceversa).
+  \item Els usuaris amb gènere preferit la novel·la històrica també els pot agradar els clàssics (i viceversa).
 \end{itemize}
 
 \subsection{Llocs de lectura}
@@ -55,13 +64,14 @@ Hipòtesis:
 \subsection{Influència del preu}
 Hipòtesis:
 \begin{itemize}
-  \item Els usuaris que els influeix molt el preu prefereixen llibres per sota dels 12 euros o llibres de butxaca.
+  \item Els usuaris que els influeix molt el preu convé recomanar-lis llibres de butxaca i preguntar-lis en quina franja es poden moure.
 \end{itemize}
 
 \subsection{Format del llibre}
 Hipòtesis:
 \begin{itemize}
-  \item Els usuaris que tenen més de 60 anys prefereixen un tipus de lletra gran.
+  \item Els usuaris que són persones grans prefereixen un tipus de lletra gran.
+  \item Els usuaris que són nens prefereixen un tipus de lletra gran.
   \item Els usuaris que prefereixen un tipus de lletra gran no se'ls recomana llibres de butxaca.
 \end{itemize}
 
@@ -69,7 +79,7 @@ Hipòtesis:
 Hipòtesis:
 \begin{itemize}
   \item A tots els usuaris que no especifiquin el contrari, se'ls recomana un llibre més venut abans que un llibre menys venut.
-  \item Els usuaris que els agraden els best-sellers se'ls recomana preferentment els llibres més venuts.
+  \item Els usuaris que no els agraden els best-sellers, no se'ls recomana llibres només perquè siguin els més venuts.
 \end{itemize}
 
 \subsection{Dates de publicació dels llibres}
@@ -79,10 +89,17 @@ Hipòtesis:
   \item Usuari que li agraden els llibres moderns se li recomanen els llibres dels  últims 20 anys i d'autors nascuts en els últims 60 anys.
 \end{itemize}
 
-\subsection{Llibres llegits}
+\subsection{Estil del llibre}
 Hipòtesis:
 \begin{itemize}
-  \item Usuari que ha llegit més de dos cops un mateix tipus de llibre se li recomanen aquell tipus de llibre preferentment.
+  \item Als usuaris amb perfil acadèmic se'ls recomana novel·la històrica, clàssics o bé llibres amb trama complexa o vocabulari complex.
+  \item 
+\end{itemize}
+
+\subsection{Autor preferit}
+Hipòtesis:
+\begin{itemize}
+  \item L'usuari que té per autor preferit X, li agradaran els llibres del mateix estil que l'autor X i de semblant edat.
 \end{itemize}
 
 

@@ -69,13 +69,6 @@
   - Poc
   - Gens
 
-- T'agraden els llibres amb contingut explícit?
-  - Molt
-  - Bastant
-  - Indiferent
-  - Poc
-  - Gens  
-
 - Tens preferència pels llibres actuals
   - Si
   - Normalment
@@ -137,6 +130,15 @@
   - Indiferent
 
 ##Mòdul preguntes específiques
+
+**Si no és un nen**
+
+- T'agraden els llibres amb contingut explícit?
+  - Molt
+  - Bastant
+  - Indiferent
+  - Poc
+  - Gens
 
 **Persona jove o adulta**
 

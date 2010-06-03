@@ -1,26 +1,27 @@
-; Si tenim genere preferit =>
+; Si tenim genere preferit => 
 ;; el genere es +adequat
 ;; si som GENS experimentadors els altres generes son +moltinadequat
 ;; si som POC experimentadors els altres generes son +inadequats
-
+√
 
 ; Si genere preferit es [fantasia, scifi], [classics, historica] =>
 ;; +adequats a tots els llibres de l'altra genere similar
-
+√
 
 ; Si importa el preu =>
 ;; llibres de menys de 10 euros +adequat
 ;; llibres de mes 25-40 euros +inadequat
 ;; llibres de mes de 40 euros +moltinadequat
 ;; llibres de butxaca o tapatova +adequat
+√
 
 ; Si el lector és un nen o una persona gran =>
 ;; No se li recomanen llibres de butxaca
-
+√
 
 ; Si agraden els bestsellers (molt bastant poc gens) =>
 ;; Es recomanen els bestsellers (molt bastant poc gens)
-
+√
 
 
 ; Si es un jove|adult|gran =>
