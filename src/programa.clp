@@ -373,16 +373,18 @@
 	(assert (vendes (pregunta-mp "Si estàs entre dos llibres, prefereixes aquell que es ven més?")))
 )
 
-(defrule preu
-	(lector (ocupacio academic | professional | altres))
-	=>
-	(assert (preu (pregunta-opts "El preu és un factor prioritari?" si no indiferent)))
-)
-
 (defrule preu-estudiant-desocupat
 	(lector (ocupacio estudiant | desocupat))
 	=>
 	(assert (preu si))
+)
+
+(defrule preu
+	(lector (ocupacio academic | professional | altres))
+	(not (vist preu))
+	=>
+	(assert (vist preu))
+	(assert (preu (pregunta-opts "El preu és un factor prioritari?" si no indiferent)))
 )
 
 (defrule preu-detall
@@ -800,28 +802,24 @@
 
 
 ; Si tenim un lector molt actiu =>
-;; Recomanem llibres amb trames més complexes i vocabulari menys senzill
+;; Recomanem llibres amb trames més complexes i vocabulari menys senzill i més gruixuts
 ;; altrament des-recomanem llibres amb trames complexes i vocabulari complicat
 (defrule satisfaccio-graulectura
-	?llibre <- (object (is-a Llibre) (isbn ?isbn) (vocabularisimple ?vocabularisimple) (tramasimple ?tramasimple))
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (vocabularisimple ?vocabularisimple) (tramasimple ?tramasimple) (num_pagines ?pagines))
 	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
 	(not (vist satisfaccio-graulectura ?isbn))
 	(grau-lectura ?graulect) ; molt bastant regular poc indiferent
 	(test (neq (str-compare ?graulect indiferent) 0)) ;no entrem si graulectura es indiferent
 	=>
 	(assert (vist satisfaccio-graulectura ?isbn))
-	(if (or ?tramasimple ?vocabularisimple)
+	(if (or (or (not ?tramasimple) (not ?vocabularisimple)) (> ?pagines 400))
 	then
-		(switch ?graulect
-			(case poc then (modify ?recomanacio (adequat (+ ?a 1))))
-		)
-	else
 		(switch ?graulect
 			(case molt then (modify ?recomanacio (adequat (+ ?a 1))))
 			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
 			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
 		)
-	)	
+	)
 )
 
 
