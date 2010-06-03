@@ -28,17 +28,11 @@
 ;; Tot ha de ser desconegut pero per simplificar en development faig un cas on ja esta definit
 (deffacts tipus-lector
 	(lector
-;		(nom desconegut)
-;		(edat desconegut)
-;		(sexe desconegut)
-;		(llengua desconegut)
-;		(ocupacio desconegut)
-		(nom Jordi)
-		(edat adult)
-		(sexe home)
-		(llengua catala)
-		(ocupacio estudiant)
-
+		(nom desconegut)
+		(edat desconegut)
+		(sexe desconegut)
+		(llengua desconegut)
+		(ocupacio desconegut)
 		(reco (create$))
 		)
 )
@@ -1086,6 +1080,39 @@
 	(if (eq (str-compare ?nomautor ?autor) 0)
 	then
 		(modify ?recomanacio (moltadequat (+ ?ma 1)))
+	)
+)
+
+; Vols llibres mes venuts? =>
+;; Es recomanen els llibres mes venuts
+(defrule satisfaccio-vendes
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (vendes_anuals ?anuals))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-vendes ?isbn))
+	(vendes ?vendes) ; molt bastant regular poc indiferent
+	(test (neq (str-compare ?vendes indiferent) 0)) ;no entrem si es indiferent
+	=>
+	(assert (vist satisfaccio-vendes ?isbn))
+	(if (> ?anuals 5000000)
+	then ; Molt venuts
+		(switch ?vendes
+			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+			(case gens then (modify ?recomanacio (moltinadequat (+ ?mina 1))))
+		)
+	else
+		(if (> ?anuals 500000)
+		then ; Bastant venuts
+			(switch ?vendes
+				(case molt then (modify ?recomanacio (adequat (+ ?a 1))))
+				(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+			)
+		else ; Moderadament venuts
+			(switch ?vendes
+				(case molt then (modify ?recomanacio (inadequat (+ ?ina 1))))
+			)
+		)
 	)
 )
 

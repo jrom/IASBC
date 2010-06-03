@@ -75,8 +75,6 @@
 ;; Es recomanen llibres amb la llengua preferida
 
 
-============== FINS AQUI ESTA FET; FALTEN LES SEGUENTS ====================
-
 ; Autor preferit? =>
 ;; Es recomanen llibres d'aquest autor i d'altres de la mateixa nacionalitat
 
@@ -88,3 +86,11 @@
 
 ; Si el lector te nacionalitat de l'autor preferida =>
 ;; Recomanem llibres d'autors d'aquella nacionalitat
+
+; Prefereixen llibres amb més vendes? =>
+;; Recomanem llibres amb més vendes
+
+============== FINS AQUI ESTA FET; FALTEN LES SEGUENTS ====================
+
+; Usuaris amb més temps per llegir =>
+;; Se'ls recomanen llibres gruixuts
