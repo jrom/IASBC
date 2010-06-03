@@ -1,2 +1,39 @@
 %!TEX root = document.tex
 \label{moduls}
+
+La implementació del sistema basat en el coneixement s'ha dividit en mòduls per tal que cada tasca estigui en una secció de codi i el programa salti d'un mòdul a l'altre depenent de la tasca a realitzar.
+
+A continuació es llisten els mòduls implementats junt amb una breu descripció de la seva tasca.
+
+\section{Principal}
+
+És el mòdul que s'executa primer. Es defineixen les funcions auxiliars, templates, assumpcions inicials i es mostra un missatge de benvinguda.
+
+\section{Perfil Lector}
+
+En el primer mòdul on es fan preguntes, se li demana a l'usuari que respongui un seguit de preguntes per formar un perfil de lector. Se li demana el nom per cortesia, edat, sexe, llengua materna i ocupació. Amb aquestes dades després podrem decidir fer determinades preguntes o prendre determinades conclusions, com expliquem a l'apartat d'Evidències i Hipòtesis.
+
+
+\section{Preguntes Comunes}
+
+En aquest mòdul es demana a l'usuari que respongui un segut de preguntes per permetre al sistema obtenir informació sobre preferències en els habits de lectura, gèneres preferits i conceptes relacionats amb el domini del problema.
+
+\section{Preguntes Específiques}
+
+Depenent del perfil del lector, o de respostes en el mòdul anterior, es procedeix a concretar preferències o fer preguntes que s'obvien si el perfil és un altre.
+
+\section{Associacions Incondicionals}
+
+Lligat amb l'apartat anterior, aquí s'extreuen conclusions a partir d'informació del perfil o de preguntes comunes, com per exemple quan no cal fer una pregunta específica perquè una característica del perfil del lector ja implica una conclusió.
+
+\section{Esborrar instàncies}
+
+Quan no es compleixen els requisits mínims establerts per l'usuari s'esborra la instància del llibre. D'aquesta manera es redueix l'espai de cerca per al pas posterior.
+
+\section{Associacions heurístiques}
+
+En el mòdul on s'apliquen les associacions heurístiques és on es creen totes les possibles recomanacions de llibres i les respostes de l'usuari classifiquen aquestes recomanacions. Es qualifiquen diferents indicadors per finalment en el proper mòdul obtenir-ne l'ordre final.
+
+\section{Refinament}
+
+Després d'haver aplicat les associacions heurístiques sobre el conjunt inicial de recomanacions, en aquest mòdul s'ordenen valorant els diferents indicadors de cada recomanació i se n'escullen les tres millors, o les millors en cas de que s'hagin descartat gairebé tots els llibres. En aquest mòdul s'ensenya per pantalla a l'usuari la solució del problema.
