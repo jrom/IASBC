@@ -1,4 +1,4 @@
-; Thu Jun 03 10:36:56 CEST 2010
+; Thu Jun 03 11:24:28 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -34,7 +34,7 @@
 ([CarlosRuizZafon] of  Autor
 
 	(anynaixement 1964)
-	(nacionalitat "Espanya")
+	(nacionalitat "Catalunya")
 	(nomAutor "Carlos Ruiz Zafón"))
 
 ([classics] of  Genere
@@ -1009,7 +1009,7 @@
 ([llibreter_Class20011] of  Autor
 
 	(anynaixement 1969)
-	(nacionalitat "Espanya")
+	(nacionalitat "Catalunya")
 	(nomAutor "Xavier Bosch"))
 
 ([llibreter_Class20012] of  Llibre
@@ -1035,7 +1035,7 @@
 ([llibreter_Class20013] of  Autor
 
 	(anynaixement 1972)
-	(nacionalitat "Espanya")
+	(nacionalitat "Catalunya")
 	(nomAutor "Maria Àngels Anglada"))
 
 ([llibreter_Class20014] of  Llibre
@@ -1112,7 +1112,7 @@
 ([llibreter_Class20019] of  Autor
 
 	(anynaixement 1967)
-	(nacionalitat "Espanya")
+	(nacionalitat "Catalunya")
 	(nomAutor "Xavier Montaño"))
 
 ([llibreter_Class21] of  Llibre
@@ -1394,6 +1394,59 @@
 	(anynaixement 1944)
 	(nacionalitat "Alemanya")
 	(nomAutor "Bernhard Schlink"))
+
+([llibreter_Class30012] of  Llibre
+
+	(any_edicio 2007)
+	(any_publicacio 1954)
+	(bestseller FALSE)
+	(enquadernacio butxaca)
+	(escrit_per [llibreter_Class30013])
+	(explicit FALSE)
+	(format petit)
+	(genere [classics])
+	(idioma catala)
+	(isbn "9788433973726")
+	(moltspersonatges TRUE)
+	(num_pagines 140)
+	(orientacio adult)
+	(pes petit)
+	(preu 8.0)
+	(titol "Contraban")
+	(tramasimple FALSE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class30013] of  Autor
+
+	(anynaixement 1897)
+	(nacionalitat "Catalunya")
+	(nomAutor "Josep Pla"))
+
+([llibreter_Class30014] of  Autor
+
+	(anynaixement 1952)
+	(nacionalitat "Catalunya")
+	(nomAutor "Quim Monzó"))
+
+([llibreter_Class30015] of  Llibre
+
+	(any_publicacio 2007)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class30014])
+	(explicit FALSE)
+	(format petit)
+	(genere [social])
+	(idioma catala)
+	(isbn "9788433973726")
+	(moltspersonatges TRUE)
+	(num_pagines 143)
+	(orientacio adult)
+	(pes petit)
+	(preu 7.5)
+	(titol "Mil Cretins")
+	(tramasimple TRUE)
+	(vocabularisimple FALSE))
 
 ([llibreter_Class31] of  Llibre
 
