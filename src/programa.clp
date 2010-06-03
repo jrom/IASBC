@@ -268,9 +268,9 @@
 	(assert (contingut-explicit (pregunta-mp "Prefereixes els llibres amb contingut explícit (violència o sexe)?")))
 )
 
-(defrule actual
+(defrule actuals
 	=>
-	(assert (actual (pregunta-mp "Prefereixes els llibres actuals?")))
+	(assert (actuals (pregunta-mp "Prefereixes els llibres actuals?")))
 )
 
 (defrule bestseller
@@ -546,6 +546,17 @@
 	(vocabulari-facil gens)
 	=>
 	(if ?vocabulari
+	then
+		(send ?llibre delete)
+	)
+)
+
+; Esborrem els llibres actuals si al lector no li agraden GENS
+(defrule esborrar-actuals
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (any_publicacio ?publicacio))
+	(actuals gens)
+	=>
+	(if (> ?publicacio 2000)
 	then
 		(send ?llibre delete)
 	)
@@ -979,6 +990,57 @@
 		)
 	)
 )
+
+; Agraden llibres actuals? =>
+;; Es recomanen llibres del 2000 o posterior
+(defrule satisfaccio-actuals
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (any_publicacio ?publicacio))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-actuals ?isbn))
+	(actuals ?actuals) ;molt bastant indiferent poc gens
+	(test (neq (str-compare ?actuals indiferent) 0)) ; No entrem si es indiferent
+	=>
+	(printout t "ACTUALS: " ?publicacio ?actuals crlf)
+	(assert (vist satisfaccio-actuals ?isbn))
+	(if (> ?publicacio 2000)
+	then
+		(switch ?actuals
+			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
+	)
+)
+
+
+; Agrada prendre notes al llegir? =>
+;; Recomanem trames complexes + vocabulari complex
+(defrule satisfaccio-notes
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (vocabularisimple ?vocabularisimple) (tramasimple ?tramasimple))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-notes ?isbn))
+	(notes ?notes) ; molt bastant regular poc indiferent
+	(test (neq (str-compare ?notes indiferent) 0)) ;no entrem si graulectura es indiferent
+	=>
+	(assert (vist satisfaccio-notes ?isbn))
+	(if (or (not ?tramasimple) (not ?vocabularisimple))
+	then
+		(switch ?notes
+			(case molt then (modify ?recomanacio (moltadequat (+ ?ma 1))))
+			(case bastant then (modify ?recomanacio (adequat (+ ?a 1))))
+			(case poc then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
+	)	
+)
+
+
+
+; Si el lector te nacionalitat de l'autor preferida =>
+;; Recomanem llibres d'autors d'aquella nacionalitat
+
+; Autor preferit? =>
+;; Es recomanen llibres d'aquest autor i d'altres de la mateixa nacionalitat
+
 
 (defrule a-refinament
 	(declare (salience -1))
