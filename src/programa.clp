@@ -1199,14 +1199,3 @@
 		(mostra-llibre ?l)
 	)
 )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; FINAL
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;(defrule banner-final
-;	(declare (salience -1))
-;	=>
-;	(printout t "============ FINAL =============" crlf crlf)
-;)
-
