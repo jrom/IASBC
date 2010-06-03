@@ -1,4 +1,4 @@
-; Thu Jun 03 01:03:58 CEST 2010
+; Thu Jun 03 10:36:56 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -459,6 +459,7 @@
 	(genere [classics])
 	(idioma catala)
 	(isbn "9788433911236")
+	(moltspersonatges FALSE)
 	(num_pagines 113)
 	(orientacio juvenil)
 	(pes mitja)
@@ -585,6 +586,7 @@
 	(genere [scifi])
 	(idioma catala)
 	(isbn "9344444932283")
+	(moltspersonatges FALSE)
 	(num_pagines 180)
 	(orientacio adult)
 	(preu 9.0)
@@ -852,6 +854,26 @@
 	(anynaixement 1900)
 	(nacionalitat "França")
 	(nomAutor "Antoine de Saint-Exupéry"))
+
+([llibreter_Class20000] of  Llibre
+
+	(any_publicacio 2010)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class30001])
+	(explicit FALSE)
+	(format gran)
+	(genere [ficcio])
+	(idioma catala)
+	(isbn "9788482641409")
+	(moltspersonatges TRUE)
+	(num_pagines 255)
+	(orientacio infantil)
+	(pes mitja)
+	(preu 19.0)
+	(titol "10+2")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
 
 ([llibreter_Class20001] of  Autor
 
@@ -1286,6 +1308,92 @@
 	(anynaixement 1953)
 	(nacionalitat "Xile")
 	(nomAutor "Roberto Bolaño"))
+
+([llibreter_Class30001] of  Autor
+
+	(anynaixement 1960)
+	(nacionalitat "Regne Unit")
+	(nomAutor "Mark Twain"))
+
+([llibreter_Class30002] of  Llibre
+
+	(any_publicacio 2005)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class30003])
+	(explicit FALSE)
+	(format mitja)
+	(genere [terror])
+	(idioma catala)
+	(isbn "9788493660109")
+	(moltspersonatges TRUE)
+	(num_pagines 255)
+	(orientacio adult)
+	(pes mitja)
+	(preu 21.9)
+	(titol "La biblioteca dels morts")
+	(tramasimple TRUE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class30003] of  Autor
+
+	(anynaixement 1953)
+	(nacionalitat "Estats Units")
+	(nomAutor "Glen Cooper"))
+
+([llibreter_Class30004] of  Llibre
+
+	(any_edicio 2009)
+	(any_publicacio 2006)
+	(bestseller TRUE)
+	(enquadernacio butxaca)
+	(escrit_per [llibreter_Class30005])
+	(explicit FALSE)
+	(format petit)
+	(genere [historica])
+	(idioma catala)
+	(isbn "9788499081106")
+	(moltspersonatges FALSE)
+	(num_pagines 255)
+	(orientacio adult)
+	(pes petit)
+	(preu 8.95)
+	(titol "El caçador d'estels")
+	(tramasimple FALSE)
+	(vocabularisimple TRUE))
+
+([llibreter_Class30005] of  Autor
+
+	(anynaixement 1965)
+	(nacionalitat "Persa")
+	(nomAutor "Khaled Hosseini"))
+
+([llibreter_Class30006] of  Llibre
+
+	(any_edicio 2005)
+	(any_publicacio 1995)
+	(bestseller TRUE)
+	(enquadernacio butxaca)
+	(escrit_per [llibreter_Class30007])
+	(explicit TRUE)
+	(format petit)
+	(genere [romantica])
+	(idioma catala)
+	(isbn "9788499300061")
+	(moltspersonatges FALSE)
+	(num_pagines 170)
+	(orientacio adult)
+	(pes petit)
+	(preu 7.0)
+	(titol "El lector")
+	(tramasimple FALSE)
+	(vocabularisimple FALSE))
+
+([llibreter_Class30007] of  Autor
+
+	(anynaixement 1944)
+	(nacionalitat "Alemanya")
+	(nomAutor "Bernhard Schlink"))
 
 ([llibreter_Class31] of  Llibre
 
