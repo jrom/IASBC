@@ -1,4 +1,4 @@
-; Thu Jun 03 11:24:28 CEST 2010
+; Thu Jun 03 12:54:28 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -20,12 +20,12 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[llibreter_ProjectKB_Class10076]
-		[llibreter_ProjectKB_Class10077]
-		[llibreter_ProjectKB_Class10078]
-		[llibreter_ProjectKB_Class10079]
-		[llibreter_ProjectKB_Class10080]
-		[llibreter_ProjectKB_Class10081]))
+		[llibreter_ProjectKB_Class10085]
+		[llibreter_ProjectKB_Class10086]
+		[llibreter_ProjectKB_Class10087]
+		[llibreter_ProjectKB_Class10088]
+		[llibreter_ProjectKB_Class10089]
+		[llibreter_ProjectKB_Class10090]))
 
 ([CLSES_TAB] of  Widget
 
@@ -77,9 +77,9 @@
 ([KB_561275_Class1] of  Map
 
 	(entries
-		[llibreter_ProjectKB_Class10082]
-		[llibreter_ProjectKB_Class10083]
-		[llibreter_ProjectKB_Class10084]))
+		[llibreter_ProjectKB_Class10091]
+		[llibreter_ProjectKB_Class10092]
+		[llibreter_ProjectKB_Class10093]))
 
 ([KB_561275_Class100] of  Property_List
 )
@@ -190,51 +190,51 @@
 ([llibreter_ProjectKB_Class10] of  Property_List
 )
 
-([llibreter_ProjectKB_Class10076] of  String
+([llibreter_ProjectKB_Class10085] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([llibreter_ProjectKB_Class10077] of  String
+([llibreter_ProjectKB_Class10086] of  String
 
 	(name "Autor")
 	(string_value "nomAutor"))
 
-([llibreter_ProjectKB_Class10078] of  String
+([llibreter_ProjectKB_Class10087] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([llibreter_ProjectKB_Class10079] of  String
+([llibreter_ProjectKB_Class10088] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([llibreter_ProjectKB_Class10080] of  String
+([llibreter_ProjectKB_Class10089] of  String
 
 	(name "Genere")
 	(string_value "nomAutor"))
 
-([llibreter_ProjectKB_Class10081] of  String
+([llibreter_ProjectKB_Class10090] of  String
 
 	(name "Llibre")
 	(string_value "titol"))
 
-([llibreter_ProjectKB_Class10082] of  Map_Entry
+([llibreter_ProjectKB_Class10091] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([llibreter_ProjectKB_Class10083] of  Map_Entry
+([llibreter_ProjectKB_Class10092] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([llibreter_ProjectKB_Class10084] of  Map_Entry
+([llibreter_ProjectKB_Class10093] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
