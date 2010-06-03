@@ -1,4 +1,4 @@
-; Thu Jun 03 11:24:28 CEST 2010
+; Thu Jun 03 12:54:27 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -28,7 +28,7 @@
 	(preu 20.0)
 	(titol "Amanecer")
 	(tramasimple TRUE)
-	(vendes_anuals 3536)
+	(vendes_anuals 10000000)
 	(vocabularisimple TRUE))
 
 ([CarlosRuizZafon] of  Autor
@@ -66,7 +66,7 @@
 	(preu 16.0)
 	(titol "Eclipse")
 	(tramasimple FALSE)
-	(vendes_anuals 2958)
+	(vendes_anuals 8000000)
 	(vocabularisimple FALSE))
 
 ([ElAlquimista] of  Llibre
@@ -88,7 +88,7 @@
 	(preu 14.0)
 	(titol "El alquimista")
 	(tramasimple FALSE)
-	(vendes_anuals 9422)
+	(vendes_anuals 14000000)
 	(vocabularisimple FALSE))
 
 ([ElSimboloPerdido] of  Llibre
@@ -110,7 +110,7 @@
 	(preu 25.0)
 	(titol "El símbolo perdido")
 	(tramasimple FALSE)
-	(vendes_anuals 4078)
+	(vendes_anuals 11000000)
 	(vocabularisimple FALSE))
 
 ([fantasia] of  Genere
@@ -140,7 +140,7 @@
 	(preu 10.0)
 	(titol "Harry Potter y la piedra filosofal")
 	(tramasimple FALSE)
-	(vendes_anuals 10903)
+	(vendes_anuals 30000000)
 	(vocabularisimple FALSE))
 
 ([historica] of  Genere
@@ -178,7 +178,7 @@
 	(preu 27.0)
 	(titol "La isla bajo el mar")
 	(tramasimple FALSE)
-	(vendes_anuals 6198)
+	(vendes_anuals 7000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class0] of  Llibre
@@ -200,7 +200,7 @@
 	(preu 15.0)
 	(titol "Luna Nueva")
 	(tramasimple FALSE)
-	(vendes_anuals 11895)
+	(vendes_anuals 7000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class1] of  Llibre
@@ -222,7 +222,7 @@
 	(preu 18.0)
 	(titol "La sombra del viento")
 	(tramasimple TRUE)
-	(vendes_anuals 12262)
+	(vendes_anuals 25000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10] of  Llibre
@@ -244,7 +244,7 @@
 	(preu 19.0)
 	(titol "El olvido que seremos")
 	(tramasimple FALSE)
-	(vendes_anuals 19000)
+	(vendes_anuals 4000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class10000] of  Llibre
@@ -265,6 +265,7 @@
 	(preu 8.95)
 	(titol "Escola de Dansa. Ha nascut una estrella")
 	(tramasimple TRUE)
+	(vendes_anuals 700000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10001] of  Llibre
@@ -286,6 +287,7 @@
 	(preu 11.8)
 	(titol "Tots tenim secrets")
 	(tramasimple TRUE)
+	(vendes_anuals 210000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10002] of  Autor
@@ -316,6 +318,7 @@
 	(preu 19.0)
 	(titol "L'elegància de quan es dorm")
 	(tramasimple TRUE)
+	(vendes_anuals 3000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class10005] of  Autor
@@ -343,6 +346,7 @@
 	(preu 13.0)
 	(titol "2001, Una odissea a l'espai")
 	(tramasimple TRUE)
+	(vendes_anuals 20000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10007] of  Autor
@@ -370,6 +374,7 @@
 	(preu 8.0)
 	(titol "El joc d'Ender")
 	(tramasimple FALSE)
+	(vendes_anuals 50000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10009] of  Autor
@@ -397,6 +402,7 @@
 	(preu 20.0)
 	(titol "Ender a l'exili")
 	(tramasimple TRUE)
+	(vendes_anuals 16000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10011] of  Llibre
@@ -418,6 +424,7 @@
 	(preu 14.0)
 	(titol "Guia de l'autostopista galáctico")
 	(tramasimple TRUE)
+	(vendes_anuals 10000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10012] of  Autor
@@ -445,6 +452,7 @@
 	(preu 6.0)
 	(titol "El restaurant de la fi del món")
 	(tramasimple TRUE)
+	(vendes_anuals 6000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10014] of  Llibre
@@ -466,6 +474,7 @@
 	(preu 10.0)
 	(titol "La volta al món en 80 dies")
 	(tramasimple TRUE)
+	(vendes_anuals 20000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10015] of  Autor
@@ -492,6 +501,7 @@
 	(preu 8.8)
 	(titol "The lone drow")
 	(tramasimple TRUE)
+	(vendes_anuals 400000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10017] of  Autor
@@ -518,6 +528,7 @@
 	(preu 12.0)
 	(titol "Les cròniques de Narnia")
 	(tramasimple TRUE)
+	(vendes_anuals 12000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10019] of  Autor
@@ -551,6 +562,7 @@
 	(preu 16.0)
 	(titol "El senyor dels anells")
 	(tramasimple FALSE)
+	(vendes_anuals 150000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class10022] of  Llibre
@@ -572,6 +584,7 @@
 	(preu 8.0)
 	(titol "El Hobbit")
 	(tramasimple TRUE)
+	(vendes_anuals 100000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class10023] of  Llibre
@@ -592,6 +605,7 @@
 	(preu 9.0)
 	(titol "1984")
 	(tramasimple FALSE)
+	(vendes_anuals 30000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10024] of  Autor
@@ -618,6 +632,7 @@
 	(preu 14.0)
 	(titol "Rebelión en la granja")
 	(tramasimple TRUE)
+	(vendes_anuals 11500000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class10026] of  Llibre
@@ -639,6 +654,7 @@
 	(preu 8.95)
 	(titol "Dune")
 	(tramasimple FALSE)
+	(vendes_anuals 15000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class10027] of  Autor
@@ -666,6 +682,7 @@
 	(preu 13.0)
 	(titol "La fundació")
 	(tramasimple FALSE)
+	(vendes_anuals 12000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class10029] of  Autor
@@ -692,6 +709,7 @@
 	(preu 6.0)
 	(titol "I, Robot")
 	(tramasimple FALSE)
+	(vendes_anuals 19000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class10031] of  Llibre
@@ -713,6 +731,7 @@
 	(preu 11.24)
 	(titol "El barón rampante")
 	(tramasimple TRUE)
+	(vendes_anuals 7000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class10032] of  Autor
@@ -746,7 +765,7 @@
 	(preu 11.0)
 	(titol "La casa en Mango Street")
 	(tramasimple FALSE)
-	(vendes_anuals 18700)
+	(vendes_anuals 4000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class13] of  Autor
@@ -774,7 +793,7 @@
 	(preu 14.0)
 	(titol "Como agua para chocolate")
 	(tramasimple FALSE)
-	(vendes_anuals 21092)
+	(vendes_anuals 9000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class17] of  Autor
@@ -802,7 +821,7 @@
 	(preu 14.0)
 	(titol "La casa de los espíritus")
 	(tramasimple FALSE)
-	(vendes_anuals 21380)
+	(vendes_anuals 12000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class19] of  Llibre
@@ -824,7 +843,7 @@
 	(preu 11.0)
 	(titol "El Principito")
 	(tramasimple FALSE)
-	(vendes_anuals 22400)
+	(vendes_anuals 18000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class2] of  Llibre
@@ -846,7 +865,7 @@
 	(preu 26.0)
 	(titol "La reina en el palacio de las corrientes de aire")
 	(tramasimple FALSE)
-	(vendes_anuals 12917)
+	(vendes_anuals 13000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class20] of  Autor
@@ -873,6 +892,7 @@
 	(preu 19.0)
 	(titol "10+2")
 	(tramasimple TRUE)
+	(vendes_anuals 10000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class20001] of  Autor
@@ -899,6 +919,7 @@
 	(preu 6.0)
 	(titol "La muntanya de foc")
 	(tramasimple TRUE)
+	(vendes_anuals 10000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class20003] of  Autor
@@ -926,6 +947,7 @@
 	(preu 32.0)
 	(titol "A contrallum")
 	(tramasimple FALSE)
+	(vendes_anuals 4000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class20005] of  Autor
@@ -952,6 +974,7 @@
 	(preu 13.0)
 	(titol "Petits plaers")
 	(tramasimple TRUE)
+	(vendes_anuals 400000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class20007] of  Autor
@@ -978,6 +1001,7 @@
 	(preu 19.95)
 	(titol "Crim en directe")
 	(tramasimple FALSE)
+	(vendes_anuals 1000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class20009] of  Autor
@@ -1004,6 +1028,7 @@
 	(preu 20.0)
 	(titol "Se sabrà tot")
 	(tramasimple TRUE)
+	(vendes_anuals 120000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class20011] of  Autor
@@ -1030,6 +1055,7 @@
 	(preu 14.96)
 	(titol "El violí d'Auschwitz")
 	(tramasimple TRUE)
+	(vendes_anuals 8000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class20013] of  Autor
@@ -1055,6 +1081,7 @@
 	(preu 13.0)
 	(titol "Revolutionary Road")
 	(tramasimple FALSE)
+	(vendes_anuals 500000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class20015] of  Autor
@@ -1081,6 +1108,7 @@
 	(preu 13.8)
 	(titol "El lladre de cossos")
 	(tramasimple FALSE)
+	(vendes_anuals 2000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class20017] of  Autor
@@ -1107,6 +1135,7 @@
 	(preu 8.0)
 	(titol "Quina selva tan boja")
 	(tramasimple TRUE)
+	(vendes_anuals 300000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class20019] of  Autor
@@ -1134,7 +1163,7 @@
 	(preu 10.0)
 	(titol "Harry Potter y la cámara secreta")
 	(tramasimple FALSE)
-	(vendes_anuals 29800)
+	(vendes_anuals 19000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class22] of  Llibre
@@ -1156,7 +1185,7 @@
 	(preu 18.0)
 	(titol "El juego del angel")
 	(tramasimple FALSE)
-	(vendes_anuals 23800)
+	(vendes_anuals 9000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class23] of  Llibre
@@ -1178,7 +1207,7 @@
 	(preu 15.0)
 	(titol "Angeles y demonios")
 	(tramasimple FALSE)
-	(vendes_anuals 2366)
+	(vendes_anuals 15000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class24] of  Llibre
@@ -1200,7 +1229,7 @@
 	(preu 12.0)
 	(titol "Harry Potter y el prisionero de Azkaban")
 	(tramasimple FALSE)
-	(vendes_anuals 24032)
+	(vendes_anuals 18000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class25] of  Llibre
@@ -1222,7 +1251,7 @@
 	(preu 7.0)
 	(titol "Cajas De Carton")
 	(tramasimple FALSE)
-	(vendes_anuals 25000)
+	(vendes_anuals 550000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class26] of  Autor
@@ -1250,7 +1279,7 @@
 	(preu 15.0)
 	(titol "El amor en los tiempos del cólera")
 	(tramasimple FALSE)
-	(vendes_anuals 25400)
+	(vendes_anuals 6500000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class28] of  Llibre
@@ -1272,7 +1301,7 @@
 	(preu 25.0)
 	(titol "Brida")
 	(tramasimple TRUE)
-	(vendes_anuals 25400)
+	(vendes_anuals 600000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class29] of  Llibre
@@ -1294,7 +1323,7 @@
 	(preu 20.0)
 	(titol "2666")
 	(tramasimple FALSE)
-	(vendes_anuals 28170)
+	(vendes_anuals 40000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class3] of  Autor
@@ -1333,6 +1362,7 @@
 	(preu 21.9)
 	(titol "La biblioteca dels morts")
 	(tramasimple TRUE)
+	(vendes_anuals 499000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class30003] of  Autor
@@ -1360,6 +1390,7 @@
 	(preu 8.95)
 	(titol "El caçador d'estels")
 	(tramasimple FALSE)
+	(vendes_anuals 12000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class30005] of  Autor
@@ -1387,6 +1418,7 @@
 	(preu 7.0)
 	(titol "El lector")
 	(tramasimple FALSE)
+	(vendes_anuals 13000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class30007] of  Autor
@@ -1414,6 +1446,7 @@
 	(preu 8.0)
 	(titol "Contraban")
 	(tramasimple FALSE)
+	(vendes_anuals 6000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class30013] of  Autor
@@ -1446,6 +1479,7 @@
 	(preu 7.5)
 	(titol "Mil Cretins")
 	(tramasimple TRUE)
+	(vendes_anuals 400000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class31] of  Llibre
@@ -1466,7 +1500,7 @@
 	(preu 13.0)
 	(titol "Crónica de una muerte anunciada")
 	(tramasimple FALSE)
-	(vendes_anuals 28800)
+	(vendes_anuals 3000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class32] of  Llibre
@@ -1488,6 +1522,7 @@
 	(preu 19.0)
 	(titol "Nada que temer")
 	(tramasimple FALSE)
+	(vendes_anuals 6000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class33] of  Autor
@@ -1515,6 +1550,7 @@
 	(preu 18.0)
 	(titol "Necrópolis")
 	(tramasimple TRUE)
+	(vendes_anuals 6000000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class35] of  Autor
@@ -1542,6 +1578,7 @@
 	(preu 32.0)
 	(titol "Contraluz")
 	(tramasimple FALSE)
+	(vendes_anuals 5000001)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class37] of  Autor
@@ -1569,6 +1606,7 @@
 	(preu 20.0)
 	(titol "Res a témer")
 	(tramasimple FALSE)
+	(vendes_anuals 300000)
 	(vocabularisimple TRUE))
 
 ([llibreter_Class4] of  Llibre
@@ -1590,14 +1628,14 @@
 	(preu 15.0)
 	(titol "Desde mi cielo")
 	(tramasimple FALSE)
-	(vendes_anuals 15000)
+	(vendes_anuals 10000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class5] of  Llibre
 
 	(any_edicio 2007)
 	(any_publicacio 2007)
-	(bestseller TRUE)
+	(bestseller FALSE)
 	(enquadernacio tapadura)
 	(escrit_per [llibreter_Class6])
 	(explicit FALSE)
@@ -1612,7 +1650,7 @@
 	(preu 16.0)
 	(titol "Cien años de soledad")
 	(tramasimple FALSE)
-	(vendes_anuals 15800)
+	(vendes_anuals 14000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class6] of  Autor
@@ -1640,7 +1678,7 @@
 	(preu 26.0)
 	(titol "La chica que sonaba con un cerillo y un galon de gasolina")
 	(tramasimple FALSE)
-	(vendes_anuals 17800)
+	(vendes_anuals 40000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class8] of  Llibre
@@ -1662,7 +1700,7 @@
 	(preu 9.0)
 	(titol "La ciudad de las bestias")
 	(tramasimple FALSE)
-	(vendes_anuals 17100)
+	(vendes_anuals 2000000)
 	(vocabularisimple FALSE))
 
 ([llibreter_Class9] of  Llibre
@@ -1684,7 +1722,7 @@
 	(preu 25.0)
 	(titol "Los hombres que no amaban a las mujeres")
 	(tramasimple FALSE)
-	(vendes_anuals 18700)
+	(vendes_anuals 22000000)
 	(vocabularisimple FALSE))
 
 ([negra] of  Genere
