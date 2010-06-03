@@ -139,10 +139,36 @@
 )
 
 (deffunction mostra-llibre (?llibre)
-	(printout t "===============================================" crlf)
-	(printout t "Titol:   " (send ?llibre get-titol) crlf)
-	(printout t "ISBN:    " (send ?llibre get-isbn) crlf)
-	(printout t "Gènere:  " (getnom ?llibre) crlf)
+	(printout t "================================================================" crlf)
+	(printout t "Titol:                   " (send ?llibre get-titol) crlf)
+	(printout t "Autor:                   " (getnomautor ?llibre) crlf)
+	(printout t "Preu:                    " (send ?llibre get-preu) " euros" crlf)
+	(printout t "ISBN:                    " (send ?llibre get-isbn) crlf)
+	(printout t "Gènere:                  " (getnom ?llibre) crlf)
+	(printout t "Nacionalitat autor:      " (getnacionalitat ?llibre) crlf)
+	(printout t "Any de publicació:       " (send ?llibre get-any_publicacio) crlf)
+	(printout t "Número de pàgines:       " (send ?llibre get-num_pagines) crlf)
+	(printout t "Enquadernació:           " (send ?llibre get-enquadernacio) crlf)
+	(if (send ?llibre get-bestseller) then (printout t "Bestseller" crlf) )
+	(if (send ?llibre get-explicit) then (printout t "Contingut explícit" crlf) )
+	(if (send ?llibre get-tramasimple)
+	then
+		(printout t "Estil trama:             simple" crlf)
+	else
+		(printout t "Estil trama:             complexa" crlf)
+	)
+	(if (send ?llibre get-vocabularisimple)
+	then
+		(printout t "Estil vocabulari:        simple" crlf)
+	else
+		(printout t "Estil vocabulari:        complexa" crlf)
+	)
+	(if (send ?llibre get-moltspersonatges)
+	then
+		(printout t "Quantiat de personatges: molts" crlf)
+	else
+		(printout t "Quantiat de personatges: pocs" crlf)
+	)
 )
 
 (defrule banner "Banner"
@@ -343,7 +369,9 @@
 
 (defrule lletra-gran-inc
 	(lector (edat nen | gran))
+	(not (vist lletra-gran-inc))
 	=>
+	(assert (vist lletra-gran-inc))
 	(assert (lletra-gran molt))
 )
 
@@ -358,19 +386,25 @@
 
 (defrule llibres-lleugers
 	(lloc ~casa)
+	(not (vist llibres-lleugers))
 	=>
+	(assert (vist llibres-lleugers))
 	(assert (llibres-lleugers (pregunta-mp "Prefereixes els llibres lleugers?")))
 )
 
 (defrule vendes
 	(bestseller molt | bastant)
+	(not (vist vendes))
 	=>
+	(assert (vist vendes))
 	(assert (vendes (pregunta-mp "Si estàs entre dos llibres, prefereixes aquell que es ven més?")))
 )
 
 (defrule preu-estudiant-desocupat
 	(lector (ocupacio estudiant | desocupat))
+	(not (vist preu-estudiant-desocupat))
 	=>
+	(assert (vist preu-estudiant-desocupat))
 	(assert (preu si))
 )
 
@@ -383,19 +417,25 @@
 )
 
 (defrule preu-detall
+	(not (vist preu-detall))
 	(preu si)
 	=>
+	(assert (vist preu-detall))
 	(assert (preu-detall (pregunta-num "Fins quan estàs disposat a gastar-te en un llibre?")))
 )
 
 (defrule contingut-explicit-nen
 	(lector (edat nen))
+	(not (vist contingut-explicit-nen))
 	=>
+	(assert (vist contingut-explicit-nen))
 	(assert (contingut-explicit gens))
 )
 (defrule contingut-explicit
 	(lector (edat ~nen))
+	(not (vist contingut-explicit))
 	=>
+	(assert (vist contingut-explicit))
 	(assert (contingut-explicit (pregunta-mp "Prefereixes els llibres amb contingut explícit (violència o sexe)?")))
 )
 
