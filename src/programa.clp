@@ -175,7 +175,8 @@
 	(declare (salience 10))
 	=>
 	(printout t crlf)
-	(printout t "============ INICI =============" crlf)
+	(printout t "================================================================" crlf)
+	(printout t crlf "Sistema basat en el coneixement recomanador de llibres" crlf)
 	(focus preguntes-perfil-lector)
 )
 
@@ -1192,10 +1193,14 @@
 	(bind ?reco (fact-slot-value ?lector reco))
 	(bind ?reco (sort >recomanacio ?reco))
 	(bind ?reco (subseq$ ?reco 1 3))
-	(printout t crlf crlf crlf "Mostrant les tres millors recomanacions (si n'hi ha)" crlf)
+	(printout t "================================================================" crlf)
+	(printout t crlf (fact-slot-value ?lector nom) ", " crlf)
+	(printout t "aquests llibres són la recomanació del SBC: " crlf)
 	(progn$ (?r ?reco)
 		(bind ?isbn (fact-slot-value ?r isbn))
 		(bind ?l (nth$ 1 (find-instance ((?llibre Llibre)) (eq (str-compare ?llibre:isbn ?isbn) 0) )) )
 		(mostra-llibre ?l)
 	)
+	(printout t crlf "================================================================" crlf)
+
 )
