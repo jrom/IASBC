@@ -634,8 +634,8 @@
 
 ; Si importa el preu =>
 ;; llibres de menys de 10 euros +adequat
-;; llibres de mes 15-25 euros +inadequat
-;; llibres de mes de 25 euros +moltinadequat
+;; llibres de mes 25-40 euros +inadequat
+;; llibres de mes de 40 euros +moltinadequat
 ;; llibres de butxaca o tapatova +adequat
 (defrule satisfaccio-preu
 	?llibre <- (object (is-a Llibre) (isbn ?isbn) (preu ?preullibre) (format ?format))
@@ -767,7 +767,7 @@
 	)
 )
 
-;  =>
+;  Si sabem la llengua materna del lector =>
 ;; Recomanem llibres de la llengua del lector
 (defrule satisfaccio-llengualector
 	?llibre <- (object (is-a Llibre) (isbn ?isbn) (idioma ?idioma))
@@ -952,6 +952,30 @@
 		(switch ?vocabulari
 			(case molt then (modify ?recomanacio (inadequat (+ ?ina 1))))
 			(case bastant then (modify ?recomanacio (inadequat (+ ?ina 1))))
+		)
+	)
+)
+
+; Llengua preferida? =>
+;; Es recomanen llibres amb la llengua preferida
+(defrule satisfaccio-llengua
+	?llibre <- (object (is-a Llibre) (isbn ?isbn) (idioma ?idioma))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-llengua ?isbn))
+	(llengua ?llengua) ;catala castella altres
+	(test (neq (str-compare ?llengua indiferent) 0)) ; No entrem si es indiferent
+	=>
+	(assert (vist satisfaccio-llengua ?isbn))
+	(if (eq (str-compare ?llengua altres) 0) ; llengua preferida = altres
+	then
+		(if (and (neq (str-compare ?idioma catala) 0) (neq (str-compare ?idioma castella) 0))
+		then ; El llibre no es catala ni castella
+			(modify ?recomanacio (moltadequat (+ ?ma 1)))
+		)
+	else
+		(if (eq (str-compare ?idioma ?llengua) 0)
+		then ; el llibre es del mateix idioma que la preferencia
+			(modify ?recomanacio (moltadequat (+ ?ma 1)))
 		)
 	)
 )
