@@ -268,11 +268,6 @@
 	(assert (enquadernacio (pregunta-mp "Prefereixes els llibres ben enquadernats?")))
 )
 
-(defrule contingut-explicit
-	=>
-	(assert (contingut-explicit (pregunta-mp "Prefereixes els llibres amb contingut explícit (violència o sexe)?")))
-)
-
 (defrule actuals
 	=>
 	(assert (actuals (pregunta-mp "Prefereixes els llibres actuals?")))
@@ -391,6 +386,17 @@
 	(preu si)
 	=>
 	(assert (preu-detall (pregunta-num "Fins quan estàs disposat a gastar-te en un llibre?")))
+)
+
+(defrule contingut-explicit-nen
+	(lector (edat nen))
+	=>
+	(assert (contingut-explicit gens))
+)
+(defrule contingut-explicit
+	(lector (edat ~nen))
+	=>
+	(assert (contingut-explicit (pregunta-mp "Prefereixes els llibres amb contingut explícit (violència o sexe)?")))
 )
 
 (defrule a-incondicionals
