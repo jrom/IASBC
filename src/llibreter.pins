@@ -1,4 +1,4 @@
-; Thu Jun 03 12:54:27 CEST 2010
+; Thu Jun 03 13:13:17 CEST 2010
 ; 
 ;+ (version "3.4.4")
 ;+ (build "Build 579")
@@ -1481,6 +1481,115 @@
 	(tramasimple TRUE)
 	(vendes_anuals 400000)
 	(vocabularisimple FALSE))
+
+([llibreter_Class30016] of  Llibre
+
+	(any_edicio 2008)
+	(any_publicacio 2008)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class30017])
+	(explicit FALSE)
+	(format mitja)
+	(genere [ficcio])
+	(idioma castella)
+	(isbn "9788475179315")
+	(moltspersonatges TRUE)
+	(num_pagines 80)
+	(orientacio juvenil)
+	(pes mitja)
+	(preu 7.15)
+	(titol "Los invisibles")
+	(tramasimple TRUE)
+	(vendes_anuals 15000)
+	(vocabularisimple TRUE))
+
+([llibreter_Class30017] of  Autor
+
+	(anynaixement 1980)
+	(nacionalitat "Espanya")
+	(nomAutor "Juan Bonilla"))
+
+([llibreter_Class30018] of  Llibre
+
+	(any_publicacio 2010)
+	(bestseller FALSE)
+	(enquadernacio tapadura)
+	(escrit_per [llibreter_Class30019])
+	(explicit FALSE)
+	(format gran)
+	(genere [romantica])
+	(idioma castella)
+	(isbn "9788475179111")
+	(moltspersonatges FALSE)
+	(num_pagines 32)
+	(orientacio juvenil)
+	(pes gran)
+	(preu 7.99)
+	(titol "La historia de Barbie")
+	(tramasimple TRUE)
+	(vendes_anuals 500)
+	(vocabularisimple TRUE))
+
+([llibreter_Class30019] of  Autor
+
+	(anynaixement 1977)
+	(nacionalitat "Espanya")
+	(nomAutor "Parramon"))
+
+([llibreter_Class30020] of  Llibre
+
+	(any_publicacio 2010)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class30021])
+	(explicit FALSE)
+	(format mitja)
+	(genere [historica])
+	(idioma castella)
+	(isbn "978847518888")
+	(moltspersonatges TRUE)
+	(num_pagines 700)
+	(orientacio adult)
+	(pes gran)
+	(preu 18.5)
+	(titol "Los Borgia")
+	(tramasimple FALSE)
+	(vendes_anuals 4000000)
+	(vocabularisimple FALSE))
+
+([llibreter_Class30021] of  Autor
+
+	(anynaixement 1969)
+	(nacionalitat "Espanya")
+	(nomAutor "Jose Antonio Cebrián"))
+
+([llibreter_Class30022] of  Llibre
+
+	(any_publicacio 2005)
+	(bestseller FALSE)
+	(enquadernacio tapatova)
+	(escrit_per [llibreter_Class30023])
+	(explicit FALSE)
+	(format mitja)
+	(genere [social])
+	(idioma catala)
+	(isbn "9788492649440")
+	(moltspersonatges TRUE)
+	(num_pagines 244)
+	(orientacio adult)
+	(pes mitja)
+	(preu 20.0)
+	(titol "Primavera de cafè")
+	(tramasimple FALSE)
+	(vendes_anuals 700000)
+	(vocabularisimple TRUE))
+
+([llibreter_Class30023] of  Autor
+
+	(anynaixement 1955)
+	(nacionalitat "Polònia")
+	(nomAutor "Joseph Roth"))
 
 ([llibreter_Class31] of  Llibre
 
