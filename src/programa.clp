@@ -112,6 +112,12 @@
 	?nom
 )
 
+(deffunction getnomautor (?llibre)
+	(bind ?autor (send ?llibre get-escrit_per))
+	(bind ?nom (send ?autor get-nomAutor))
+	?nom
+)
+
 (deffunction getnacionalitat (?llibre)
 	(bind ?autor (send ?llibre get-escrit_per))
 	(bind ?nacionalitat (send ?autor get-nacionalitat))
@@ -1005,7 +1011,6 @@
 	(actuals ?actuals) ;molt bastant indiferent poc gens
 	(test (neq (str-compare ?actuals indiferent) 0)) ; No entrem si es indiferent
 	=>
-	(printout t "ACTUALS: " ?publicacio ?actuals crlf)
 	(assert (vist satisfaccio-actuals ?isbn))
 	(if (> ?publicacio 2000)
 	then
@@ -1051,7 +1056,6 @@
 	=>
 	(assert (vist satisfaccio-nacionalitat ?isbn))
 	(bind ?nacio (getnacionalitat ?llibre))
-	(printout t "Nacionalitat: " ?nacio crlf)
 	(switch ?nacionalitat
 		(case catala then
 			(if (eq (str-compare ?nacio Catalunya) 0) then (modify ?recomanacio (moltadequat (+ ?ma 1))))
@@ -1069,8 +1073,21 @@
 )
 
 ; Autor preferit? =>
-;; Es recomanen llibres d'aquest autor i d'altres de la mateixa nacionalitat
-
+;; Es recomanen llibres d'aquest autor
+(defrule satisfaccio-autorprefe
+	?llibre <- (object (is-a Llibre) (isbn ?isbn))
+	?recomanacio <- (recomanacio (isbn ?isbn) (adequat ?a) (moltadequat ?ma) (inadequat ?ina) (moltinadequat ?mina))
+	(not (vist satisfaccio-autorprefe ?isbn))
+	(autor-preferit ?autor) ; Nom de l'autor
+	(test (neq (str-compare ?autor "Cap dels anteriors") 0)) ;no entrem si es indiferent
+	=>
+	(assert (vist satisfaccio-autorprefe ?isbn))
+	(bind ?nomautor (getnomautor ?llibre))
+	(if (eq (str-compare ?nomautor ?autor) 0)
+	then
+		(modify ?recomanacio (moltadequat (+ ?ma 1)))
+	)
+)
 
 (defrule a-refinament
 	(declare (salience -1))
